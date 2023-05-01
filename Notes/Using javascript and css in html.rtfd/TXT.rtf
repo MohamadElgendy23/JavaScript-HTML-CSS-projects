@@ -9,7 +9,7 @@
 \cssrgb\c72549\c83922\c36863;\cssrgb\c100000\c86667\c45882;\cssrgb\c64706\c61961\c57255;\cssrgb\c0\c0\c0;\cssrgb\c64787\c62030\c57162;
 \cssrgb\c91765\c42353\c54510;\cssrgb\c11765\c11765\c11765;\cssrgb\c100000\c100000\c100000;\cssrgb\c70588\c82745\c32549;\cssrgb\c100000\c87843\c51373;
 }
-\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\margl1440\margr1440\vieww11520\viewh12640\viewkind0
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \f0\b\fs36 \cf0 Javascript in HTML:
@@ -31,31 +31,34 @@ Scripts are loaded sequentially, so if one script depends on another script, the
 \pard\pardeftab720\partightenfactor0
 
 \f2\b0\fs21 \cf2 \cb3 \expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec2 <script\cf4 \strokec4  \cf5 \strokec5 src\cf4 \strokec4 =\cf6 \strokec6 "example.js"\cf4 \strokec4  \cf5 \strokec5 defer\cf2 \strokec2 ></script>\cf4 \strokec4  \cf7 \cb1 \strokec7 \
+<script\cf4  \cf5 src\cf4 =\cf6 "example.js"\cf4  \cf5 defer\cf2 ></script>\cf4  \cf7 \cb1 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\f1\fs24 \cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 	> Adding defer makes this script the last script that is downloaded and executed after everything in 	   the html is completely parsed\
+\f1\fs24 \cf0 \kerning1\expnd0\expndtw0 	> Adding defer makes this script the last script that is downloaded and executed after everything in 	   the html is completely parsed\
 
 \f0\b Async:
 \f1\b0 \
 \pard\pardeftab720\partightenfactor0
 
 \f2\fs21 \cf2 \cb3 \expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec2 <script\cf4 \strokec4  \cf5 \strokec5 src\cf4 \strokec4 =\cf6 \strokec6 "example.js"\cf4 \strokec4  \cf5 \strokec5 async\cf2 \strokec2 ></script>\cf7 \cb1 \strokec7 \
+<script\cf4  \cf5 src\cf4 =\cf6 "example.js"\cf4  \cf5 async\cf2 ></script>\cf7 \cb1 \
 	
-\f1\fs24 \cf8 \strokec9 > Adding async makes this script download in the background while rest of html is being parsed. 	 	   Once has been downloaded (on separate thread), it will execute. \
+\f1\fs24 \cf8 > Adding async makes this script download in the background while rest of html is being parsed. 	 	   Once has been downloaded (on separate thread), it will execute. \
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\f0\b\fs36 \cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 CSS in HTML:\
+\f0\b\fs36 \cf0 \kerning1\expnd0\expndtw0 CSS in HTML:\
 \pard\pardeftab720\sl480\partightenfactor0
 
 \f3\b0\fs28 \cf10 \cb11 \expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec10 <link\cf12 \strokec12  \cf13 \strokec13 rel\cf12 \strokec12 =\cf14 \strokec14 "stylesheet"\cf12 \strokec12  \cf13 \strokec13 href\cf12 \strokec12 =\cf14 \strokec14 "style.css"\cf10 \strokec10 >\cf12 \cb1 \strokec12 \
+<link\cf12  \cf13 rel\cf12 =\cf14 "stylesheet"\cf12  \cf13 href\cf12 =\cf14 "style.css"\cf10 >\cf12 \cb1 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\f0\b\fs36 \cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 	
+\f0\b\fs36 \cf0 \kerning1\expnd0\expndtw0 	
 \f1\b0\fs24 > Add above line in the <head></head> tags. href is the css file.
 \f0\b\fs36 \
 \
-}
+\pard\pardeftab720\partightenfactor0
+
+\f3\b0\fs24 \cf8 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec8 }
