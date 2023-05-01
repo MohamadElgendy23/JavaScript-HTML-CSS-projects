@@ -5,6 +5,7 @@ function getWeather() {
     const weatherObj = fetch(`https://api.open-meteo.com/v1/forecast?latitude=${parseFloat(lat)}&longitude=${parseFloat(long)}&current_weather=true`);
     weatherObj.then((response) => {
         const weatherJson = response.json();
+        console.log(weatherJson)
         weatherJson.then((data) => {
             document.getElementById("currWeather").value = data.current_weather['temperature']
         });
