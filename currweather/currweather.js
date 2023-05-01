@@ -1,5 +1,6 @@
 function getWeather()
 {
-    city = document.getElementById("city").value
-    console.log(fetch("https://api.openweathermap.org/data/3.0/onecall?lat=33.44&lon=-94.04&exclude=hourly,daily&appid={c1b8a9a5529c12d8bafe0f77f130217e}").then(response => console.log(response.text())))
+    lat = document.getElementById("latitude").value
+    long = document.getElementById("longitude").value
+    console.log(fetch('https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${long}&hourly=temperature_2m').then(response => console.log(response.text())))
 } 
