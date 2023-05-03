@@ -19,10 +19,12 @@ function getWeather() {
             if (weatherData.current_weather['is_day'] === 1) {
                 document.getElementById("dayornight").value = "Day";
                 document.body.style.backgroundColor = 'blue';
+
             }
             else {
                 document.getElementById("dayornight").value = "Night";
                 document.body.style.backgroundColor = 'black';
+                document.getElementById("don").style.color = 'white';
 
             }
         });
