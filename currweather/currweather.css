@@ -3,3 +3,8 @@ body {
     background-color: orangered;
     text-shadow: midnightblue;
 }
+
+.weatherContainer
+{
+    align-items: center;
+}

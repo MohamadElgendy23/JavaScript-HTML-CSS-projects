@@ -6,8 +6,8 @@ function getWeather() {
     weatherObj.then((response) => {
         const weatherJson = response.json();
         console.log(weatherJson)
-        weatherJson.then((data) => {
-            document.getElementById("currWeather").value = data.current_weather['temperature']
+        weatherJson.then((weatherData) => {
+            document.getElementById("currWeather").value = weatherData.current_weather['temperature']
         });
     });
 
