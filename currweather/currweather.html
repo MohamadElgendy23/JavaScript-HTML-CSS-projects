@@ -10,14 +10,25 @@
 
 <body>
     <div class="weatherContainer">
-        <input id="latitude" type=”text” placeholder="Latitude">
-        <input id="longitude" type=”text” placeholder="Longitude">
+        <p id="lat" style="color:aqua; font-size: x-large; font-style: italic;"">
+            Enter latitude
+        </p>
+        <input id="latitude" type=”text” style="text-align: center;" placeholder="NaN">
+        <p id="long" style="color:lawngreen; font-size: x-large; font-style: italic;">
+            Enter longitude
+        </p>
+        <input id="longitude" type=”text” style="text-align: center;" placeholder="NaN">
+        <p id="w" style="color:darkviolet; font-size: x-large; font-style: italic;">
+            Press button to get weather
+        </p>
         <button id="weather" type="weather" onclick="getWeather()">Get Weather!</button>
-        <input id="currWeather" type="text" placeholder="Current weather">
+        <p id="res" style="color:darkgreen; font-size: x-large; font-style: italic;">
+            The weather
+        </p>
+        <input id="temperature" type="text" style="text-align: center" placeholder= "NaN">
     </div>
 
     <script src="./currweather.js"></script>
-
 </body>
 
 </html>
