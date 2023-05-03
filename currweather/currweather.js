@@ -15,7 +15,13 @@ function getWeather() {
         const weatherJson = response.json();
         console.log(weatherJson)
         weatherJson.then((weatherData) => {
-            document.getElementById("temperature").value = weatherData.current_weather['temperature']
+            document.getElementById("temperature").value = weatherData.current_weather['temperature'];
+            if (weatherData.current_weather['is_day'] === 1) {
+                document.getElementById("dayornight").value = "Day";
+            }
+            else {
+                document.getElementById("dayornight").value = "Night";
+            }
         });
     });
 
