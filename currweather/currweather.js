@@ -18,7 +18,7 @@ function getWeather() {
             document.getElementById("temperature").value = weatherData.current_weather['temperature'];
             if (weatherData.current_weather['is_day'] === 1) {
                 document.getElementById("dayornight").value = "Day";
-                document.body.style.backgroundColor = 'blue';
+                document.body.style.backgroundColor = 'lightblue';
 
             }
             else {
