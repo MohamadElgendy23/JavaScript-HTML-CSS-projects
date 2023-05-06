@@ -1,0 +1,23 @@
+body {
+    text-align: center;
+    background-color: black;
+}
+
+h1 {
+    font-weight: bolder;
+    font-style: italic;
+    color: white;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding: 40px;
+}
+
+.grid-item {
+    border: 2px solid white;
+    padding: 30px;
+    font-size: 60px;
+    text-align: center;
+}
