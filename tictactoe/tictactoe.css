@@ -15,9 +15,10 @@ h1 {
     padding: 40px;
 }
 
-.grid-item {
-    border: 2px solid white;
-    padding: 30px;
+#button {
+    border: 1.5px solid white;
+    background-color: black;
+    padding: 80px;
     font-size: 60px;
     text-align: center;
 }
