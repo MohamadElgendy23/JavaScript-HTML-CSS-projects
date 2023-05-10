@@ -1,3 +1,6 @@
+let p1 = false;
+let p2 = false;
+
 function getSelection1() {
     document.getElementById("button1").innerHTML = 'X';
 }
@@ -24,4 +27,7 @@ function getSelection8() {
 }
 function getSelection9() {
     document.getElementById("button9").innerHTML = 'X';
+}
+function playAgain() {
+    document.getElementById("button10").innerHTML = 'Play Again!';
 }
