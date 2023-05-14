@@ -1,33 +1,43 @@
-let p1 = false;
-let p2 = false;
+//start
+let p1 = 1;
+let win = false;
 
+function displayInput(square) {
+    if (p1 == 1)
+    {
+        document.getElementById(square).innerHTML = 'X';
+        p1=0;
+    }
+    else
+    {
+        document.getElementById(square).innerHTML = 'O';
+        p1=1;
+    }
+}
 function getSelection1() {
-    document.getElementById("button1").innerHTML = 'X';
+    displayInput("button1");
 }
 function getSelection2() {
-    document.getElementById("button2").innerHTML = 'X';
+    displayInput("button2");
 }
 function getSelection3() {
-    document.getElementById("button3").innerHTML = 'X';
+    displayInput("button3");
 }
 function getSelection4() {
-    document.getElementById("button4").innerHTML = 'X';
+    displayInput("button4");
 }
 function getSelection5() {
-    document.getElementById("button5").innerHTML = 'X';
+    displayInput("button5");
 }
 function getSelection6() {
-    document.getElementById("button6").innerHTML = 'X';
+    displayInput("button6");
 }
 function getSelection7() {
-    document.getElementById("button7").innerHTML = 'X';
+    displayInput("button7");
 }
 function getSelection8() {
-    document.getElementById("button8").innerHTML = 'X';
+    displayInput("button8");
 }
 function getSelection9() {
-    document.getElementById("button9").innerHTML = 'X';
-}
-function playAgain() {
-    document.getElementById("button10").innerHTML = 'Play Again!';
+    displayInput("button9");
 }
