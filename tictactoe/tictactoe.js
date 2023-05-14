@@ -14,6 +14,13 @@ function displayInput(square) {
         {
             p = 'O';
         }
+
+        if (isDraw())
+        {
+            window.alert("Draw!");
+            document.getElementById("playagain").innerHTML = "Play Again!";
+            document.getElementById("playagain").hidden = false;
+        }
     }
     else {
         document.getElementById(square).innerHTML = 'O';
@@ -26,7 +33,22 @@ function displayInput(square) {
         {
             p = 'X';
         }
+        
+        if (isDraw())
+        {
+            window.alert("Draw!");
+            document.getElementById("playagain").innerHTML = "Play Again!";
+            document.getElementById("playagain").hidden = false;
+        }
     }
+}
+function isDraw()
+{
+    if (document.getElementById("button1").innerHTML.length != 0 && document.getElementById("button2").innerHTML.length != 0 && document.getElementById("button3").innerHTML.length != 0 && document.getElementById("button4").innerHTML.length != 0 && document.getElementById("button5").innerHTML.length != 0 && document.getElementById("button6").innerHTML.length != 0 && document.getElementById("button7").innerHTML.length != 0 && document.getElementById("button8").innerHTML.length != 0 && document.getElementById("button9").innerHTML.length != 0)
+    {
+        return true;
+    }
+    return false;
 }
 //for each square, check win logic for X
 function isXWin(square) {
