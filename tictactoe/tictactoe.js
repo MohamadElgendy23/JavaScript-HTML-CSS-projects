@@ -272,4 +272,5 @@ function playAgain()
     document.getElementById("button7").innerHTML = "";
     document.getElementById("button8").innerHTML = "";
     document.getElementById("button9").innerHTML = "";
+    document.getElementById("playagain").hidden = true;
 }
