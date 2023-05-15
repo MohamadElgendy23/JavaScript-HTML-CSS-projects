@@ -14,7 +14,7 @@ function displayInput(square) {
         else {
             p = 'O';
         }
-
+        //every square used without win
         if (isDraw() && !isWin(square, 'X')) {
             window.alert("Draw!");
             document.getElementById("playagain").innerHTML = "Play Again!";
@@ -32,6 +32,7 @@ function displayInput(square) {
             p = 'X';
         }
 
+        //every square used without win
         if (isDraw() && !isWin(square, 'O')) {
             window.alert("Draw!");
             document.getElementById("playagain").innerHTML = "Play Again!";
@@ -39,6 +40,7 @@ function displayInput(square) {
         }
     }
 }
+//no more squares
 function isDraw() {
     if (document.getElementById("button1").innerHTML.length != 0 && document.getElementById("button2").innerHTML.length != 0 && document.getElementById("button3").innerHTML.length != 0 && document.getElementById("button4").innerHTML.length != 0 && document.getElementById("button5").innerHTML.length != 0 && document.getElementById("button6").innerHTML.length != 0 && document.getElementById("button7").innerHTML.length != 0 && document.getElementById("button8").innerHTML.length != 0 && document.getElementById("button9").innerHTML.length != 0) {
         return true;
@@ -150,11 +152,11 @@ function isWin(square, letter)
         return false;
     }
 }
-
 //each button/square selection
 function getInput(event) {
     displayInput(event.target);
 }
+//clear everything and play again
 function playAgain() {
     //couldnt figure out how to change children just with the parent
     document.getElementById("button1").innerHTML = "";

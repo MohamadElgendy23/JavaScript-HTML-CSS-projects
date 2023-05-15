@@ -3,10 +3,36 @@ body {
     background-color: black;
 }
 
-h1 {
-    font-weight: bolder;
-    font-style: italic;
-    color: white;
+.ttt {
+    font-size: 2rem;
+    font-variant: small-caps;
+    background: conic-gradient(
+    #dff2ae 0 25%, 
+    #ff90f4 25% 50%,
+    #feefe7 50% 75%
+    #ffde2b 75%
+    );
+    background-size: 200% 200%;
+    animation: animate 4.3s ease-in-out infinite;
+    color: transparent;
+    color: red;
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+
+@keyframes animate {
+    25% {
+        background-position: 0 100%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    75% {
+        background-position: 100% 0;
+    }
+    100% {
+        background-position: 0 0;
+    }
 }
 
 .grid-container {
