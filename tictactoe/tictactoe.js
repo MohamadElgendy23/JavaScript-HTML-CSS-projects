@@ -6,7 +6,7 @@ document.getElementById("playagain").hidden = true;
 function displayInput(square) {
     if (p == 'X') {
         square.innerHTML = 'X';
-        if (isXWin(square)) {
+        if (isWin(square, 'X')) {
             window.alert("X won!");
             document.getElementById("playagain").innerHTML = "Play Again!";
             document.getElementById("playagain").hidden = false;
@@ -15,7 +15,7 @@ function displayInput(square) {
             p = 'O';
         }
 
-        if (isDraw()) {
+        if (isDraw() && !isWin(square, 'X')) {
             window.alert("Draw!");
             document.getElementById("playagain").innerHTML = "Play Again!";
             document.getElementById("playagain").hidden = false;
@@ -23,7 +23,7 @@ function displayInput(square) {
     }
     else {
         square.innerHTML = 'O';
-        if (isOWin(square)) {
+        if (isWin(square, 'O')) {
             window.alert("O won!");
             document.getElementById("playagain").innerHTML = "Play Again!";
             document.getElementById("playagain").hidden = false;
@@ -32,7 +32,7 @@ function displayInput(square) {
             p = 'X';
         }
 
-        if (isDraw()) {
+        if (isDraw() && !isWin(square, 'O')) {
             window.alert("Draw!");
             document.getElementById("playagain").innerHTML = "Play Again!";
             document.getElementById("playagain").hidden = false;
@@ -45,215 +45,106 @@ function isDraw() {
     }
     return false;
 }
-/* function isWin(square, letter)
+function isWin(square, letter)
 {
-
-} */
-//for each square, check win logic for X
-function isXWin(square) {
     const parentSquare = square.parentElement;
     const indexSquare = Array.from(parentSquare.children).indexOf(square);
 
     if (indexSquare == 0) {
-        if (document.getElementById("button2").innerHTML == 'X' && document.getElementById("button3").innerHTML == 'X') {
+        if (document.getElementById("button2").innerHTML == letter && document.getElementById("button3").innerHTML == letter) {
             return true;
         }
-        if (document.getElementById("button5").innerHTML == 'X' && document.getElementById("button9").innerHTML == 'X') {
+        if (document.getElementById("button5").innerHTML == letter && document.getElementById("button9").innerHTML == letter) {
             return true;
         }
-        if (document.getElementById("button4").innerHTML == 'X' && document.getElementById("button7").innerHTML == 'X') {
+        if (document.getElementById("button4").innerHTML == letter && document.getElementById("button7").innerHTML == letter) {
             return true;
         }
         return false;
     }
     else if (indexSquare == 1) {
-        if (document.getElementById("button1").innerHTML == 'X' && document.getElementById("button3").innerHTML == 'X') {
+        if (document.getElementById("button1").innerHTML == letter && document.getElementById("button3").innerHTML == letter) {
             return true;
         }
-        if (document.getElementById("button5").innerHTML == 'X' && document.getElementById("button8").innerHTML == 'X') {
-            return true;
-        }
-        return false;
-    }
-    else if (indexSquare == 2) {
-        if (document.getElementById("button1").innerHTML == 'X' && document.getElementById("button2").innerHTML == 'X') {
-            return true;
-        }
-        if (document.getElementById("button6").innerHTML == 'X' && document.getElementById("button9").innerHTML == 'X') {
-            return true;
-        }
-        if (document.getElementById("button5").innerHTML == 'X' && document.getElementById("button7").innerHTML == 'X') {
-            return true;
-        }
-        return false;
-    }
-    else if (indexSquare == 3) {
-        if (document.getElementById("button1").innerHTML == 'X' && document.getElementById("button7").innerHTML == 'X') {
-            return true;
-        }
-        if (document.getElementById("button5").innerHTML == 'X' && document.getElementById("button6").innerHTML == 'X') {
-            return true;
-        }
-        return false;
-    }
-    else if (indexSquare == 4) {
-        if (document.getElementById("button1").innerHTML == 'X' && document.getElementById("button9").innerHTML == 'X') {
-            return true;
-        }
-        if (document.getElementById("button3").innerHTML == 'X' && document.getElementById("button7").innerHTML == 'X') {
-            return true;
-        }
-        if (document.getElementById("button4").innerHTML == 'X' && document.getElementById("button6").innerHTML == 'X') {
-            return true;
-        }
-        if (document.getElementById("button2").innerHTML == 'X' && document.getElementById("button8").innerHTML == 'X') {
-            return true;
-        }
-        return false;
-    }
-    else if (indexSquare == 5) {
-        if (document.getElementById("button3").innerHTML == 'X' && document.getElementById("button9").innerHTML == 'X') {
-            return true;
-        }
-        if (document.getElementById("button4").innerHTML == 'X' && document.getElementById("button5").innerHTML == 'X') {
-            return true;
-        }
-        return false;
-    }
-    else if (indexSquare == 6) {
-        if (document.getElementById("button1").innerHTML == 'X' && document.getElementById("button4").innerHTML == 'X') {
-            return true;
-        }
-        if (document.getElementById("button8").innerHTML == 'X' && document.getElementById("button9").innerHTML == 'X') {
-            return true;
-        }
-        if (document.getElementById("button3").innerHTML == 'X' && document.getElementById("button5").innerHTML == 'X') {
-            return true;
-        }
-        return false;
-    }
-    else if (indexSquare == 7) {
-        if (document.getElementById("button7").innerHTML == 'X' && document.getElementById("button9").innerHTML == 'X') {
-            return true;
-        }
-        if (document.getElementById("button2").innerHTML == 'X' && document.getElementById("button5").innerHTML == 'X') {
-            return true;
-        }
-        return false;
-    }
-    else {
-        if (document.getElementById("button1").innerHTML == 'X' && document.getElementById("button5").innerHTML == 'X') {
-            return true;
-        }
-        if (document.getElementById("button3").innerHTML == 'X' && document.getElementById("button6").innerHTML == 'X') {
-            return true;
-        }
-        if (document.getElementById("button7").innerHTML == 'X' && document.getElementById("button8").innerHTML == 'X') {
-            return true;
-        }
-        return false;
-    }
-}
-//for each square, check win logic for O
-function isOWin(square) {
-
-    const parentSquare = square.parentElement;
-    const indexSquare = Array.from(parentSquare.children).indexOf(square);
-    if (indexSquare == 0) {
-        if (document.getElementById("button2").innerHTML == 'O' && document.getElementById("button3").innerHTML == 'O') {
-            return true;
-        }
-        if (document.getElementById("button5").innerHTML == 'O' && document.getElementById("button9").innerHTML == 'O') {
-            return true;
-        }
-        if (document.getElementById("button4").innerHTML == 'O' && document.getElementById("button7").innerHTML == 'O') {
-            return true;
-        }
-        return false;
-    }
-    else if (indexSquare == 1) {
-        if (document.getElementById("button1").innerHTML == 'O' && document.getElementById("button3").innerHTML == 'O') {
-            return true;
-        }
-        if (document.getElementById("button5").innerHTML == 'O' && document.getElementById("button8").innerHTML == 'O') {
+        if (document.getElementById("button5").innerHTML == letter && document.getElementById("button8").innerHTML == letter) {
             return true;
         }
         return false;
     }
     else if (indexSquare == 2) {
-        if (document.getElementById("button1").innerHTML == 'O' && document.getElementById("button2").innerHTML == 'O') {
+        if (document.getElementById("button1").innerHTML == letter && document.getElementById("button2").innerHTML == letter) {
             return true;
         }
-        if (document.getElementById("button6").innerHTML == 'O' && document.getElementById("button9").innerHTML == 'O') {
+        if (document.getElementById("button6").innerHTML == letter && document.getElementById("button9").innerHTML == letter) {
             return true;
         }
-        if (document.getElementById("button5").innerHTML == 'O' && document.getElementById("button7").innerHTML == 'O') {
+        if (document.getElementById("button5").innerHTML == letter && document.getElementById("button7").innerHTML == letter) {
             return true;
         }
         return false;
     }
     else if (indexSquare == 3) {
-        if (document.getElementById("button1").innerHTML == 'O' && document.getElementById("button7").innerHTML == 'O') {
+        if (document.getElementById("button1").innerHTML == letter && document.getElementById("button7").innerHTML == letter) {
             return true;
         }
-        if (document.getElementById("button5").innerHTML == 'O' && document.getElementById("button6").innerHTML == 'O') {
+        if (document.getElementById("button5").innerHTML == letter && document.getElementById("button6").innerHTML == letter) {
             return true;
         }
         return false;
     }
     else if (indexSquare == 4) {
-        if (document.getElementById("button1").innerHTML == 'O' && document.getElementById("button9").innerHTML == 'O') {
+        if (document.getElementById("button1").innerHTML == letter && document.getElementById("button9").innerHTML == letter) {
             return true;
         }
-        if (document.getElementById("button3").innerHTML == 'O' && document.getElementById("button7").innerHTML == 'O') {
+        if (document.getElementById("button3").innerHTML == letter && document.getElementById("button7").innerHTML == letter) {
             return true;
         }
-        if (document.getElementById("button4").innerHTML == 'O' && document.getElementById("button6").innerHTML == 'O') {
+        if (document.getElementById("button4").innerHTML == letter && document.getElementById("button6").innerHTML == letter) {
             return true;
         }
-        if (document.getElementById("button2").innerHTML == 'O' && document.getElementById("button8").innerHTML == 'O') {
+        if (document.getElementById("button2").innerHTML == letter && document.getElementById("button8").innerHTML == letter) {
             return true;
         }
         return false;
     }
     else if (indexSquare == 5) {
-        if (document.getElementById("button3").innerHTML == 'O' && document.getElementById("button9").innerHTML == 'O') {
+        if (document.getElementById("button3").innerHTML == letter && document.getElementById("button9").innerHTML == letter) {
             return true;
         }
-        if (document.getElementById("button4").innerHTML == 'O' && document.getElementById("button5").innerHTML == 'O') {
+        if (document.getElementById("button4").innerHTML == letter && document.getElementById("button5").innerHTML == letter) {
             return true;
         }
         return false;
     }
     else if (indexSquare == 6) {
-        if (document.getElementById("button1").innerHTML == 'O' && document.getElementById("button4").innerHTML == 'O') {
+        if (document.getElementById("button1").innerHTML == letter && document.getElementById("button4").innerHTML == letter) {
             return true;
         }
-        if (document.getElementById("button8").innerHTML == 'O' && document.getElementById("button9").innerHTML == 'O') {
+        if (document.getElementById("button8").innerHTML == letter && document.getElementById("button9").innerHTML == letter) {
             return true;
         }
-        if (document.getElementById("button3").innerHTML == 'O' && document.getElementById("button5").innerHTML == 'O') {
+        if (document.getElementById("button3").innerHTML == letter && document.getElementById("button5").innerHTML == letter) {
             return true;
         }
         return false;
     }
     else if (indexSquare == 7) {
-        if (document.getElementById("button7").innerHTML == 'O' && document.getElementById("button9").innerHTML == 'O') {
+        if (document.getElementById("button7").innerHTML == letter && document.getElementById("button9").innerHTML == letter) {
             return true;
         }
-        if (document.getElementById("button2").innerHTML == 'O' && document.getElementById("button5").innerHTML == 'O') {
+        if (document.getElementById("button2").innerHTML == letter && document.getElementById("button5").innerHTML == letter) {
             return true;
         }
         return false;
     }
     else {
-        if (document.getElementById("button1").innerHTML == 'O' && document.getElementById("button5").innerHTML == 'O') {
+        if (document.getElementById("button1").innerHTML == letter && document.getElementById("button5").innerHTML == letter) {
             return true;
         }
-        if (document.getElementById("button3").innerHTML == 'O' && document.getElementById("button6").innerHTML == 'O') {
+        if (document.getElementById("button3").innerHTML == letter && document.getElementById("button6").innerHTML == letter) {
             return true;
         }
-        if (document.getElementById("button7").innerHTML == 'O' && document.getElementById("button8").innerHTML == 'O') {
+        if (document.getElementById("button7").innerHTML == letter && document.getElementById("button8").innerHTML == letter) {
             return true;
         }
         return false;
