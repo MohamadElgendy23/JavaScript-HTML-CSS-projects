@@ -22,10 +22,6 @@ function clickGameButton(event) {
         button.innerHTML = 'O';
         p1 = 1;
     }
-    if (isWin('X'))
-    {
-        alert('X Wins!');
-    }
     if (isDraw()) {
         alert("Draw!");
         document.getElementById("playagain").hidden = false;
@@ -44,7 +40,7 @@ function playAgain() {
 //is it a win?
 function isWin(letter) {
     const buttons = document.getElementById("grid-container").children;
-    
+
     return false;
 
 }
