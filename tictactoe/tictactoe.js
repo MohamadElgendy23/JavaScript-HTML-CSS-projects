@@ -1,11 +1,9 @@
 //player starts with 'X'
 let p = 'X';
 document.getElementById("playagain").hidden = true;
-alert("Running");
 
 //square = event.target
 function displayInput(square) {
-    debugger;
     if (p == 'X') {
         square.innerHTML = 'X';
         if (isXWin(square)) {
@@ -47,10 +45,14 @@ function isDraw() {
     }
     return false;
 }
+/* function isWin(square, letter)
+{
+
+} */
 //for each square, check win logic for X
 function isXWin(square) {
-    const parentSquare = square.parentNode;
-    const indexSquare = parentSquare.children.indexOf(parentSquare);
+    const parentSquare = square.parentElement;
+    const indexSquare = Array.from(parentSquare.children).indexOf(square);
 
     if (indexSquare == 0) {
         if (document.getElementById("button2").innerHTML == 'X' && document.getElementById("button3").innerHTML == 'X') {
@@ -155,8 +157,8 @@ function isXWin(square) {
 //for each square, check win logic for O
 function isOWin(square) {
 
-    const parentSquare = square.parentNode;
-    const indexSquare = parentSquare.children.indexOf(parentSquare);
+    const parentSquare = square.parentElement;
+    const indexSquare = Array.from(parentSquare.children).indexOf(square);
     if (indexSquare == 0) {
         if (document.getElementById("button2").innerHTML == 'O' && document.getElementById("button3").innerHTML == 'O') {
             return true;
@@ -259,8 +261,7 @@ function isOWin(square) {
 }
 
 //each button/square selection
-function getSelection(event) {
-    debugger;
+function getInput(event) {
     displayInput(event.target);
 }
 function playAgain() {
