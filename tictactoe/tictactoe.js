@@ -1,8 +1,11 @@
 //player starts with 'X'
 let p = 'X';
 document.getElementById("playagain").hidden = true;
+alert("Running");
 
+//square = event.target
 function displayInput(square) {
+    debugger;
     if (p == 'X') {
         square.innerHTML = 'X';
         if (isXWin(square)) {
@@ -10,13 +13,11 @@ function displayInput(square) {
             document.getElementById("playagain").innerHTML = "Play Again!";
             document.getElementById("playagain").hidden = false;
         }
-        else
-        {
+        else {
             p = 'O';
         }
 
-        if (isDraw())
-        {
+        if (isDraw()) {
             window.alert("Draw!");
             document.getElementById("playagain").innerHTML = "Play Again!";
             document.getElementById("playagain").hidden = false;
@@ -29,30 +30,29 @@ function displayInput(square) {
             document.getElementById("playagain").innerHTML = "Play Again!";
             document.getElementById("playagain").hidden = false;
         }
-        else
-        {
+        else {
             p = 'X';
         }
 
-        if (isDraw())
-        {
+        if (isDraw()) {
             window.alert("Draw!");
             document.getElementById("playagain").innerHTML = "Play Again!";
             document.getElementById("playagain").hidden = false;
         }
     }
 }
-function isDraw()
-{
-    if (document.getElementById("button1").innerHTML.length != 0 && document.getElementById("button2").innerHTML.length != 0 && document.getElementById("button3").innerHTML.length != 0 && document.getElementById("button4").innerHTML.length != 0 && document.getElementById("button5").innerHTML.length != 0 && document.getElementById("button6").innerHTML.length != 0 && document.getElementById("button7").innerHTML.length != 0 && document.getElementById("button8").innerHTML.length != 0 && document.getElementById("button9").innerHTML.length != 0)
-    {
+function isDraw() {
+    if (document.getElementById("button1").innerHTML.length != 0 && document.getElementById("button2").innerHTML.length != 0 && document.getElementById("button3").innerHTML.length != 0 && document.getElementById("button4").innerHTML.length != 0 && document.getElementById("button5").innerHTML.length != 0 && document.getElementById("button6").innerHTML.length != 0 && document.getElementById("button7").innerHTML.length != 0 && document.getElementById("button8").innerHTML.length != 0 && document.getElementById("button9").innerHTML.length != 0) {
         return true;
     }
     return false;
 }
 //for each square, check win logic for X
 function isXWin(square) {
-    if (square == "button1") {
+    const parentSquare = square.parentNode;
+    const indexSquare = parentSquare.children.indexOf(parentSquare);
+
+    if (indexSquare == 0) {
         if (document.getElementById("button2").innerHTML == 'X' && document.getElementById("button3").innerHTML == 'X') {
             return true;
         }
@@ -64,7 +64,7 @@ function isXWin(square) {
         }
         return false;
     }
-    else if (square.id == "button2") {
+    else if (indexSquare == 1) {
         if (document.getElementById("button1").innerHTML == 'X' && document.getElementById("button3").innerHTML == 'X') {
             return true;
         }
@@ -73,7 +73,7 @@ function isXWin(square) {
         }
         return false;
     }
-    else if (square.id == "button3") {
+    else if (indexSquare == 2) {
         if (document.getElementById("button1").innerHTML == 'X' && document.getElementById("button2").innerHTML == 'X') {
             return true;
         }
@@ -85,7 +85,7 @@ function isXWin(square) {
         }
         return false;
     }
-    else if (square.id == "button4") {
+    else if (indexSquare == 3) {
         if (document.getElementById("button1").innerHTML == 'X' && document.getElementById("button7").innerHTML == 'X') {
             return true;
         }
@@ -94,7 +94,7 @@ function isXWin(square) {
         }
         return false;
     }
-    else if (square.id == "button5") {
+    else if (indexSquare == 4) {
         if (document.getElementById("button1").innerHTML == 'X' && document.getElementById("button9").innerHTML == 'X') {
             return true;
         }
@@ -109,7 +109,7 @@ function isXWin(square) {
         }
         return false;
     }
-    else if (square.id == "button6") {
+    else if (indexSquare == 5) {
         if (document.getElementById("button3").innerHTML == 'X' && document.getElementById("button9").innerHTML == 'X') {
             return true;
         }
@@ -118,7 +118,7 @@ function isXWin(square) {
         }
         return false;
     }
-    else if (square.id == "button7") {
+    else if (indexSquare == 6) {
         if (document.getElementById("button1").innerHTML == 'X' && document.getElementById("button4").innerHTML == 'X') {
             return true;
         }
@@ -130,7 +130,7 @@ function isXWin(square) {
         }
         return false;
     }
-    else if (square.id == "button8") {
+    else if (indexSquare == 7) {
         if (document.getElementById("button7").innerHTML == 'X' && document.getElementById("button9").innerHTML == 'X') {
             return true;
         }
@@ -154,7 +154,10 @@ function isXWin(square) {
 }
 //for each square, check win logic for O
 function isOWin(square) {
-    if (square == "button1") {
+
+    const parentSquare = square.parentNode;
+    const indexSquare = parentSquare.children.indexOf(parentSquare);
+    if (indexSquare == 0) {
         if (document.getElementById("button2").innerHTML == 'O' && document.getElementById("button3").innerHTML == 'O') {
             return true;
         }
@@ -166,7 +169,7 @@ function isOWin(square) {
         }
         return false;
     }
-    else if (square == "button2") {
+    else if (indexSquare == 1) {
         if (document.getElementById("button1").innerHTML == 'O' && document.getElementById("button3").innerHTML == 'O') {
             return true;
         }
@@ -175,7 +178,7 @@ function isOWin(square) {
         }
         return false;
     }
-    else if (square == "button3") {
+    else if (indexSquare == 2) {
         if (document.getElementById("button1").innerHTML == 'O' && document.getElementById("button2").innerHTML == 'O') {
             return true;
         }
@@ -187,7 +190,7 @@ function isOWin(square) {
         }
         return false;
     }
-    else if (square == "button4") {
+    else if (indexSquare == 3) {
         if (document.getElementById("button1").innerHTML == 'O' && document.getElementById("button7").innerHTML == 'O') {
             return true;
         }
@@ -196,7 +199,7 @@ function isOWin(square) {
         }
         return false;
     }
-    else if (square == "button5") {
+    else if (indexSquare == 4) {
         if (document.getElementById("button1").innerHTML == 'O' && document.getElementById("button9").innerHTML == 'O') {
             return true;
         }
@@ -211,7 +214,7 @@ function isOWin(square) {
         }
         return false;
     }
-    else if (square == "button6") {
+    else if (indexSquare == 5) {
         if (document.getElementById("button3").innerHTML == 'O' && document.getElementById("button9").innerHTML == 'O') {
             return true;
         }
@@ -220,7 +223,7 @@ function isOWin(square) {
         }
         return false;
     }
-    else if (square == "button7") {
+    else if (indexSquare == 6) {
         if (document.getElementById("button1").innerHTML == 'O' && document.getElementById("button4").innerHTML == 'O') {
             return true;
         }
@@ -232,7 +235,7 @@ function isOWin(square) {
         }
         return false;
     }
-    else if (square == "button8") {
+    else if (indexSquare == 7) {
         if (document.getElementById("button7").innerHTML == 'O' && document.getElementById("button9").innerHTML == 'O') {
             return true;
         }
@@ -254,13 +257,13 @@ function isOWin(square) {
         return false;
     }
 }
+
 //each button/square selection
 function getSelection(event) {
-
+    debugger;
     displayInput(event.target);
 }
-function playAgain()
-{
+function playAgain() {
     //couldnt figure out how to change children just with the parent
     document.getElementById("button1").innerHTML = "";
     document.getElementById("button2").innerHTML = "";
