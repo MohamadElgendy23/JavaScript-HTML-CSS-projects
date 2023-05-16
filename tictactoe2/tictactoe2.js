@@ -69,8 +69,7 @@ function isDraw() {
     return Array.from(buttons).every((button) => button.innerHTML != "");
 }
 //show play again button 
-function showPlayAgain()
-{
+function showPlayAgain() {
     document.getElementById("playagain").hidden = false;
     document.getElementById("playagain").innerHTML = "Play Again!";
 }
