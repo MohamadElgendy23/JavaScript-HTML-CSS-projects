@@ -6,7 +6,7 @@ function startGame() {
     document.getElementById("playagain").hidden = true;
     //set click for each button
     const buttons = document.getElementById("grid-container").children;
-    for (button of buttons) {
+    for (const button of buttons) {
         button.onclick = clickGameButton;
     }
 
