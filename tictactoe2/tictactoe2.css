@@ -8,13 +8,13 @@ body {
     font-style: italic, bold;
     font-variant: small-caps;
 }
-#grid-container {
+.grid-container {
     display: grid;
     grid-template-columns: auto auto auto;
     padding: 40px;
 }
 
-#grid-container > div
+.grid-button
 {
     border: 1.5px solid white;
     background-color: red;

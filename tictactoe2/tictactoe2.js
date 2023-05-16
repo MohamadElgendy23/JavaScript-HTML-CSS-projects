@@ -5,7 +5,7 @@ startGame();
 function startGame() {
     document.getElementById("playagain").hidden = true;
     //set click for each button
-    const buttons = document.getElementById("grid-container").children;
+    const buttons = document.querySelector(".grid-container").children;
     for (const button of buttons) {
         button.onclick = clickGameButton;
     }
@@ -31,7 +31,7 @@ function clickGameButton(event) {
 //play the game again
 function playAgain() {
     p1 = 1;
-    const buttons = document.getElementById("grid-container").children;
+    const buttons = document.querySelector(".grid-container").children;
     for (const button of buttons) {
         button.innerHTML = "";
     }
@@ -39,14 +39,16 @@ function playAgain() {
 }
 //is it a win?
 function isWin(letter) {
-    const buttons = document.getElementById("grid-container").children;
-
+    const buttons = document.querySelector(".grid-container").children;
+    const winCombinations = [
+        ['X', 'X', 'X'], []
+    ]
     return false;
 
 }
 //is it a draw?
 function isDraw()
 {
-    const buttons = document.getElementById("grid-container").children;
+    const buttons = document.querySelector(".grid-container").children;
     return Array.from(buttons).every((button) => button.innerHTML != "");
 }
