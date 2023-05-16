@@ -2,20 +2,21 @@ body {
     text-align: center;
     background-color: black;
 }
+
 .TTT {
     color: red;
     font-size: xx-large;
     font-style: italic, bold;
     font-variant: small-caps;
 }
+
 .grid-container {
     display: grid;
     grid-template-columns: auto auto auto;
     padding: 40px;
 }
 
-.grid-button
-{
+.grid-button {
     border: 1.5px solid white;
     background-color: red;
     padding: 80px;
@@ -24,7 +25,30 @@ body {
     text-align: center;
 }
 
-#playagain {
+.Timer > label {
+    display: inline-block;
+    font-size: larger;
+    font-weight: bold;
+    border-color: blue;
+    border-style: ridge;
+    margin: auto;
+    height: 30px;
+    width: 280px;
+    background-color: lightblue;
+}
+
+.Timer > div {
+    font-size: larger;
+    font-weight: bold;
+    border-color: blue;
+    border-style: ridge;
+    margin: auto;
+    height: 25px;
+    width: 200px;
+    background-color: lightblue;
+}
+
+#startgame, #playagain {
     width: 50%;
     height: 5vmax;
     background-color: green;

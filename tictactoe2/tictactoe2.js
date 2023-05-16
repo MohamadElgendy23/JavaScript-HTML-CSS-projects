@@ -1,11 +1,16 @@
+//starting info
 let p1 = 1;
-startGame();
+document.getElementById("playagain").hidden = true;
 
 // start the game
 function startGame() {
-    document.getElementById("playagain").hidden = true;
+    document.getElementById("startgame").hidden = true;
+    document.querySelector(".timer").innerHTML = 10;
+    setTheTimer();
+
+    const gameGrid = document.querySelector(".grid-container");
     //set click for each button
-    const buttons = document.querySelector(".grid-container").children;
+    const buttons = gameGrid.children;
     for (const button of buttons) {
         button.onclick = clickGameButton;
     }
@@ -13,6 +18,7 @@ function startGame() {
 }
 //button click logic
 function clickGameButton(event) {
+    setTheTimer();
     const button = event.target;
     if (p1 == 1 && !button.innerHTML) {
         button.innerHTML = 'X';
@@ -34,6 +40,21 @@ function clickGameButton(event) {
         alert("Draw!");
         showPlayAgain();
     }
+}
+//timer logic
+function setTheTimer() {
+    document.querySelector(".timer").innerHTML = 10;
+    let secondsLeft = 10;
+    setInterval(function () {
+        if (secondsLeft === 0) {
+            alert("Time's up!");
+            showPlayAgain();
+        }
+        else {
+            secondsLeft--;
+            document.querySelector(".timer").innerHTML = secondsLeft;
+        }
+    }, 1000);
 }
 //play the game again
 function playAgain() {
