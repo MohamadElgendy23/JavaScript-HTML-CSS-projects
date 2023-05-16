@@ -27,8 +27,8 @@ body {
 #playagain {
     width: 50%;
     height: 5vmax;
-    background-color: blue;
+    background-color: green;
     color: white;
     font-size: xx-large;
-    font-weight: bold;
+    font-weight: bolder;
 }

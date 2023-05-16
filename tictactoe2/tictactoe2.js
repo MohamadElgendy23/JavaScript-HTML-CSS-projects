@@ -22,6 +22,16 @@ function clickGameButton(event) {
         button.innerHTML = 'O';
         p1 = 1;
     }
+    if (isWin('X')) {
+        alert("X Wins!");
+        document.getElementById("playagain").hidden = false;
+        document.getElementById("playagain").innerHTML = "Play Again!";
+    }
+    if (isWin('O')) {
+        alert("O Wins!");
+        document.getElementById("playagain").hidden = false;
+        document.getElementById("playagain").innerHTML = "Play Again!";
+    }
     if (isDraw()) {
         alert("Draw!");
         document.getElementById("playagain").hidden = false;
@@ -40,15 +50,24 @@ function playAgain() {
 //is it a win?
 function isWin(letter) {
     const buttons = document.querySelector(".grid-container").children;
-    const winCombinations = [
-        ['X', 'X', 'X'], []
-    ]
-    return false;
+    const gameState = [];
+    Array.from(buttons).forEach((button) => gameState.push(button.innerHTML));
+
+    //all win combinations
+    const winCombinations = [[letter, letter, letter, gameState[3], gameState[4], gameState[5], gameState[6], gameState[7], gameState[8]],
+    [letter, gameState[1], gameState[2], gameState[3], letter, gameState[5], gameState[6], gameState[7], letter],
+    [letter, gameState[1], gameState[2], letter, gameState[4], gameState[5], letter, gameState[7], gameState[8]],
+    [gameState[0], letter, gameState[2], gameState[3], letter, gameState[5], gameState[6], letter, gameState[8]],
+    [gameState[0], gameState[1], letter, gameState[3], gameState[4], letter, gameState[6], gameState[7], letter],
+    [gameState[0], gameState[1], gameState[2], letter, letter, letter, gameState[6], gameState[7], gameState[8]],
+    [gameState[0], gameState[1], gameState[2], gameState[3], gameState[4], gameState[5], letter, letter, letter],
+    [gameState[0], gameState[1], letter, gameState[3], letter, gameState[5], letter, gameState[7], gameState[8]]];
+
+    return winCombinations.some((winComb) => winComb.toString() === gameState.toString());
 
 }
 //is it a draw?
-function isDraw()
-{
+function isDraw() {
     const buttons = document.querySelector(".grid-container").children;
     return Array.from(buttons).every((button) => button.innerHTML != "");
 }
