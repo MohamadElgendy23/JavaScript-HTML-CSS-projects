@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <script src="script.js" defer></script>
+    </head>
+    <body>
+        <main>
+
+            <div class="title">Tic Tac Toe</div>
+
+            <div class="choose-N-container">
+                <label for="n-input">Choose N for NxN grid (0-25):</label>
+                <div class="input-and-button">
+                    <input id="n-input" type="number" min="0" max="25">
+                    <button id="start-game-button" type="submit" onclick="onStartGameClicked()">Start Game</button>
+                </div>
+            </div>
+
+            <div class="game-container default-hidden"></div>
+
+            <div class="game-data-container">
+                <div class="game-status"></div>
+                <div class="play-again" onclick="onPlayAgainClicked()">Play Again</div>
+            </div>
+
+        </main>
+    </body>
+</html>

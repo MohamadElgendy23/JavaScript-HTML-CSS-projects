@@ -1,0 +1,72 @@
+body {
+    padding: 0px;
+    margin: 0px;
+}
+
+main {
+    min-height: 100vh;
+    background-color: lightgrey;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.title {
+    font-size: 32px;
+    font-weight: 600;
+}
+
+.game-container {
+    display: grid;
+    grid-template-rows: repeat(var(--grid-size), 100px);
+    grid-template-columns: repeat(var(--grid-size), 100px);
+}
+
+.game-data-container {
+    flex-basis: 100px;
+}
+
+.game-data-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    white-space: nowrap;
+    gap: 16px;
+}
+
+.play-again {
+    border: 1px solid black;
+    border-radius: 16px;
+    background-color: grey;
+    padding: 8px;
+}
+
+.cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    font-size: 64px;
+}
+
+.default-hidden {
+    display: none;
+}
+
+.choose-N-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.input-and-button {
+    display: flex;
+    gap: 8px;
+}
+
+#n-input {
+    flex: 1;
+}
