@@ -24,18 +24,15 @@ function clickGameButton(event) {
     }
     if (isWin('X')) {
         alert("X Wins!");
-        document.getElementById("playagain").hidden = false;
-        document.getElementById("playagain").innerHTML = "Play Again!";
+        showPlayAgain();
     }
     if (isWin('O')) {
         alert("O Wins!");
-        document.getElementById("playagain").hidden = false;
-        document.getElementById("playagain").innerHTML = "Play Again!";
+        showPlayAgain();
     }
     if (isDraw()) {
         alert("Draw!");
-        document.getElementById("playagain").hidden = false;
-        document.getElementById("playagain").innerHTML = "Play Again!";
+        showPlayAgain();
     }
 }
 //play the game again
@@ -50,7 +47,7 @@ function playAgain() {
 //is it a win?
 function isWin(letter) {
     const buttons = document.querySelector(".grid-container").children;
-    
+
     const gameState = Array.from(buttons).map((button) => button.innerHTML);
 
     //all win combinations
@@ -70,4 +67,10 @@ function isWin(letter) {
 function isDraw() {
     const buttons = document.querySelector(".grid-container").children;
     return Array.from(buttons).every((button) => button.innerHTML != "");
+}
+//show play again button 
+function showPlayAgain()
+{
+    document.getElementById("playagain").hidden = false;
+    document.getElementById("playagain").innerHTML = "Play Again!";
 }
