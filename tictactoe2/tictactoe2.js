@@ -50,8 +50,8 @@ function playAgain() {
 //is it a win?
 function isWin(letter) {
     const buttons = document.querySelector(".grid-container").children;
-    const gameState = [];
-    Array.from(buttons).forEach((button) => gameState.push(button.innerHTML));
+    
+    const gameState = Array.from(buttons).map((button) => button.innerHTML);
 
     //all win combinations
     const winCombinations = [[letter, letter, letter, gameState[3], gameState[4], gameState[5], gameState[6], gameState[7], gameState[8]],
