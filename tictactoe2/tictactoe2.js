@@ -48,12 +48,5 @@ function isWin(letter) {
 function isDraw()
 {
     const buttons = document.getElementById("grid-container").children;
-    for (const button of buttons)
-    {
-        if (button.innerHTML=="")
-        {
-            return false;
-        }
-    }
-    return true;
+    return Array.from(buttons).every((button) => button.innerHTML != "");
 }
