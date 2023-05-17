@@ -9,9 +9,26 @@ function startGame() {
     const gameGrid = document.querySelector(".grid-container");
     //set click for each button
     const buttons = gameGrid.children;
-    Array.from(buttons).map(button => button.onclick = clickGameButton);
+    Array.from(buttons).map(button => button.onclick = clickGameButton); //player
+    Array.from(buttons).map(button => button.addEventListener("mousemove", randomGameButton)); //computer
 }
-//button click logic
+//computer 
+function randomGameButton() {
+    if (p == 0 && !isWin('X')) {
+        const randIndex = Math.floor(Math.random() * 9); //0-8
+        const buttons = document.querySelector(".grid-container").children;
+        const randButton = Array.from(buttons)[randIndex];
+        !randButton.innerHTML ? randButton.innerHTML = 'O' : alert("Uh oh! Button taken!");
+        p=1;
+    }
+    if (isWin('O')) {
+        alert("O Wins!");
+        showPlayAgain();
+        clearInterval(intervalID);
+        document.querySelector(".timer").innerHTML = "NaN";
+    }
+}
+//player button click logic
 function clickGameButton(event) {
     setTheTimer();
     const button = event.target;
@@ -19,22 +36,8 @@ function clickGameButton(event) {
         button.innerHTML = 'X';
         p = 0;
     }
-    //computer (random button selection after click)
-    if (p == 0 && !button.innerHTML) {
-        const randIndex = Math.floor(Math.random() * 9); //0-8
-        const buttons = document.querySelector(".grid-container").children;
-        const randButton = Array.from(buttons)[randIndex];
-        !randButton.innerHTML ? randButton.innerHTML = 'O' : alert("Uh oh! Button taken!");
-        p = 1;
-    }
     if (isWin('X')) {
         alert("X Wins!");
-        showPlayAgain();
-        clearInterval(intervalID);
-        document.querySelector(".timer").innerHTML = "NaN";
-    }
-    if (isWin('O')) {
-        alert("O Wins!");
         showPlayAgain();
         clearInterval(intervalID);
         document.querySelector(".timer").innerHTML = "NaN";
@@ -99,7 +102,7 @@ function isWin(letter) {
 //is it a draw?
 function isDraw() {
     const buttons = document.querySelector(".grid-container").children;
-    return Array.from(buttons).every((button) => button.innerHTML != "");
+    return Array.from(buttons).every((button) => button.innerHTML != "" && !isWin('X') && !isWin('O'));
 }
 //show play again button 
 function showPlayAgain() {
