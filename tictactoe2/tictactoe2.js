@@ -24,16 +24,8 @@ function clickGameButton(event) {
         const randIndex = Math.floor(Math.random() * 9); //0-8
         const buttons = document.querySelector(".grid-container").children;
         const randButton = Array.from(buttons)[randIndex];
-        if (!randButton.innerHTML)
-        {
-            randButton.innerHTML = 'O';
-            p = 1;
-        }
-        else 
-        {
-            alert("Uh oh! Button taken!");
-            p = 1;
-        }
+        !randButton.innerHTML ? randButton.innerHTML = 'O' : alert("Uh oh! Button taken!");
+        p = 1;
     }
     if (isWin('X')) {
         alert("X Wins!");
