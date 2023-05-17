@@ -1,7 +1,7 @@
 //starting info
 let p1 = 1;
-document.getElementById("playagain").hidden = true;
 let intervalID = null;
+document.getElementById("playagain").hidden = true;
 
 // start the game
 function startGame() {
@@ -30,14 +30,20 @@ function clickGameButton(event) {
     if (isWin('X')) {
         alert("X Wins!");
         showPlayAgain();
+        clearInterval(intervalID);
+        document.querySelector(".timer").innerHTML = "NaN";
     }
     if (isWin('O')) {
         alert("O Wins!");
         showPlayAgain();
+        clearInterval(intervalID);
+        document.querySelector(".timer").innerHTML = "NaN";
     }
     if (isDraw()) {
         alert("Draw!");
         showPlayAgain();
+        clearInterval(intervalID);
+        document.querySelector(".timer").innerHTML = "NaN";
     }
 }
 //timer logic
