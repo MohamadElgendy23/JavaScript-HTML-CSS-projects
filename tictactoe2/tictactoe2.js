@@ -1,13 +1,12 @@
 //starting info
 let p1 = 1;
 document.getElementById("playagain").hidden = true;
+let intervalID = null;
 
 // start the game
 function startGame() {
-    document.getElementById("startgame").hidden = true;
-    document.querySelector(".timer").innerHTML = 10;
     setTheTimer();
-
+    document.getElementById("startgame").hidden = true;
     const gameGrid = document.querySelector(".grid-container");
     //set click for each button
     const buttons = gameGrid.children;
@@ -43,12 +42,17 @@ function clickGameButton(event) {
 }
 //timer logic
 function setTheTimer() {
-    document.querySelector(".timer").innerHTML = 10;
-    let secondsLeft = 10;
-    setInterval(function () {
-        if (secondsLeft === 0) {
-            alert("Time's up!");
+    document.querySelector(".timer").innerHTML = 5;
+    let secondsLeft = 5;
+    if (intervalID !== null) {
+        clearInterval(intervalID);
+    }
+    intervalID = setInterval(function () {
+        if (!secondsLeft) {
+            document.querySelector(".timer").innerHTML = "NaN";
+            alert("Time's up! Game over!");
             showPlayAgain();
+            clearInterval(intervalID);
         }
         else {
             secondsLeft--;
@@ -58,6 +62,7 @@ function setTheTimer() {
 }
 //play the game again
 function playAgain() {
+    setTheTimer();
     p1 = 1;
     const buttons = document.querySelector(".grid-container").children;
     for (const button of buttons) {
