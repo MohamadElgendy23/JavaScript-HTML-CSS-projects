@@ -13,16 +13,21 @@ body {
 .grid-container {
     display: grid;
     grid-template-columns: auto auto auto;
-    padding: 40px;
+    border-color: blue;
+    border-style: solid;
 }
 
 .grid-button {
     border: 1.5px solid white;
-    background-color: red;
     padding: 80px;
     font-size: 50px;
+    background-color: crimson;
     font-weight: bolder;
     text-align: center;
+    text-shadow: firebrick;
+    color: darkblue;
+    border-style: dashed;
+    border-color: lime;
 }
 
 .Timer > label {

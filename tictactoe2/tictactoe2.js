@@ -1,6 +1,5 @@
 //starting info
-let p1 = 1;
-let intervalID = null;
+let p = 1; //player
 document.getElementById("playagain").hidden = true;
 
 // start the game
@@ -10,22 +9,31 @@ function startGame() {
     const gameGrid = document.querySelector(".grid-container");
     //set click for each button
     const buttons = gameGrid.children;
-    for (const button of buttons) {
-        button.onclick = clickGameButton;
-    }
-
+    Array.from(buttons).map(button => button.onclick = clickGameButton);
 }
 //button click logic
 function clickGameButton(event) {
     setTheTimer();
     const button = event.target;
-    if (p1 == 1 && !button.innerHTML) {
+    if (p == 1 && !button.innerHTML) {
         button.innerHTML = 'X';
-        p1 = 0;
+        p = 0;
     }
-    if (p1 != 1 && !button.innerHTML) {
-        button.innerHTML = 'O';
-        p1 = 1;
+    //computer (random button selection after click)
+    if (p == 0 && !button.innerHTML) {
+        const randIndex = Math.floor(Math.random() * 9); //0-8
+        const buttons = document.querySelector(".grid-container").children;
+        const randButton = Array.from(buttons)[randIndex];
+        if (!randButton.innerHTML)
+        {
+            randButton.innerHTML = 'O';
+            p = 1;
+        }
+        else 
+        {
+            alert("Uh oh! Button taken!");
+            p = 1;
+        }
     }
     if (isWin('X')) {
         alert("X Wins!");
@@ -40,12 +48,13 @@ function clickGameButton(event) {
         document.querySelector(".timer").innerHTML = "NaN";
     }
     if (isDraw()) {
-        alert("Draw!");
+        alert("Draw! No Winners!");
         showPlayAgain();
         clearInterval(intervalID);
         document.querySelector(".timer").innerHTML = "NaN";
     }
 }
+let intervalID = null;
 //timer logic
 function setTheTimer() {
     document.querySelector(".timer").innerHTML = 5;
@@ -69,7 +78,7 @@ function setTheTimer() {
 //play the game again
 function playAgain() {
     setTheTimer();
-    p1 = 1;
+    p = 1;
     const buttons = document.querySelector(".grid-container").children;
     for (const button of buttons) {
         button.innerHTML = "";
