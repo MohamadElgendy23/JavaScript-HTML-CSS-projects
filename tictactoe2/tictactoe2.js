@@ -9,7 +9,7 @@ function startGame() {
     const gameGrid = document.querySelector(".grid-container");
     //set click for each button
     const buttons = gameGrid.children;
-    Array.from(buttons).map(button => button.onclick = clickGameButton); //player
+    Array.from(buttons).forEach(button => button.onclick = clickGameButton); //player
 }
 //computer 
 function randomGameButton() {
