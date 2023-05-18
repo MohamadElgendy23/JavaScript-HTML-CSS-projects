@@ -1,3 +1,40 @@
+//stack implementation for postfix
+class Stack {
+    constructor() {
+        this.items = [];
+    }
+
+    //push to top
+    push(item) {
+        this.items.push(item);
+    }
+
+    //pop top element
+    pop() {
+        if (this.items.length > 0) {
+            return this.items.pop();
+        }
+        return -1;
+    }
+
+    //return top element
+    peek() {
+        if (this.items.length > 0) {
+            return this.items[this.items.length - 1];
+        }
+        return -1;
+    }
+
+    //is this.items empty?
+    isEmpty() {
+        return this.items.length === 0;
+    }
+
+    //print this.items as a string
+    printStack() {
+        return this.items.toString();
+    }
+}
 class Calculator {
     constructor(previousOperandTextElement, currentOperandTextElement) {
         this.previousOperandTextElement = previousOperandTextElement;
@@ -24,17 +61,22 @@ class Calculator {
     }
 
     chooseOperation(operation) {
-        const prev = this.previousOperand;
-
         //if we have for example 2+3+3 => (2+3)+3 = 5+3 = 8
-        if (this.currentOperand !== '' && this.previousOperand !== '') {
+        /* if (this.currentOperand !== '' && this.previousOperand !== '') {
             this.compute();
-        }
+        } */
         this.operation = operation;
         this.previousOperand += (this.currentOperand + this.operation);
         this.currentOperand = '';
     }
 
+    postfixCompute() {
+        
+        const stack = new Stack();
+        let expression = '';
+        expression += this.previousOperand;
+        expression.forEach(e => stack.push(e));
+    }
     compute() {
         if (this.previousOperand[this.previousOperand.length - 1] === '+') {
             const calcResult = +this.currentOperand + +this.previousOperand.substring(0, this.previousOperand.length - 1);
@@ -53,11 +95,6 @@ class Calculator {
             this.currentOperand = 1 / calcResult.toString();
         }
         this.previousOperand = '';
-    }
-
-    //alert(++x) => 1, alert(x++) => 0
-    postfix() {
-        let postfixStack = [];
     }
 
     updateDisplay() {
@@ -102,42 +139,4 @@ equalsButton.addEventListener("click", button => {
     calculator.updateDisplay();
 });
 
-calculator.postfix();
-
-
-//stack implementation for postfix
-class Stack {
-    constructor() {
-        this.items = [1,2,3];
-    }
-
-    //push to top
-    push(item) {
-        this.items.push(item);
-    }
-
-    //pop top element
-    pop() {
-
-    }
-
-    //check top element
-    peek() {
-
-    }
-
-    //is this.items empty?
-    isEmpty() {
-        return this.items.length === 0;
-    }
-
-    //print this.items as a string
-    printStack() {
-
-        this.items.forEach(item => console.log(item));
-    }
-
-
-
-
-}
+calculator.postfixCompute();
