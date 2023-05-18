@@ -10,7 +10,6 @@ function startGame() {
     //set click for each button
     const buttons = gameGrid.children;
     Array.from(buttons).map(button => button.onclick = clickGameButton); //player
-    Array.from(buttons).map(button => button.addEventListener("mousemove", randomGameButton)); //computer
 }
 //computer 
 function randomGameButton() {
@@ -18,8 +17,13 @@ function randomGameButton() {
         const randIndex = Math.floor(Math.random() * 9); //0-8
         const buttons = document.querySelector(".grid-container").children;
         const randButton = Array.from(buttons)[randIndex];
-        !randButton.innerHTML ? randButton.innerHTML = 'O' : alert("Uh oh! Button taken!");
-        p=1;
+        if (randButton.innerHTML) {
+            alert("Uh oh! Button taken!");
+        }
+        else {
+            randButton.innerHTML = 'O'
+        }
+        p = 1;
     }
     if (isWin('O')) {
         alert("O Wins!");
@@ -35,6 +39,7 @@ function clickGameButton(event) {
     if (p == 1 && !button.innerHTML) {
         button.innerHTML = 'X';
         p = 0;
+        setTimeout(randomGameButton, 1000);
     }
     if (isWin('X')) {
         alert("X Wins!");
@@ -102,7 +107,7 @@ function isWin(letter) {
 //is it a draw?
 function isDraw() {
     const buttons = document.querySelector(".grid-container").children;
-    return Array.from(buttons).every((button) => button.innerHTML != "" && !isWin('X') && !isWin('O'));
+    return Array.from(buttons).every((button) => button.innerHTML != "") && !isWin('X') && !isWin('O');
 }
 //show play again button 
 function showPlayAgain() {
