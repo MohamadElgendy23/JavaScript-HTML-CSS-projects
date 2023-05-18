@@ -24,6 +24,8 @@ class Calculator {
     }
 
     chooseOperation(operation) {
+        const prev = this.previousOperand;
+
         //if we have for example 2+3+3 => (2+3)+3 = 5+3 = 8
         if (this.currentOperand !== '' && this.previousOperand !== '') {
             this.compute();
@@ -51,6 +53,11 @@ class Calculator {
             this.currentOperand = 1 / calcResult.toString();
         }
         this.previousOperand = '';
+    }
+
+    //alert(++x) => 1, alert(x++) => 0
+    postfix() {
+        let postfixStack = [];
     }
 
     updateDisplay() {
@@ -94,3 +101,43 @@ equalsButton.addEventListener("click", button => {
     calculator.compute();
     calculator.updateDisplay();
 });
+
+calculator.postfix();
+
+
+//stack implementation for postfix
+class Stack {
+    constructor() {
+        this.items = [1,2,3];
+    }
+
+    //push to top
+    push(item) {
+        this.items.push(item);
+    }
+
+    //pop top element
+    pop() {
+
+    }
+
+    //check top element
+    peek() {
+
+    }
+
+    //is this.items empty?
+    isEmpty() {
+        return this.items.length === 0;
+    }
+
+    //print this.items as a string
+    printStack() {
+
+        this.items.forEach(item => console.log(item));
+    }
+
+
+
+
+}
