@@ -69,6 +69,7 @@ const currentOperandTextElement = document.querySelector("[data-current-operand]
 
 const calculator = new Calculator(previousOperandTextElement, currentOperandTextElement);
 
+//add event listeners for the buttons
 numberButtons.forEach(button => button.addEventListener("click", () => {
     calculator.appendNumber(button.innerHTML);
     calculator.updateDisplay();
