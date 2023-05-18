@@ -9,7 +9,7 @@
 body {
     padding: 0;
     margin: 0;
-    background: linear-gradient(to right, #000000, #ff0033);
+    background: linear-gradient(to right, #1740c6, #800d0f);
 }
 
 .calculator-grid {
@@ -24,7 +24,8 @@ body {
 .calculator-grid>button {
     cursor: pointer;
     font-size: 2rem;
-    border: 1px solid white;
+    border: 1px solid black;
+    border-style: dashed;
     outline: none;
     font-style: italic;
     font-family: 'Times New Roman', Times, serif;

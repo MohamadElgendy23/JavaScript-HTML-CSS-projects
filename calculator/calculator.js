@@ -24,6 +24,10 @@ class Calculator {
     }
 
     chooseOperation(operation) {
+        //if we have for example 2+3+3 => (2+3)+3 = 5+3 = 8
+        if (this.currentOperand !== '' && this.previousOperand !== '') {
+            this.compute();
+        }
         this.operation = operation;
         this.previousOperand += (this.currentOperand + this.operation);
         this.currentOperand = '';
