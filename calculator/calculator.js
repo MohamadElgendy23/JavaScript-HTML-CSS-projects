@@ -57,15 +57,13 @@ class Calculator {
         if (number === '.' && this.currentOperand.includes('.')) {
             return;
         }
-        this.index = 0;
+        this.index = 1;
         let findIndex = -1;
         //logic for decimal numbers
         if (number === '.') {
             //add first
             this.currentOperand += number;
             findIndex = this.currentOperand.indexOf(number);
-            //stores indices (can be used anywhere)
-            this.index = findIndex;
             //take out commas
             Array.from(this.currentOperand).forEach(e => {
                 if (e === ',') {
@@ -73,20 +71,22 @@ class Calculator {
                     Array.from(this.currentOperand).splice(indexE, 1);
                 }
             })
+            //stores indices (can be used anywhere)
+            this.index = findIndex;
         }
         // not a '.'
         else {
             this.currentOperand += number;
-            //if we have 5.0 => 5 or 13.0 => 13
-            if (Array.from(this.currentOperand)[++this.index] === '0') {
-                alert('n')
-                this.currentOperand = this.currentOperand.replace(Array.from(this.currentOperand).slice(0, this.index - 1));
-                alert(this.currentOperand)
-            }
-            //if we have 5.13 for example => Math.round(5.13) => 5
-            else {
-                const afterDecimal = Array.from(this.currentOperand).slice(findIndex + 1, this.currentOperand.length - 1);
-                Number.parseInt(afterDecimal) > 49 ? this.currentOperand += (+Array.from(this.currentOperand).slice(0, findIndex - 1) + +1).toString() : this.currentOperand += Array.from(this.currentOperand).slice(0, findIndex - 1);
+            if (this.index !== 0) {
+                //if we have 5.0 => 5 or 13.0 => 13
+                if (Array.from(this.currentOperand)[++this.index] === '0') {
+                    this.currentOperand = this.currentOperand.replace(Array.from(this.currentOperand).slice(0, this.index - 1));
+                }
+                //if we have 5.13 for example => Math.round(5.13) => 5
+                else {
+                    const afterDecimal = Array.from(this.currentOperand).slice(this.index + 1, this.currentOperand.length - 1);
+                    Number.parseInt(afterDecimal) > 49 ? this.currentOperand += (+Array.from(this.currentOperand).slice(0, this.index - 1) + +1).toString() : this.currentOperand += Array.from(this.currentOperand).slice(0, this.index - 1);
+                }
             }
         }
     }
@@ -127,10 +127,6 @@ class Calculator {
             }
             //e is a number
             else {
-                if (e.toString().includes('.')) {
-                    e = Math.roumd(e);
-                }
-
                 this.postfixExpression += e;
             }
         })
