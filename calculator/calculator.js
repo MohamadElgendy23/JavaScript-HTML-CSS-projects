@@ -85,44 +85,31 @@ class Calculator {
                     stack.push(e);
                 }
                 else {
-                    //priority checking
-                    if (e === '*' || e === '÷') {
-                        if (stack.peek() === '+' || stack.peek() === '-') {
-                            stack.push(e);
-                        }
+                    //priority checking => * = 2, + = 1 => 2>1
+                    if (this.infixToPostfixPrecedence(e) > this.infixToPostfixPrecedence(stack.peek())) {
+                        stack.push(e);
                     }
                     else {
-                        if (this.infixToPostfixPrecedence(e) > this.infixToPostfixPrecedence(stack.peek())) {
-                            stack.push(e);
-                        }
-                        else {
-                            this.postfixExpression += stack.pop();
-                            stack.push(e);
-                        }
-                        /*   if (e === '+' || e === '-') {
-                              if (stack.peek() === '*' || stack.peek() === '÷') {
-                                  this.postfixExpression += stack.pop();
-                                  stack.push(e);
-                              }
-                              if (stack.isEmpty()) {
-                                  stack.push(e);
-                              }
-  
-                          } */
+                        this.postfixExpression += e;
                     }
                 }
             }
             //e is a number
             else {
+                alert(e.toString())
+                if (e.toString().includes('.'))
+                {
+                    e = Math.roumd(e);
+                }
                 this.postfixExpression += e;
             }
         })
-        //"pop" remaining operators
+        //"pop" remaining operators; e not really used instead of as an iterator
         if (!stack.isEmpty()) {
             Array.from(stack.printStack()).forEach(e => {
                 //no commas
                 if (e !== ',') {
-                    this.postfixExpression += e;
+                    this.postfixExpression += stack.pop();
                 }
             });
         }
