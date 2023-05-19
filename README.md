@@ -8,9 +8,10 @@ Simple (semi) Projects:
   > Nice looking UI with buttons handled by event listeners. 
   > The calculator handles repeating operations. For example: 2+3*6. The 2+3 is calculated on the fly => 2+3 = 5 * 6 = 30. (No PEMDAS here because 2+3 is added first in the calculator). 
   > UPDATE: PEMDAS being worked on based on the postfix tree algorithm. Infix -> Postfix first!
+  > UPDATE2: PEMDAS mostly works as the postfix being returned is accurate based on online calculator results. However, the resulting                values are off alittle bit for some reason. 
 
 
 >Tic Tac Toe 2:
   > Multiplayer 3x3 TTT game
-  > Computer player has randomized selections based on a seed
+  > Computer player has randomized selections based on a random generated seed (index 0-8 => 9 squares)
   > Time limit of each play = 5 seconds
