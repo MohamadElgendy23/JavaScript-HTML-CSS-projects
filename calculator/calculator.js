@@ -112,13 +112,18 @@ class Calculator {
         //"pop" remaining operators
         if (!stack.isEmpty()) {
             Array.from(stack.printStack()).forEach(e => {
-                if (e !== ',')
-                {
+                //no commas
+                if (e !== ',') {
                     this.postfixExpression += e;
                 }
             });
         }
         return this.postfixExpression;
+    }
+
+    //what operator has highest precedence
+    infixToPostfixPrecedence(op) {
+        if (op === '')
     }
 
     //postfix algorithm
