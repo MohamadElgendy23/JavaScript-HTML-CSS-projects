@@ -30,7 +30,7 @@ class Stack {
         return this.items.length === 0;
     }
 
-    //print stack items
+    //print stack items for the infixToPostfix method's last stack operations checking 
     printStack() {
         return this.items.toString();
     }
@@ -62,9 +62,9 @@ class Calculator {
 
     chooseOperation(operation) {
         //if we have for example 2+3+3 => (2+3)+3 = 5+3 = 8
-        /* if (this.currentOperand !== '' && this.previousOperand !== '') {
-            this.compute();
-        } */
+        /*  if (this.currentOperand !== '' && this.previousOperand !== '') {
+             this.compute();
+         } */
         this.operation = operation;
         this.previousOperand += (this.currentOperand + this.operation);
         this.currentOperand = '';
@@ -85,16 +85,22 @@ class Calculator {
                     stack.push(e);
                 }
                 else {
-                    //priority check
-                    if ((e === '*' || e === '÷') && (stack.peek() === '+' || stack.peek() === '-')) {
-                        stack.push(e);
+                    //priority checking
+                    if (e === '*' || e === '÷') {
+                        if (stack.peek() === '+' || stack.peek() === '-') {
+                            stack.push(e);
+                        }
                     }
                     else {
-                        if ((e === '+' || e === '-') && (stack.peek() === '*' || stack.peek() === '÷'))
-                            this.postfixExpression += stack.pop();
-                            stack.push(e);
-                        if (stack.isEmpty()) {
-                            stack.push(e);
+                        if (e === '+' || e === '-') {
+                            if (stack.peek() === '*' || stack.peek() === '÷') {
+                                this.postfixExpression += stack.pop();
+                                stack.push(e);
+                            }
+                            if (stack.isEmpty()) {
+                                stack.push(e);
+                            }
+
                         }
                     }
                 }
@@ -105,12 +111,17 @@ class Calculator {
         })
         //"pop" remaining operators
         if (!stack.isEmpty()) {
-            Array.from(stack.printStack()).forEach(e => this.postfixExpression += e);
+            Array.from(stack.printStack()).forEach(e => {
+                if (e !== ',')
+                {
+                    this.postfixExpression += e;
+                }
+            });
         }
-
         return this.postfixExpression;
     }
 
+    //postfix algorithm
     postfixCompute() {
         const stack = new Stack();
         let postfixExpression = this.infixToPostfix();
