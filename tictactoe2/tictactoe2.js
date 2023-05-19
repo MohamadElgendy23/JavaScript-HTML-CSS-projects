@@ -40,6 +40,8 @@ function clickGameButton(event) {
         button.innerHTML = 'X';
         p = 0;
         setTimeout(randomGameButton, 1000);
+        document.querySelector(".timer").innerHTML = 5;
+        setTheTimer();
     }
     if (isWin('X')) {
         alert("X Wins!");
@@ -54,6 +56,7 @@ function clickGameButton(event) {
         document.querySelector(".timer").innerHTML = "NaN";
     }
 }
+//set as global variable so resetting of interval doesn't interfere with previous interval
 let intervalID = null;
 //timer logic
 function setTheTimer() {
@@ -63,15 +66,15 @@ function setTheTimer() {
         clearInterval(intervalID);
     }
     intervalID = setInterval(function () {
-        if (!secondsLeft) {
+        if (secondsLeft) {
+            secondsLeft--;
+            document.querySelector(".timer").innerHTML = secondsLeft;
+        }
+        else {
             document.querySelector(".timer").innerHTML = "NaN";
             alert("Time's up! Game over!");
             showPlayAgain();
             clearInterval(intervalID);
-        }
-        else {
-            secondsLeft--;
-            document.querySelector(".timer").innerHTML = secondsLeft;
         }
     }, 1000);
 }
@@ -91,7 +94,7 @@ function isWin(letter) {
 
     const gameState = Array.from(buttons).map((button) => button.innerHTML);
 
-    //all win combinations
+    //all win combinations. could also be improved by keeping track of winning indices in each play (based on row and column location)
     const winCombinations = [[letter, letter, letter, gameState[3], gameState[4], gameState[5], gameState[6], gameState[7], gameState[8]],
     [letter, gameState[1], gameState[2], gameState[3], letter, gameState[5], gameState[6], gameState[7], letter],
     [letter, gameState[1], gameState[2], letter, gameState[4], gameState[5], letter, gameState[7], gameState[8]],
