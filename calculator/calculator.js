@@ -14,7 +14,7 @@ class Stack {
         if (this.items.length > 0) {
             return this.items.pop();
         }
-        return -1;
+        return 'Empty';
     }
 
     //return top element
@@ -22,7 +22,7 @@ class Stack {
         if (this.items.length > 0) {
             return this.items[this.items.length - 1];
         }
-        return -1;
+        return 'Empty';
     }
 
     //is this.items empty?
@@ -30,7 +30,7 @@ class Stack {
         return this.items.length === 0;
     }
 
-    //print this.items as a string
+    //print stack items
     printStack() {
         return this.items.toString();
     }
@@ -68,14 +68,75 @@ class Calculator {
         this.operation = operation;
         this.previousOperand += (this.currentOperand + this.operation);
         this.currentOperand = '';
+
+    }
+
+    //infix to postfix logic
+    infixToPostfix() {
+        const stack = new Stack();
+        this.postfixExpression = '';
+        this.infixExpression = this.previousOperand;
+        if (this.currentOperand !== '') {
+            this.infixExpression += this.currentOperand;
+        }
+        Array.from(this.infixExpression).forEach(e => {
+            if (isNaN(e)) {
+                if (stack.isEmpty()) {
+                    stack.push(e);
+                }
+                else {
+                    //priority check
+                    if ((e === '*' || e === '÷') && (stack.peek() === '+' || stack.peek() === '-')) {
+                        stack.push(e);
+                    }
+                    else {
+                        if ((e === '+' || e === '-') && (stack.peek() === '*' || stack.peek() === '÷'))
+                            this.postfixExpression += stack.pop();
+                            stack.push(e);
+                        if (stack.isEmpty()) {
+                            stack.push(e);
+                        }
+                    }
+                }
+            }
+            else {
+                this.postfixExpression += e;
+            }
+        })
+        //"pop" remaining operators
+        if (!stack.isEmpty()) {
+            Array.from(stack.printStack()).forEach(e => this.postfixExpression += e);
+        }
+
+        return this.postfixExpression;
     }
 
     postfixCompute() {
-        
         const stack = new Stack();
-        let expression = '';
-        expression += this.previousOperand;
-        expression.forEach(e => stack.push(e));
+        let postfixExpression = this.infixToPostfix();
+        Array.from(postfixExpression).forEach(e => {
+            if (isNaN(e)) {
+                const n1 = stack.pop();
+                const n2 = stack.pop();
+                if (e === '+') {
+                    stack.push(+n1 + +n2);
+                }
+                else if (e === '-') {
+                    stack.push(n2 - n1);
+                }
+                else if (e === '*') {
+                    stack.push(n1 * n2);
+                }
+                else {
+                    stack.push(n1 / n2);
+                }
+            }
+            else {
+                stack.push(e);
+            }
+        });
+        this.currentOperand = stack.peek();
+        this.previousOperand = '';
     }
     compute() {
         if (this.previousOperand[this.previousOperand.length - 1] === '+') {
@@ -135,8 +196,6 @@ operationButtons.forEach(button => button.addEventListener("click", () => {
 }));
 
 equalsButton.addEventListener("click", button => {
-    calculator.compute();
+    calculator.postfixCompute();
     calculator.updateDisplay();
 });
-
-calculator.postfixCompute();
