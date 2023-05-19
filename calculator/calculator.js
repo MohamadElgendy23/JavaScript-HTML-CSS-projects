@@ -57,13 +57,15 @@ class Calculator {
         if (number === '.' && this.currentOperand.includes('.')) {
             return;
         }
+        this.index = 0;
         let findIndex = -1;
         //logic for decimal numbers
         if (number === '.') {
             //add first
             this.currentOperand += number;
             findIndex = this.currentOperand.indexOf(number);
-            alert(findIndex)
+            //stores indices (can be used anywhere)
+            this.index = findIndex;
             //take out commas
             Array.from(this.currentOperand).forEach(e => {
                 if (e === ',') {
@@ -74,12 +76,11 @@ class Calculator {
         }
         // not a '.'
         else {
-            alert(findIndex)
             this.currentOperand += number;
             //if we have 5.0 => 5 or 13.0 => 13
-            if (Array.from(this.currentOperand)[++findIndex] === '0') {
-                alert('yes')
-                this.currentOperand = Array.from(this.currentOperand).slice(0, findIndex - 1);
+            if (Array.from(this.currentOperand)[++this.index] === '0') {
+                alert('n')
+                this.currentOperand = this.currentOperand.replace(Array.from(this.currentOperand).slice(0, this.index - 1));
                 alert(this.currentOperand)
             }
             //if we have 5.13 for example => Math.round(5.13) => 5
@@ -230,6 +231,10 @@ numberButtons.forEach(button => button.addEventListener("click", () => {
     calculator.updateDisplay();
 }));
 
+numberButtons.forEach(button => button.addEventListener("keydown", (e) => {
+    calculator.appendNumber(e.key);
+    calculator.updateDisplay();
+}));
 allClearButton.addEventListener("click", button => {
     calculator.clear();
     calculator.updateDisplay();
