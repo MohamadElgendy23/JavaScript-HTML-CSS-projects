@@ -61,11 +61,19 @@ class Calculator {
         if (number === '.') {
             //add first
             this.currentOperand += number;
+            //take out commas
+            Array.from(this.currentOperand).forEach(e => {
+                if (e === ',') {
+                    const indexE = Array.from(this.currentOperand).indexOf(e);
+                    Array.from(this.currentOperand).splice(indexE, 1);
+                }
+            })
             const findIndex = this.currentOperand.indexOf(number);
-            alert(findIndex);
             //if we have 5.0 => 5 or 13.0 => 13
-            if (this.currentOperand[findIndex + 1] === '0') {
+            if (Array.from(this.currentOperand)[++findIndex] === '0') {
+                alert('yes')
                 this.currentOperand += Array.from(this.currentOperand).slice(0, findIndex - 1);
+                alert(this.currentOperand)
             }
             //if we have 5.13 for example => Math.round(5.13) => 5
             else {
@@ -116,7 +124,6 @@ class Calculator {
             //e is a number
             else {
                 if (e.toString().includes('.')) {
-                    alert('y');
                     e = Math.roumd(e);
                 }
 
