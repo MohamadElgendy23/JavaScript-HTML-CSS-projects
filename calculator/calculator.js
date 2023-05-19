@@ -92,19 +92,27 @@ class Calculator {
                         }
                     }
                     else {
-                        if (e === '+' || e === '-') {
-                            if (stack.peek() === '*' || stack.peek() === '÷') {
-                                this.postfixExpression += stack.pop();
-                                stack.push(e);
-                            }
-                            if (stack.isEmpty()) {
-                                stack.push(e);
-                            }
-
+                        if (this.infixToPostfixPrecedence(e) > this.infixToPostfixPrecedence(stack.peek())) {
+                            stack.push(e);
                         }
+                        else {
+                            this.postfixExpression += stack.pop();
+                            stack.push(e);
+                        }
+                        /*   if (e === '+' || e === '-') {
+                              if (stack.peek() === '*' || stack.peek() === '÷') {
+                                  this.postfixExpression += stack.pop();
+                                  stack.push(e);
+                              }
+                              if (stack.isEmpty()) {
+                                  stack.push(e);
+                              }
+  
+                          } */
                     }
                 }
             }
+            //e is a number
             else {
                 this.postfixExpression += e;
             }
@@ -123,7 +131,17 @@ class Calculator {
 
     //what operator has highest precedence
     infixToPostfixPrecedence(op) {
-        if (op === '')
+        switch (op) {
+            case '+':
+            case '-':
+                return 1;
+            case '÷':
+            case '*':
+                return 2;
+            default:
+                return 'Invalid Operator';
+        }
+
     }
 
     //postfix algorithm
