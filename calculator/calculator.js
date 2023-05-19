@@ -57,7 +57,26 @@ class Calculator {
         if (number === '.' && this.currentOperand.includes('.')) {
             return;
         }
-        this.currentOperand += number;
+        //logic for decimal numbers
+        if (number === '.') {
+            //add first
+            this.currentOperand += number;
+            const findIndex = this.currentOperand.indexOf(number);
+            alert(findIndex);
+            //if we have 5.0 => 5 or 13.0 => 13
+            if (this.currentOperand[findIndex + 1] === '0') {
+                this.currentOperand += Array.from(this.currentOperand).slice(0, findIndex - 1);
+            }
+            //if we have 5.13 for example => Math.round(5.13) => 5
+            else {
+                const afterDecimal = Array.from(this.currentOperand).slice(findIndex + 1, this.currentOperand.length - 1);
+                Number.parseInt(afterDecimal) > 49 ? this.currentOperand += (+Array.from(this.currentOperand).slice(0, findIndex - 1) + +1).toString() : this.currentOperand += Array.from(this.currentOperand).slice(0, findIndex - 1);
+            }
+        }
+        // not a '.'
+        else {
+            this.currentOperand += number;
+        }
     }
 
     chooseOperation(operation) {
@@ -96,11 +115,11 @@ class Calculator {
             }
             //e is a number
             else {
-                alert(e.toString())
-                if (e.toString().includes('.'))
-                {
+                if (e.toString().includes('.')) {
+                    alert('y');
                     e = Math.roumd(e);
                 }
+
                 this.postfixExpression += e;
             }
         })
