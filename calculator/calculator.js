@@ -57,7 +57,7 @@ class Calculator {
         if (number === '.' && this.currentOperand.includes('.')) {
             return;
         }
-        this.index = 1;
+        this.index = 0;
         let findIndex = -1;
         //logic for decimal numbers
         if (number === '.') {
