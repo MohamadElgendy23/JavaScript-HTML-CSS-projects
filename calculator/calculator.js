@@ -57,35 +57,24 @@ class Calculator {
         if (number === '.' && this.currentOperand.includes('.')) {
             return;
         }
-        this.index = 0;
-        let findIndex = -1;
+        let indexOfDecimalPlace = -1;
         //logic for decimal numbers
         if (number === '.') {
             //add first
             this.currentOperand += number;
-            findIndex = this.currentOperand.indexOf(number);
+            indexOfDecimalPlace = this.currentOperand.indexOf(number);
             //take out commas
-            Array.from(this.currentOperand).forEach(e => {
-                if (e === ',') {
-                    const indexE = Array.from(this.currentOperand).indexOf(e);
-                    Array.from(this.currentOperand).splice(indexE, 1);
-                }
-            })
+            this.currentOperand.replaceAll(',', '');
             //stores indices (can be used anywhere)
-            this.index = findIndex;
+            this.lastIndexOfDecimalPlace = indexOfDecimalPlace;
         }
         // not a '.'
         else {
             this.currentOperand += number;
-            if (this.index !== 0) {
+            if (this.lastIndexOfDecimalPlace !== 0) {
                 //if we have 5.0 => 5 or 13.0 => 13
-                if (Array.from(this.currentOperand)[++this.index] === '0') {
-                    this.currentOperand = this.currentOperand.replace(Array.from(this.currentOperand).slice(0, this.index - 1));
-                }
-                //if we have 5.13 for example => Math.round(5.13) => 5
-                else {
-                    const afterDecimal = Array.from(this.currentOperand).slice(this.index + 1, this.currentOperand.length - 1);
-                    Number.parseInt(afterDecimal) > 49 ? this.currentOperand += (+Array.from(this.currentOperand).slice(0, this.index - 1) + +1).toString() : this.currentOperand += Array.from(this.currentOperand).slice(0, this.index - 1);
+                if (Array.from(this.currentOperand)[this.lastIndexOfDecimalPlace + 1] === '0') {
+                    this.currentOperand = this.currentOperand.slice(0, this.lastIndexOfDecimalPlace);
                 }
             }
         }
@@ -160,7 +149,7 @@ class Calculator {
     //postfix algorithm
     postfixCompute() {
         const stack = new Stack();
-        let postfixExpression = this.infixToPostfix();
+        const postfixExpression = this.infixToPostfix();
         Array.from(postfixExpression).forEach(e => {
             if (isNaN(e)) {
                 const n1 = stack.pop();
@@ -175,7 +164,7 @@ class Calculator {
                     stack.push(n1 * n2);
                 }
                 else {
-                    stack.push(n1 / n2);
+                    stack.push(1 / (n1 / n2));
                 }
             }
             else {
@@ -185,6 +174,7 @@ class Calculator {
         this.currentOperand = stack.peek();
         this.previousOperand = '';
     }
+
     compute() {
         if (this.previousOperand[this.previousOperand.length - 1] === '+') {
             const calcResult = +this.currentOperand + +this.previousOperand.substring(0, this.previousOperand.length - 1);
@@ -227,10 +217,6 @@ numberButtons.forEach(button => button.addEventListener("click", () => {
     calculator.updateDisplay();
 }));
 
-numberButtons.forEach(button => button.addEventListener("keydown", (e) => {
-    calculator.appendNumber(e.key);
-    calculator.updateDisplay();
-}));
 allClearButton.addEventListener("click", button => {
     calculator.clear();
     calculator.updateDisplay();
