@@ -57,26 +57,16 @@ class Calculator {
         if (number === '.' && this.currentOperand.includes('.')) {
             return;
         }
-        let indexOfDecimalPlace = -1;
         //logic for decimal numbers
         if (number === '.') {
             //add first
             this.currentOperand += number;
-            indexOfDecimalPlace = this.currentOperand.indexOf(number);
             //take out commas
             this.currentOperand.replaceAll(',', '');
-            //stores indices (can be used anywhere)
-            this.lastIndexOfDecimalPlace = indexOfDecimalPlace;
         }
         // not a '.'
         else {
             this.currentOperand += number;
-            if (this.lastIndexOfDecimalPlace !== 0) {
-                //if we have 5.0 => 5 or 13.0 => 13
-                if (Array.from(this.currentOperand)[this.lastIndexOfDecimalPlace + 1] === '0') {
-                    this.currentOperand = this.currentOperand.slice(0, this.lastIndexOfDecimalPlace);
-                }
-            }
         }
     }
 
@@ -96,11 +86,13 @@ class Calculator {
         const stack = new Stack();
         this.postfixExpression = '';
         this.infixExpression = this.previousOperand;
+        //still more to the input
         if (this.currentOperand !== '') {
             this.infixExpression += this.currentOperand;
         }
         Array.from(this.infixExpression).forEach(e => {
-            if (isNaN(e)) {
+            //treat '.' as if it was a number
+            if (isNaN(e) && e !== '.') {
                 if (stack.isEmpty()) {
                     stack.push(e);
                 }
@@ -146,10 +138,33 @@ class Calculator {
 
     }
 
-    //postfix algorithm
+    //postfix algorithm for PEMDAS
     postfixCompute() {
         const stack = new Stack();
+        let isPemdas = false;
         const postfixExpression = this.infixToPostfix();
+        //check if use this method or one below (compute()) -PEMDAS
+        if (postfixExpression.includes('+') && postfixExpression.includes('*'))
+        {
+            isPemdas = true;
+        }
+        if (postfixExpression.includes('+') && postfixExpression.includes('÷'))
+        {
+            isPemdas = true;
+        }
+        if (postfixExpression.includes('-') && postfixExpression.includes('*'))
+        {
+            isPemdas = true;
+        }
+        if (postfixExpression.includes('-') && postfixExpression.includes('÷'))
+        {
+            isPemdas = true;
+        }
+        if (!isPemdas) {
+            this.compute();
+            return;
+        }
+        //does incude a combination of '+'/'-' and '*'/'÷' => PEMDAS
         Array.from(postfixExpression).forEach(e => {
             if (isNaN(e)) {
                 const n1 = stack.pop();
@@ -174,7 +189,7 @@ class Calculator {
         this.currentOperand = stack.peek();
         this.previousOperand = '';
     }
-
+    //regular compute (without PEMDAS)
     compute() {
         if (this.previousOperand[this.previousOperand.length - 1] === '+') {
             const calcResult = +this.currentOperand + +this.previousOperand.substring(0, this.previousOperand.length - 1);
