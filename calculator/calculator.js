@@ -142,6 +142,7 @@ class Calculator {
     postfixCompute() {
         const stack = new Stack();
         const postfixExpression = this.infixToPostfix();
+        alert(postfixExpression)
         //does incude a combination of '+'/'-' and '*'/'÷' => PEMDAS
         Array.from(postfixExpression).forEach(e => {
             if (isNaN(e)) {
