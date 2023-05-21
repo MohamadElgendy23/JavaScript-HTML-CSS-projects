@@ -30,8 +30,9 @@ export class Stack {
         return this.items.length === 0;
     }
 
-    //print stack items for the infixToPostfix method's last stack operations checking 
-    printStack() {
-        return this.items.toString();
+    //return this stack items
+    getItems() {
+        return [...this.items];
     }
+
 }

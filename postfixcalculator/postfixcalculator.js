@@ -81,7 +81,7 @@ export class PostfixCalculator {
         }
         //"pop" remaining operators
         if (!stack.isEmpty()) {
-            Array.from(stack.printStack()).forEach(() => {
+            stack.getItems().forEach(() => {
                 this.postfixExpression.push(stack.pop());
             });
         }
