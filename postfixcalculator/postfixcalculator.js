@@ -1,5 +1,5 @@
 import { Stack } from './stack.js';
-
+//postfix calculator class, contains the methods for said calculator
 class PostfixCalculator {
     constructor(previousOperandTextElement, currentOperandTextElement) {
         this.previousOperandTextElement = previousOperandTextElement;
@@ -76,7 +76,7 @@ class PostfixCalculator {
                 this.postfixExpression += e;
             }
         })
-        //"pop" remaining operators; e not really used instead of as an iterator
+        //"pop" remaining operators
         if (!stack.isEmpty()) {
             Array.from(stack.printStack()).forEach(e => {
                 //no commas
@@ -133,11 +133,13 @@ class PostfixCalculator {
         this.currentOperand = stack.peek();
         this.previousOperand = '';
     }
+    //update display of output
     updateDisplay() {
         this.currentOperandTextElement.innerHTML = this.currentOperand;
         this.previousOperandTextElement.innerHTML = this.previousOperand;
     }
 }
+
 
 const numberButtons = document.querySelectorAll("[data-number]");
 const operationButtons = document.querySelectorAll("[data-operation]");
@@ -155,12 +157,12 @@ numberButtons.forEach(button => button.addEventListener("click", () => {
     calculator.updateDisplay();
 }));
 
-allClearButton.addEventListener("click", button => {
+allClearButton.addEventListener("click", () => {
     calculator.clear();
     calculator.updateDisplay();
 });
 
-deleteButton.addEventListener("click", button => {
+deleteButton.addEventListener("click", () => {
     calculator.delete();
     calculator.updateDisplay();
 });
@@ -170,7 +172,7 @@ operationButtons.forEach(button => button.addEventListener("click", () => {
     calculator.updateDisplay();
 }));
 
-equalsButton.addEventListener("click", button => {
+equalsButton.addEventListener("click", () => {
     calculator.postfixCompute();
     calculator.updateDisplay();
 });
