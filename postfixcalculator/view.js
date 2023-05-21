@@ -9,7 +9,7 @@ const deleteButton = document.querySelector("[data-delete]");
 const previousOperandTextElement = document.querySelector("[data-previous-operand]");
 const currentOperandTextElement = document.querySelector("[data-current-operand]");
 
-const calculator = new PostfixCalculator(previousOperandTextElement, currentOperandTextElement);
+export const calculator = new PostfixCalculator(previousOperandTextElement, currentOperandTextElement);
 
 //add event listeners for the buttons
 numberButtons.forEach(button => button.addEventListener("click", () => {
@@ -33,6 +33,6 @@ operationButtons.forEach(button => button.addEventListener("click", () => {
 }));
 
 equalsButton.addEventListener("click", () => {
-    calculator.postfixCompute();
+    calculator.computeResult();
     calculator.updateDisplay();
 });

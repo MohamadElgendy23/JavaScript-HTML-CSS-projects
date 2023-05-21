@@ -1,5 +1,3 @@
-import { Stack } from './stack.js';
-import { Lexer } from './lexer.js';
 import { Parser } from './parser.js';
 
 //postfix calculator class, contains the methods for said calculator
@@ -49,89 +47,9 @@ export class PostfixCalculator {
 
     }
 
-    //infix to postfix logic
-    infixToPostfix() {
-        const stack = new Stack();
-        this.postfixExpression = [];
-        this.infixExpression = this.previousOperand;
-        //still more to the input
-        if (this.currentOperand !== '') {
-            this.infixExpression += this.currentOperand;
-        }
-        const tokenizedArray = Lexer.analyze(this.infixExpression);
-        for (const token of tokenizedArray) {
-            //token is not a number
-            if (isNaN(token)) {
-                if (stack.isEmpty()) {
-                    stack.push(token);
-                }
-                else {
-                    //priority checking => * = 2, + = 1 => 2>1
-                    if (this.infixToPostfixPrecedence(token) > this.infixToPostfixPrecedence(stack.peek())) {
-                        stack.push(token);
-                    }
-                    else {
-                        this.postfixExpression.push(token);
-                    }
-                }
-            }
-            //token is a number
-            else {
-                this.postfixExpression.push(token);
-            }
-        }
-        //"pop" remaining operators
-        if (!stack.isEmpty()) {
-            stack.getItems().forEach(() => {
-                this.postfixExpression.push(stack.pop());
-            });
-        }
-        console.log(this.postfixExpression)
-        return this.postfixExpression;
-    }
-
-    //what operator has highest precedence -- helper method
-    infixToPostfixPrecedence(op) {
-        switch (op) {
-            case '+':
-            case '-':
-                return 1;
-            case '÷':
-            case '*':
-                return 2;
-            default:
-                return 'Invalid Operator';
-        }
-
-    }
-
-    //postfix computation algorithm for PEMDAS
-    postfixCompute() {
-        const stack = new Stack();
-        const postfixExpression = this.infixToPostfix();
-        postfixExpression.forEach(e => {
-            if (isNaN(e)) {
-                const n1 = stack.pop();
-                const n2 = stack.pop();
-                if (e === '+') {
-                    stack.push(+n1 + +n2);
-                }
-                else if (e === '-') {
-                    stack.push(n2 - n1);
-                }
-                else if (e === '*') {
-                    stack.push(n1 * n2);
-                }
-                else {
-                    stack.push(1 / (n1 / n2));
-                }
-            }
-            else {
-                stack.push(e);
-            }
-        });
-        this.currentOperand = stack.peek();
-        this.previousOperand = '';
+    //listener for the equals button => handles computing the final result using the Lexer and Parser
+    computeResult() {
+        Parser.postfixCompute();
     }
     //update display of output
     updateDisplay() {
