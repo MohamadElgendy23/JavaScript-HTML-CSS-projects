@@ -4,11 +4,12 @@ This repository contains personal projects for learning and improving skills in 
 
 NOTE: NO MATTER HOW SMALL A PROJECT IS, SOME CODE EXPOSURE IS BETTER THAN NO EXPOSURE :)
 Simple (semi) Projects:
-> Calculator: 
+> Postfix Calculator: 
   > Nice looking UI with buttons handled by event listeners. 
   > The calculator handles repeating operations. For example: 2+3*6. The 2+3 is calculated on the fly => 2+3 = 5 * 6 = 30. (No PEMDAS here because 2+3 is added first in the calculator). 
   > UPDATE: PEMDAS being worked on based on the postfix tree algorithm. Infix -> Postfix first!
   > UPDATE2: PEMDAS mostly works as the postfix being returned is accurate based on online calculator results. However, the resulting                values are off alittle bit for some reason. 
+  > UPDATE3: MVC structure. => currently being worked on. Hoping to have it done tomorrow. Didnt do alot since update2 since im still debating on how to go about the MVC....
 
 
 >Tic Tac Toe 2:
