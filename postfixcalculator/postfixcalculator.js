@@ -58,7 +58,6 @@ export class PostfixCalculator {
             this.infixExpression += this.currentOperand;
         }
         const tokenizedArray = Lexer.analyze(this.infixExpression);
-        console.log(tokenizedArray)
         tokenizedArray.forEach(token => {
             //token is not a number
             if (isNaN(token)) {

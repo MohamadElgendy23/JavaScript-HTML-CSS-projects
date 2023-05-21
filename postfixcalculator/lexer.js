@@ -12,12 +12,14 @@ export class Lexer {
                 buildExpression += exp;
             }
             else {
-                analyzedArray.push(buildExpression);
-                analyzedArray.push(exp);
+                analyzedArray.push(buildExpression, exp);
                 buildExpression = ''; //reset
             }
         })
 
+        if (buildExpression.length !== 0) {
+            Array.from(buildExpression).forEach(remainingExp => analyzedArray.push(remainingExp)); //push whats remaining
+        }
         return analyzedArray;
 
     }
