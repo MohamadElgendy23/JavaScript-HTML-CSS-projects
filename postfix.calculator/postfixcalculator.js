@@ -1,41 +1,6 @@
-//stack implementation for postfix
-class Stack {
-    constructor() {
-        this.items = [];
-    }
+import { Stack } from './stack.js';
 
-    //push to top
-    push(item) {
-        this.items.push(item);
-    }
-
-    //pop top element
-    pop() {
-        if (this.items.length > 0) {
-            return this.items.pop();
-        }
-        return 'Empty';
-    }
-
-    //return top element
-    peek() {
-        if (this.items.length > 0) {
-            return this.items[this.items.length - 1];
-        }
-        return 'Empty';
-    }
-
-    //is this.items empty?
-    isEmpty() {
-        return this.items.length === 0;
-    }
-
-    //print stack items for the infixToPostfix method's last stack operations checking 
-    printStack() {
-        return this.items.toString();
-    }
-}
-class Calculator {
+class PostfixCalculator {
     constructor(previousOperandTextElement, currentOperandTextElement) {
         this.previousOperandTextElement = previousOperandTextElement;
         this.currentOperandTextElement = currentOperandTextElement;
@@ -123,7 +88,7 @@ class Calculator {
         return this.postfixExpression;
     }
 
-    //what operator has highest precedence
+    //what operator has highest precedence -- helper method
     infixToPostfixPrecedence(op) {
         switch (op) {
             case '+':
@@ -182,7 +147,7 @@ const deleteButton = document.querySelector("[data-delete]");
 const previousOperandTextElement = document.querySelector("[data-previous-operand]");
 const currentOperandTextElement = document.querySelector("[data-current-operand]");
 
-const calculator = new Calculator(previousOperandTextElement, currentOperandTextElement);
+const calculator = new PostfixCalculator(previousOperandTextElement, currentOperandTextElement);
 
 //add event listeners for the buttons
 numberButtons.forEach(button => button.addEventListener("click", () => {
