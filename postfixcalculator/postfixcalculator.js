@@ -1,6 +1,7 @@
 import { Stack } from './stack.js';
+
 //postfix calculator class, contains the methods for said calculator
-class PostfixCalculator {
+export class PostfixCalculator {
     constructor(previousOperandTextElement, currentOperandTextElement) {
         this.previousOperandTextElement = previousOperandTextElement;
         this.currentOperandTextElement = currentOperandTextElement;
@@ -49,7 +50,7 @@ class PostfixCalculator {
     //infix to postfix logic
     infixToPostfix() {
         const stack = new Stack();
-        this.postfixExpression = '';
+        this.postfixExpression = ''; //make array
         this.infixExpression = this.previousOperand;
         //still more to the input
         if (this.currentOperand !== '') {
@@ -78,7 +79,8 @@ class PostfixCalculator {
         })
         //"pop" remaining operators
         if (!stack.isEmpty()) {
-            Array.from(stack.printStack()).forEach(e => {
+            console.log(stack.printStack())
+            Array.from(stack.printStack()).forEach(() => {
                 this.postfixExpression += stack.pop();
             });
         }
@@ -104,7 +106,6 @@ class PostfixCalculator {
     postfixCompute() {
         const stack = new Stack();
         const postfixExpression = this.infixToPostfix();
-        console.log(postfixExpression)
         Array.from(postfixExpression).forEach(e => {
             if (isNaN(e)) {
                 const n1 = stack.pop();
@@ -135,38 +136,3 @@ class PostfixCalculator {
         this.previousOperandTextElement.innerHTML = this.previousOperand;
     }
 }
-const numberButtons = document.querySelectorAll("[data-number]");
-const operationButtons = document.querySelectorAll("[data-operation]");
-const equalsButton = document.querySelector("[data-equals]");
-const allClearButton = document.querySelector("[data-all-clear]");
-const deleteButton = document.querySelector("[data-delete]");
-const previousOperandTextElement = document.querySelector("[data-previous-operand]");
-const currentOperandTextElement = document.querySelector("[data-current-operand]");
-
-const calculator = new PostfixCalculator(previousOperandTextElement, currentOperandTextElement);
-
-//add event listeners for the buttons
-numberButtons.forEach(button => button.addEventListener("click", () => {
-    calculator.appendNumber(button.innerHTML);
-    calculator.updateDisplay();
-}));
-
-allClearButton.addEventListener("click", () => {
-    calculator.clear();
-    calculator.updateDisplay();
-});
-
-deleteButton.addEventListener("click", () => {
-    calculator.delete();
-    calculator.updateDisplay();
-});
-
-operationButtons.forEach(button => button.addEventListener("click", () => {
-    calculator.chooseOperation(button.innerHTML);
-    calculator.updateDisplay();
-}));
-
-equalsButton.addEventListener("click", () => {
-    calculator.postfixCompute();
-    calculator.updateDisplay();
-});
