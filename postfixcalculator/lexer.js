@@ -18,7 +18,7 @@ export class Lexer {
         })
 
         if (buildExpression.length !== 0) {
-            Array.from(buildExpression).forEach(remainingExp => analyzedArray.push(remainingExp)); //push whats remaining
+            analyzedArray.push(buildExpression); //push the remaining number
         }
         return analyzedArray;
 

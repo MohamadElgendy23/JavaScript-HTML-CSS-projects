@@ -51,14 +51,14 @@ export class PostfixCalculator {
     //infix to postfix logic
     infixToPostfix() {
         const stack = new Stack();
-        this.postfixExpression = []; 
+        this.postfixExpression = [];
         this.infixExpression = this.previousOperand;
         //still more to the input
         if (this.currentOperand !== '') {
             this.infixExpression += this.currentOperand;
         }
         const tokenizedArray = Lexer.analyze(this.infixExpression);
-        tokenizedArray.forEach(token => {
+        for (const token of tokenizedArray) {
             //token is not a number
             if (isNaN(token)) {
                 if (stack.isEmpty()) {
@@ -78,7 +78,7 @@ export class PostfixCalculator {
             else {
                 this.postfixExpression.push(token);
             }
-        })
+        }
         //"pop" remaining operators
         if (!stack.isEmpty()) {
             Array.from(stack.printStack()).forEach(() => {
