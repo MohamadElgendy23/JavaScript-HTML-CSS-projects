@@ -79,10 +79,7 @@ class PostfixCalculator {
         //"pop" remaining operators
         if (!stack.isEmpty()) {
             Array.from(stack.printStack()).forEach(e => {
-                //no commas
-                if (e !== ',') {
-                    this.postfixExpression += stack.pop();
-                }
+                this.postfixExpression += stack.pop();
             });
         }
         return this.postfixExpression;
@@ -103,12 +100,11 @@ class PostfixCalculator {
 
     }
 
-    //postfix algorithm for PEMDAS
+    //postfix computation algorithm for PEMDAS
     postfixCompute() {
         const stack = new Stack();
         const postfixExpression = this.infixToPostfix();
-        alert(postfixExpression)
-        //does incude a combination of '+'/'-' and '*'/'÷' => PEMDAS
+        console.log(postfixExpression)
         Array.from(postfixExpression).forEach(e => {
             if (isNaN(e)) {
                 const n1 = stack.pop();
@@ -139,8 +135,6 @@ class PostfixCalculator {
         this.previousOperandTextElement.innerHTML = this.previousOperand;
     }
 }
-
-
 const numberButtons = document.querySelectorAll("[data-number]");
 const operationButtons = document.querySelectorAll("[data-operation]");
 const equalsButton = document.querySelector("[data-equals]");
