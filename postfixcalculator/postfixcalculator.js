@@ -1,4 +1,5 @@
 import { Stack } from './stack.js';
+import { Lexer } from './lexer.js';
 
 //postfix calculator class, contains the methods for said calculator
 export class PostfixCalculator {
@@ -50,38 +51,39 @@ export class PostfixCalculator {
     //infix to postfix logic
     infixToPostfix() {
         const stack = new Stack();
-        this.postfixExpression = ''; //make array
+        this.postfixExpression = []; 
         this.infixExpression = this.previousOperand;
         //still more to the input
         if (this.currentOperand !== '') {
             this.infixExpression += this.currentOperand;
         }
-        Array.from(this.infixExpression).forEach(e => {
-            //treat '.' as if it was a number
-            if (isNaN(e) && e !== '.') {
+        const tokenizedArray = Lexer.analyze(this.infixExpression);
+        console.log(tokenizedArray)
+        tokenizedArray.forEach(token => {
+            //token is not a number
+            if (isNaN(token)) {
                 if (stack.isEmpty()) {
-                    stack.push(e);
+                    stack.push(token);
                 }
                 else {
                     //priority checking => * = 2, + = 1 => 2>1
-                    if (this.infixToPostfixPrecedence(e) > this.infixToPostfixPrecedence(stack.peek())) {
-                        stack.push(e);
+                    if (this.infixToPostfixPrecedence(token) > this.infixToPostfixPrecedence(stack.peek())) {
+                        stack.push(token);
                     }
                     else {
-                        this.postfixExpression += e;
+                        this.postfixExpression.push(token);
                     }
                 }
             }
-            //e is a number
+            //token is a number
             else {
-                this.postfixExpression += e;
+                this.postfixExpression.push(token);
             }
         })
         //"pop" remaining operators
         if (!stack.isEmpty()) {
-            console.log(stack.printStack())
             Array.from(stack.printStack()).forEach(() => {
-                this.postfixExpression += stack.pop();
+                this.postfixExpression.push(stack.pop());
             });
         }
         return this.postfixExpression;
@@ -106,7 +108,7 @@ export class PostfixCalculator {
     postfixCompute() {
         const stack = new Stack();
         const postfixExpression = this.infixToPostfix();
-        Array.from(postfixExpression).forEach(e => {
+        postfixExpression.forEach(e => {
             if (isNaN(e)) {
                 const n1 = stack.pop();
                 const n2 = stack.pop();
