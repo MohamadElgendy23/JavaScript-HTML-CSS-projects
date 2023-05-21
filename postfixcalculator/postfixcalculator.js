@@ -1,5 +1,6 @@
 import { Stack } from './stack.js';
 import { Lexer } from './lexer.js';
+import { Parser } from './parser.js';
 
 //postfix calculator class, contains the methods for said calculator
 export class PostfixCalculator {
@@ -85,6 +86,7 @@ export class PostfixCalculator {
                 this.postfixExpression.push(stack.pop());
             });
         }
+        console.log(this.postfixExpression)
         return this.postfixExpression;
     }
 
