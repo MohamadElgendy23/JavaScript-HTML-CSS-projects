@@ -76,13 +76,14 @@ operationButtons.forEach(button => button.addEventListener("click", () => {
     updateDisplay();
 }));
 
+let infixExpression  = ''; //user input
 equalsButton.addEventListener("click", () => {
     //get input
-    Parser.infixExpression = calculator.previousOperand;
+    infixExpression = calculator.previousOperand;
     //still more to the input
     if (calculator.currentOperand !== '') {
-        Parser.infixExpression += calculator.currentOperand;
+        infixExpression += calculator.currentOperand;
     }
-    compute(Parser.infixExpression);
+    compute(infixExpression);
     updateDisplay();
 });
