@@ -18,8 +18,10 @@ export class Parser {
                     if (this.infixToPostfixPrecedence(token) > this.infixToPostfixPrecedence(stack.peek())) {
                         stack.push(token);
                     }
+                    //stack: [*], token: +, *>+ => pop * then push +
                     else {
-                        postfixExpression.push(token);
+                        postfixExpression.push(stack.pop());
+                        stack.push(token);
                     }
                 }
             }

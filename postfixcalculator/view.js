@@ -17,6 +17,7 @@ const calculator = new PostfixCalculator(previousOperandTextElement, currentOper
 function compute(input) {
     const tokens = Lexer.analyze(input);
     const postfixTree = Parser.infixToPostfix(tokens);
+    console.log(postfixTree);
     calculator.currentOperand = calculator.postfixCompute(postfixTree);
     calculator.previousOperand = '';
 }
