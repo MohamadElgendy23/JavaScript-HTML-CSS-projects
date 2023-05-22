@@ -9,30 +9,37 @@ const deleteButton = document.querySelector("[data-delete]");
 const previousOperandTextElement = document.querySelector("[data-previous-operand]");
 const currentOperandTextElement = document.querySelector("[data-current-operand]");
 
-export const calculator = new PostfixCalculator(previousOperandTextElement, currentOperandTextElement);
+PostfixCalculator.instantiate(previousOperandTextElement, currentOperandTextElement); //basically "create" the calculator
+
+//uses all 3 classes to compute the result of the postfix expression
+function compute() {
+    const tokens = Lexer.analyze(input);
+    const postfixTree = PostfixCalculator.infixToPostfix(tokens);
+    PostfixCalculator.postfixCompute(postfixTree);
+}
 
 //add event listeners for the buttons
 numberButtons.forEach(button => button.addEventListener("click", () => {
-    calculator.appendNumber(button.innerHTML);
-    calculator.updateDisplay();
+    PostfixCalculator.appendNumber(button.innerHTML);
+    PostfixCalculator.updateDisplay();
 }));
 
 allClearButton.addEventListener("click", () => {
-    calculator.clear();
-    calculator.updateDisplay();
+    PostfixCalculator.clear();
+    PostfixCalculator.updateDisplay();
 });
 
 deleteButton.addEventListener("click", () => {
-    calculator.delete();
-    calculator.updateDisplay();
+    PostfixCalculator.delete();
+    PostfixCalculator.updateDisplay();
 });
 
 operationButtons.forEach(button => button.addEventListener("click", () => {
-    calculator.chooseOperation(button.innerHTML);
-    calculator.updateDisplay();
+    PostfixCalculator.chooseOperation(button.innerHTML);
+    PostfixCalculator.updateDisplay();
 }));
 
 equalsButton.addEventListener("click", () => {
-    calculator.computeResult();
-    calculator.updateDisplay();
+    compute();
+    PostfixCalculator.updateDisplay();
 });

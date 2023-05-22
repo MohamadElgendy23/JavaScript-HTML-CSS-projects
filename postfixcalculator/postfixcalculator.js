@@ -2,23 +2,23 @@ import { Parser } from './parser.js';
 
 //postfix calculator class, contains the methods for said calculator
 export class PostfixCalculator {
-    constructor(previousOperandTextElement, currentOperandTextElement) {
-        this.previousOperandTextElement = previousOperandTextElement;
-        this.currentOperandTextElement = currentOperandTextElement;
-        this.clear();
+    static instantiate(previousOperandTextElement, currentOperandTextElement) {
+        const previousOperandTextElement = previousOperandTextElement;
+        const currentOperandTextElement = currentOperandTextElement;
+        clear();
     }
 
-    clear() {
+    static clear() {
         this.currentOperand = '';
         this.previousOperand = '';
         this.operation = null;
     }
 
-    delete() {
+    static delete() {
         this.currentOperand = this.currentOperand.substring(0, this.currentOperand.length - 1);
     }
 
-    appendNumber(number) {
+    static appendNumber(number) {
         //more than 1 '.'
         if (number === '.' && this.currentOperand.includes('.')) {
             return;
@@ -36,23 +36,14 @@ export class PostfixCalculator {
         }
     }
 
-    chooseOperation(operation) {
-        //if we have for example 2+3+3 => (2+3)+3 = 5+3 = 8
-        /*  if (this.currentOperand !== '' && this.previousOperand !== '') {
-             this.compute();
-         } */
+    static chooseOperation(operation) {
         this.operation = operation;
         this.previousOperand += (this.currentOperand + this.operation);
         this.currentOperand = '';
 
     }
-
-    //listener for the equals button => handles computing the final result using the Lexer and Parser
-    computeResult() {
-        Parser.postfixCompute();
-    }
     //update display of output
-    updateDisplay() {
+    static updateDisplay() {
         this.currentOperandTextElement.innerHTML = this.currentOperand;
         this.previousOperandTextElement.innerHTML = this.previousOperand;
     }

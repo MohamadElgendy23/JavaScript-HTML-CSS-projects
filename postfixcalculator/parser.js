@@ -1,14 +1,13 @@
 import { Lexer } from './lexer.js';
 import { Stack } from './stack.js';
-import { calculator } from './view.js';
 
 //this class contains parser logic for the postfix calculator. it is mainly used for infix => postfix
 export class Parser {
-    //infix to postfix logic => converts the regular (infix) expression from the Lexer to the appropriate postfix expression
-    static infixToPostfix() {
+    //infix to postfix logic => converts the regular (infix) expression (tokens variable) from the Lexer to the appropriate postfix expression
+    static infixToPostfix(tokens) {
         const stack = new Stack();
-        this.postfixExpression = []; //shouldn't have 'this' but its fine for now (format reasons)
-        this.infixExpression = this.previousOperand;
+        const postfixExpression = [];
+        let infixExpression = previousOperand;
         //still more to the input
         if (calculator.currentOperand !== '') {
             this.infixExpression += calculator.currentOperand;
