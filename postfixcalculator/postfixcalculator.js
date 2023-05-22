@@ -1,20 +1,20 @@
 import { Stack } from './stack.js';
 //postfix calculator class, contains the methods for said calculator
 export class PostfixCalculator {
-    static instantiate(previousOperandTextElement, currentOperandTextElement) {
+    constructor(previousOperandTextElement, currentOperandTextElement) {
         this.previousOperandTextElement = previousOperandTextElement;
         this.currentOperandTextElement = currentOperandTextElement;
         this.clear();
     }
 
     //clears calculator output 
-    static clear() {
+    clear() {
         this.currentOperand = '';
         this.previousOperand = '';
         this.operation = null;
     }
     //postfix computation algorithm for PEMDAS
-    static postfixCompute(postfixTree) {
+    postfixCompute(postfixTree) {
         const stack = new Stack();
         const postfixExpression = postfixTree;
         postfixExpression.forEach(e => {

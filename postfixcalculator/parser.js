@@ -5,7 +5,7 @@ export class Parser {
     //infix to postfix logic => converts the regular (infix) expression (tokens variable) from the Lexer to the appropriate postfix expression
     static infixToPostfix(tokens) {
         const stack = new Stack();
-        this.postfixExpression = [];
+        const postfixExpression = [];
         const tokenizedArray = [...tokens];
         for (const token of tokenizedArray) {
             //token is not a number
@@ -19,22 +19,22 @@ export class Parser {
                         stack.push(token);
                     }
                     else {
-                        this.postfixExpression.push(token);
+                        postfixExpression.push(token);
                     }
                 }
             }
             //token is a number
             else {
-                this.postfixExpression.push(token);
+                postfixExpression.push(token);
             }
         }
         //"pop" remaining operators
         if (!stack.isEmpty()) {
             stack.getItems().forEach(() => {
-                this.postfixExpression.push(stack.pop());
+                postfixExpression.push(stack.pop());
             });
         }
-        return this.postfixExpression;
+        return postfixExpression;
     }
     //what operator has highest precedence -- helper method
     static infixToPostfixPrecedence(op) {
