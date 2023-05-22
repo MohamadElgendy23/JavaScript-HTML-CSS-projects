@@ -1,4 +1,3 @@
-import { Lexer } from './lexer.js';
 import { Stack } from './stack.js';
 
 //this class contains parser logic for the postfix calculator. it is mainly used for infix => postfix
@@ -6,13 +5,13 @@ export class Parser {
     //infix to postfix logic => converts the regular (infix) expression (tokens variable) from the Lexer to the appropriate postfix expression
     static infixToPostfix(tokens) {
         const stack = new Stack();
-        const postfixExpression = [];
-        let infixExpression = previousOperand;
+        this.postfixExpression = [];
+        this.infixExpression = previousOperand;
         //still more to the input
-        if (calculator.currentOperand !== '') {
-            this.infixExpression += calculator.currentOperand;
+        if (this.currentOperand !== '') {
+            this.infixExpression += this.currentOperand;
         }
-        const tokenizedArray = Lexer.analyze(this.infixExpression);
+        const tokenizedArray = [...tokens];
         for (const token of tokenizedArray) {
             //token is not a number
             if (isNaN(token)) {
@@ -42,7 +41,6 @@ export class Parser {
         }
         return this.postfixExpression;
     }
-
     //what operator has highest precedence -- helper method
     static infixToPostfixPrecedence(op) {
         switch (op) {
@@ -56,34 +54,5 @@ export class Parser {
                 return 'Invalid Operator';
         }
 
-    }
-
-    //postfix computation algorithm for PEMDAS
-    static postfixCompute() {
-        const stack = new Stack();
-        const postfixExpression = this.infixToPostfix();
-        postfixExpression.forEach(e => {
-            if (isNaN(e)) {
-                const n1 = stack.pop();
-                const n2 = stack.pop();
-                if (e === '+') {
-                    stack.push(+n1 + +n2);
-                }
-                else if (e === '-') {
-                    stack.push(n2 - n1);
-                }
-                else if (e === '*') {
-                    stack.push(n1 * n2);
-                }
-                else {
-                    stack.push(1 / (n1 / n2));
-                }
-            }
-            else {
-                stack.push(e);
-            }
-        });
-        calculator.currentOperand = stack.peek();
-        calculator.previousOperand = '';
     }
 }

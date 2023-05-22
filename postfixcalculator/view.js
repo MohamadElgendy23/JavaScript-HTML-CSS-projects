@@ -11,35 +11,70 @@ const currentOperandTextElement = document.querySelector("[data-current-operand]
 
 PostfixCalculator.instantiate(previousOperandTextElement, currentOperandTextElement); //basically "create" the calculator
 
-//uses all 3 classes to compute the result of the postfix expression
+//uses all 3 classes to compute the result of the postfix expression. "like a main method"
 function compute() {
     const tokens = Lexer.analyze(input);
     const postfixTree = PostfixCalculator.infixToPostfix(tokens);
-    PostfixCalculator.postfixCompute(postfixTree);
+    PostfixCalculator.currentOperand = PostfixCalculator.postfixCompute(postfixTree);
+    PostfixCalculator.previousOperand = '';
 }
+function deleteNumber() {
+    PostfixCalculator.currentOperand = PostfixCalculator.currentOperand.substring(0, PostfixCalculator.currentOperand.length - 1);
+}
+
+function appendNumber(number) {
+    //more than 1 '.'
+    if (number === '.' && PostfixCalculator.currentOperand.includes('.')) {
+        return;
+    }
+    //logic for decimal numbers
+    if (number === '.') {
+        //add first
+        PostfixCalculator.currentOperand += number;
+        //take out commas
+        PostfixCalculator.currentOperand.replaceAll(',', '');
+    }
+    // not a '.'
+    else {
+        PostfixCalculator.currentOperand += number;
+    }
+}
+
+function chooseOperation(operation) {
+    PostfixCalculator.operation = operation;
+    PostfixCalculator.previousOperand += (PostfixCalculator.currentOperand + PostfixCalculator.operation);
+    PostfixCalculator.currentOperand = '';
+
+}
+//update display of output
+function updateDisplay() {
+    PostfixCalculator.currentOperandTextElement.innerHTML = PostfixCalculator.currentOperand;
+    PostfixCalculator.previousOperandTextElement.innerHTML = PostfixCalculator.previousOperand;
+}
+
 
 //add event listeners for the buttons
 numberButtons.forEach(button => button.addEventListener("click", () => {
-    PostfixCalculator.appendNumber(button.innerHTML);
-    PostfixCalculator.updateDisplay();
+    appendNumber(button.innerHTML);
+    updateDisplay();
 }));
 
 allClearButton.addEventListener("click", () => {
     PostfixCalculator.clear();
-    PostfixCalculator.updateDisplay();
+    updateDisplay();
 });
 
 deleteButton.addEventListener("click", () => {
-    PostfixCalculator.delete();
-    PostfixCalculator.updateDisplay();
+    deleteNumber();
+    updateDisplay();
 });
 
 operationButtons.forEach(button => button.addEventListener("click", () => {
-    PostfixCalculator.chooseOperation(button.innerHTML);
-    PostfixCalculator.updateDisplay();
+    chooseOperation(button.innerHTML);
+    updateDisplay();
 }));
 
 equalsButton.addEventListener("click", () => {
     compute();
-    PostfixCalculator.updateDisplay();
+    updateDisplay();
 });

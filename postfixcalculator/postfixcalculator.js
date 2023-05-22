@@ -1,5 +1,4 @@
-import { Parser } from './parser.js';
-
+import { Stack } from './stack.js';
 //postfix calculator class, contains the methods for said calculator
 export class PostfixCalculator {
     static instantiate(previousOperandTextElement, currentOperandTextElement) {
@@ -13,38 +12,31 @@ export class PostfixCalculator {
         this.previousOperand = '';
         this.operation = null;
     }
-
-    static delete() {
-        this.currentOperand = this.currentOperand.substring(0, this.currentOperand.length - 1);
-    }
-
-    static appendNumber(number) {
-        //more than 1 '.'
-        if (number === '.' && this.currentOperand.includes('.')) {
-            return;
-        }
-        //logic for decimal numbers
-        if (number === '.') {
-            //add first
-            this.currentOperand += number;
-            //take out commas
-            this.currentOperand.replaceAll(',', '');
-        }
-        // not a '.'
-        else {
-            this.currentOperand += number;
-        }
-    }
-
-    static chooseOperation(operation) {
-        this.operation = operation;
-        this.previousOperand += (this.currentOperand + this.operation);
-        this.currentOperand = '';
-
-    }
-    //update display of output
-    static updateDisplay() {
-        this.currentOperandTextElement.innerHTML = this.currentOperand;
-        this.previousOperandTextElement.innerHTML = this.previousOperand;
+    //postfix computation algorithm for PEMDAS
+    static postfixCompute(postfixTree) {
+        const stack = new Stack();
+        const postfixExpression = postfixTree;
+        postfixExpression.forEach(e => {
+            if (isNaN(e)) {
+                const n1 = stack.pop();
+                const n2 = stack.pop();
+                if (e === '+') {
+                    stack.push(+n1 + +n2);
+                }
+                else if (e === '-') {
+                    stack.push(n2 - n1);
+                }
+                else if (e === '*') {
+                    stack.push(n1 * n2);
+                }
+                else {
+                    stack.push(1 / (n1 / n2));
+                }
+            }
+            else {
+                stack.push(e);
+            }
+        });
+        return stack.peek();
     }
 }
