@@ -2,8 +2,8 @@ import { Stack } from './stack.js';
 //postfix calculator class, contains the methods for said calculator
 export class PostfixCalculator {
     static instantiate(previousOperandTextElement, currentOperandTextElement) {
-        const previousOperandTextElement = previousOperandTextElement;
-        const currentOperandTextElement = currentOperandTextElement;
+        this.previousOperandTextElement = previousOperandTextElement;
+        this.currentOperandTextElement = currentOperandTextElement;
         this.clear();
     }
 
