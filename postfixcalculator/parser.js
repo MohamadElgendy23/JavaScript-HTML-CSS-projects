@@ -7,7 +7,7 @@ export class Parser {
     //infix to postfix logic => converts the regular (infix) expression from the Lexer to the appropriate postfix expression
     static infixToPostfix() {
         const stack = new Stack();
-        this.postfixExpression = [];
+        this.postfixExpression = []; //shouldn't have 'this' but its fine for now (format reasons)
         this.infixExpression = this.previousOperand;
         //still more to the input
         if (calculator.currentOperand !== '') {
