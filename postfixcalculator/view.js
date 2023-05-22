@@ -76,7 +76,7 @@ operationButtons.forEach(button => button.addEventListener("click", () => {
     updateDisplay();
 }));
 
-let infixExpression  = ''; //user input
+let infixExpression = ''; //user input
 equalsButton.addEventListener("click", () => {
     //get input
     infixExpression = calculator.previousOperand;
