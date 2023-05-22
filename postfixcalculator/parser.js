@@ -1,5 +1,4 @@
 import { Stack } from './stack.js';
-import { PostfixCalculator } from "./postfixcalculator.js";
 
 //this class contains parser logic for the postfix calculator. it is mainly used for infix => postfix
 export class Parser {
@@ -7,11 +6,6 @@ export class Parser {
     static infixToPostfix(tokens) {
         const stack = new Stack();
         this.postfixExpression = [];
-        this.infixExpression = previousOperand;
-        //still more to the input
-        if (PostfixCalculator.currentOperand !== '') {
-            this.infixExpression += this.currentOperand;
-        }
         const tokenizedArray = [...tokens];
         for (const token of tokenizedArray) {
             //token is not a number

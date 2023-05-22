@@ -7,6 +7,7 @@ export class PostfixCalculator {
         this.clear();
     }
 
+    //clears calculator output 
     static clear() {
         this.currentOperand = '';
         this.previousOperand = '';

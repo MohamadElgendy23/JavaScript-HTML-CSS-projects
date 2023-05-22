@@ -2,7 +2,7 @@ import { PostfixCalculator } from "./postfixcalculator.js";
 import { Parser } from "./parser.js";
 import { Lexer } from "./lexer.js";
 
-//contains view code
+//contains view code => what user inputs and sees
 const numberButtons = document.querySelectorAll("[data-number]");
 const operationButtons = document.querySelectorAll("[data-operation]");
 const equalsButton = document.querySelector("[data-equals]");
@@ -14,7 +14,7 @@ const currentOperandTextElement = document.querySelector("[data-current-operand]
 PostfixCalculator.instantiate(previousOperandTextElement, currentOperandTextElement); //basically "create" the calculator
 
 //uses all 3 classes to compute the result of the postfix expression. "like a main method"
-function compute() {
+function compute(input) {
     const tokens = Lexer.analyze(input);
     const postfixTree = Parser.infixToPostfix(tokens);
     PostfixCalculator.currentOperand = PostfixCalculator.postfixCompute(postfixTree);
@@ -77,6 +77,12 @@ operationButtons.forEach(button => button.addEventListener("click", () => {
 }));
 
 equalsButton.addEventListener("click", () => {
-    compute();
+    //get input
+    Parser.infixExpression = PostfixCalculator.previousOperand;
+    //still more to the input
+    if (PostfixCalculator.currentOperand !== '') {
+        Parser.infixExpression += PostfixCalculator.currentOperand;
+    }
+    compute(Parser.infixExpression);
     updateDisplay();
 });
