@@ -1,4 +1,6 @@
 import { PostfixCalculator } from "./postfixcalculator.js";
+import { Parser } from "./parser.js";
+import { Lexer } from "./lexer.js";
 
 //contains view code
 const numberButtons = document.querySelectorAll("[data-number]");
@@ -14,7 +16,7 @@ PostfixCalculator.instantiate(previousOperandTextElement, currentOperandTextElem
 //uses all 3 classes to compute the result of the postfix expression. "like a main method"
 function compute() {
     const tokens = Lexer.analyze(input);
-    const postfixTree = PostfixCalculator.infixToPostfix(tokens);
+    const postfixTree = Parser.infixToPostfix(tokens);
     PostfixCalculator.currentOperand = PostfixCalculator.postfixCompute(postfixTree);
     PostfixCalculator.previousOperand = '';
 }

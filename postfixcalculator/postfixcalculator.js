@@ -4,7 +4,7 @@ export class PostfixCalculator {
     static instantiate(previousOperandTextElement, currentOperandTextElement) {
         const previousOperandTextElement = previousOperandTextElement;
         const currentOperandTextElement = currentOperandTextElement;
-        clear();
+        this.clear();
     }
 
     static clear() {
