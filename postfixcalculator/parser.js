@@ -18,7 +18,7 @@ export class Parser {
                     if (this.infixToPostfixPrecedence(token) > this.infixToPostfixPrecedence(stack.peek())) {
                         stack.push(token);
                     }
-                    //stack: [*], token: +, *>+ => pop * then push +
+                    //stack: [*], token: +, *>+ => pop higher precedence * and push into expression, then push lower precedence + into stack
                     else {
                         postfixExpression.push(stack.pop());
                         stack.push(token);
