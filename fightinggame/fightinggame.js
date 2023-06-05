@@ -1,3 +1,4 @@
+//create the game canvas that will display the fighting game
 function createGameCanvas() {
   const gameCanvas = document.querySelector("canvas"); //the game canvas
   const gameContext = gameCanvas.getContext("2d"); //the canvas context
@@ -26,3 +27,6 @@ function createGameCanvas() {
 }
 
 createGameCanvas();
+
+
+
