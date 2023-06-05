@@ -1,4 +1,4 @@
-//create the game canvas that will display the fighting game
+//creates the game canvas that will display the fighting game
 function createGameCanvas() {
   const gameCanvas = document.querySelector("canvas"); //the game canvas
   const gameContext = gameCanvas.getContext("2d"); //the canvas context
@@ -20,13 +20,20 @@ function createGameCanvas() {
   // Display custom canvas
   const redrawCanvas = () => {
     gameContext.fillStyle = "Black";
-    gameContext.fillRect(0, 0, gameCanvas.width, gameCanvas.height);
+    gameContext.fillRect(0, 0, gameCanvas.width, gameCanvas.height); //start at top left of the canvas and fill up the whole canvas
   };
 
   initialize();
 }
-
 createGameCanvas();
 
+//represents the movable items (characters) in the game => characters = player and enemy
+class Sprite {
+  constructor(position) {
+    this.positon = position;
+  }
+}
 
+const player = new Sprite({ x: 0, y: 0 });
 
+console.log(player);
