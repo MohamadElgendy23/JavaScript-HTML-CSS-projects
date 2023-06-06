@@ -1,30 +1,14 @@
 const gameCanvas = document.querySelector("canvas"); //the game canvas
 const gameCanvasContext = gameCanvas.getContext("2d"); //the canvas context used to draw things on the canvas
-
 //creates the game canvas that will display the fighting game
 function createGameCanvas() {
-  function initialize() {
-    // Register an event listener to call the resizeCanvas() function
-    // each time the window is resized.
-    window.addEventListener("resize", resizeCanvas, false);
-    // Draw canvas for the first time.
-    resizeCanvas();
-  }
-  // Runs each time the DOM window resize event fires.
-  // Resets the canvas dimensions to match window dimensions and redraws.
-  const resizeCanvas = () => {
-    gameCanvas.width = 1024; //not using css here because with canvas dimensions it wasnt correct
-    gameCanvas.height = 576;
-    redrawCanvas();
-  };
+  //NOTE: not using css here because with canvas dimensions it wasnt correct
+  gameCanvas.width = 1500;
+  gameCanvas.height = 900;
 
-  // Display custom canvas
-  const redrawCanvas = () => {
-    gameCanvasContext.fillStyle = "Black";
-    gameCanvasContext.fillRect(0, 0, gameCanvas.width, gameCanvas.height); //start at top left of the canvas and fill up the whole canvas
-  };
-
-  initialize();
+  //background is black
+  gameCanvasContext.fillStyle = "Black";
+  gameCanvasContext.fillRect(0, 0, gameCanvas.width, gameCanvas.height);
 }
 createGameCanvas(); //create!
 
@@ -52,8 +36,8 @@ class Sprite {
     this.draw();
     this.position.y += this.velocity.y; //move downward at specifc velocity
     //let sprite stop when it hits floor
-    if (this.position.y + this.height === 824) {
-      this.velocity.y = 0;
+    if (this.position.y + this.height >= gameCanvas.height) {
+      this.velocity.y = 0; //stop!
     }
   }
 }
