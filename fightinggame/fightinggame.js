@@ -24,8 +24,8 @@ class Sprite {
   //update the sprites in the canvas (used in the update loop)
   update() {
     this.draw();
-    this.position.y += this.velocity.y; //move downward at specifc velocity
-    this.position.x += this.velocity.x;
+    this.position.x += this.velocity.x; //move left/right at specific velocity
+    this.position.y += this.velocity.y; //move up/down at specifc velocity
     //let sprite stop when it hits floor
     if (this.position.y + this.height + this.velocity.y >= gameCanvas.height) {
       this.velocity.y = 0; //stop!
