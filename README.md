@@ -24,5 +24,5 @@ ____________________________________________
   > Time limit of each play = 5 seconds
 
 ______________________________________________
->Fighting Game:
-  > Platform based fighting game. 2 players. Win if you kill the enemy!
+>Fighting Game: (Still in progress)
+  > Platform based fighting game. 2 players. Win if you kill the enemy! 
