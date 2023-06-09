@@ -4,6 +4,7 @@ This repository contains personal projects for learning and improving skills in 
 
 Projects:
 > Postfix Calculator:
+
   > Nice looking UI with buttons handled by event listeners 
 
   > Follows PEMDAS computation
