@@ -5,7 +5,9 @@ This repository contains personal projects for learning and improving skills in 
 Projects:
 > Postfix Calculator:
   > Nice looking UI with buttons handled by event listeners 
+
   > Follows PEMDAS computation
+ 
   > Utilizes clean and professional MVC Architecture by the use of Lexer, Parser, and View classes
 
   > UPDATE 1: PEMDAS being worked on based on the postfix tree algorithm. Infix -> Postfix first!
