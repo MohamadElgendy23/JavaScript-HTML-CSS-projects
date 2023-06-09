@@ -23,6 +23,4 @@ ____________________________________________
   > Computer player has randomized selections based on a random generated seed (index 0-8 => 9 squares)
   > Time limit of each play = 5 seconds
 
-______________________________________________
->Fighting Game: (Still in progress)
-  > Platform based fighting game. 2 players. Win if you kill the enemy! 
+
