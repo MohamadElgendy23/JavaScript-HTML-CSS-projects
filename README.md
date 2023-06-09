@@ -20,6 +20,6 @@ Projects:
 ____________________________________________
 >Tic Tac Toe 2:
 
-  > Description: Multiplayer 3x3 TTT game. Computer player has randomized selections based on a random generated seed (index 0-8 => 9 squares). Time limit of each play = 5 seconds
+  > Description: Multiplayer 3x3 TTT game. Computer player has randomized selections based on a random generated seed (index 0-8 => 9 squares). Time limit of each play = 5 seconds.
 
 
