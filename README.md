@@ -1,4 +1,4 @@
-# JavaScript/HTML/CSS projects
+# JavaScript, HTML, and CSS projects
 
 This repository contains personal projects for learning and improving skills in JavaScript, HTML and CSS. Feel free to download and run these projects! :)
 
