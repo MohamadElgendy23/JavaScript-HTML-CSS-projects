@@ -3,7 +3,7 @@
 This repository contains personal projects for learning and improving skills in JavaScript, HTML and CSS. Feel free to download and run these projects! :)
 
 Projects:
-> Postfix Calculator:
+> Advanced Postfix Calculator:
 
   > Description: Nice looking UI with buttons handled by event listeners. Follows PEMDAS computation. Utilizes clean and professional MVC Architecture by the use of Lexer, Parser, and View classes.
 
