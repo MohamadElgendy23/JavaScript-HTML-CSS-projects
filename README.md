@@ -18,7 +18,7 @@ Projects:
   > UPDATE 5: After some good amount of time, I finished. View has a method called compute(input) that takes in input (user input) and calls all 3 created classes (PostfixCalculator, Lexer, Parser) in order to output the final result. As mentioned before, organized on an MVC architecture and the code is all documented clearly.
 
 ____________________________________________
-> Tic Tac Toe 2 Player Game:
+> Tic Tac Toe 2 Player Game Randomized:
 
   > Description: Multiplayer 3x3 TTT game. Computer player has randomized selections based on a random generated seed (index 0-8 => 9 squares). Time limit of each play = 5 seconds.
 
