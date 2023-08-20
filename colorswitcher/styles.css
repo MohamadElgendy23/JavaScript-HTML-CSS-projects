@@ -64,8 +64,14 @@ body {
     font-size: xx-large;
 }
 
-.bg-color-container > input {
+.inner-container > input {
     width: 275px;
+    font-size: medium;
+    background-color: bisque;
+}
+
+.inner-container > button {
+    width: 120px;
     font-size: medium;
     background-color: bisque;
 }
@@ -87,8 +93,16 @@ body {
     width: 900px;
 }
 
-.fg-color-container > input {
+.inner-container > input {
     width: 275px;
     font-size: medium;
     background-color: bisque;
 }
+
+.inner-container > button {
+    margin-left: 10px;
+    width: 120px;
+    font-size: medium;
+    background-color: lightcoral;
+}
+

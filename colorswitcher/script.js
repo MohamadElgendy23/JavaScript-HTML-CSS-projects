@@ -1,7 +1,6 @@
 // useful variables
 const dropDownButton = document.getElementById("dropdown-button");
 const dropDownOptions = document.getElementById("dropdown-options");
-const optionButtons = dropDownOptions.children;
 
 const backgroundColorInputContainer = document.querySelector(
   ".bg-color-container"
@@ -20,7 +19,7 @@ dropDownButton.addEventListener("click", () => {
     : (dropDownOptions.style.display = "flex");
 });
 
-// when user clicks one of the options, change the html appropriately
+// when user clicks one of the options, change content appropriately
 dropDownOptions.addEventListener("click", (event) => {
   // "Name" option
   if (event.target.innerText === "Name" && currOption !== "Name") {
@@ -47,3 +46,5 @@ dropDownOptions.addEventListener("click", (event) => {
       "Select A Foreground Color";
   }
 });
+
+// 
