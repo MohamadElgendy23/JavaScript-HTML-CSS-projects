@@ -28,7 +28,7 @@ body {
 }
 
 .dropdown-options{
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -57,7 +57,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    left: 40.5%;
+    left: 40%;
     top: 15%;
     gap: 10px;
     font-size: xx-large;
