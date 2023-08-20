@@ -3,7 +3,7 @@
 This repository contains personal projects for learning and improving skills in JavaScript, HTML and CSS. Feel free to download and run these projects! :)
 
 Projects:
-> Advanced Postfix Calculator:
+1) Advanced Postfix Calculator:
 
   > Description: Nice looking UI with buttons handled by event listeners. Follows PEMDAS computation. Utilizes clean and professional MVC Architecture by the use of Lexer, Parser, and View classes.
 
@@ -17,13 +17,8 @@ Projects:
   
   > UPDATE 5: After some good amount of time, I finished. View has a method called compute(input) that takes in input (user input) and calls all 3 created classes (PostfixCalculator, Lexer, Parser) in order to output the final result. As mentioned before, organized on an MVC architecture and the code is all documented clearly.
 
-____________________________________________
-> Tic Tac Toe 2 Player Game Randomized:
-
-  > Description: Multiplayer 3x3 TTT game. Computer player has randomized selections based on a random generated seed (index 0-8 => 9 squares). Time limit of each play = 5 seconds.
-
-____________________________________________
-> Color Switcher (DIY Design App):
+_______________________________________________________________________________________________________________
+2) Color Switcher (DIY Design App):
 
   > Description: App where users can change the color of the background and the foreground to any color of their choosing (this app is like a DIY app). The 3 options given to the user are: 
         1) Name: User enters a color by its name (orange, blue, etc) and the colors get changed to that 
