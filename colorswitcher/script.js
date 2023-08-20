@@ -44,13 +44,18 @@ dropDownOptions.addEventListener("click", (event) => {
   // "Palette" option
   if (event.target.innerText === "Palette" && currOption !== "Palette") {
     currOption = "Palette";
+
     backgroundColorInputContainer.children[0].innerText =
       "Select A Background Color";
+
+    // replace the div containing the input and button from 2 previous modes to the div containing the palette (for background)
     backgroundColorInputContainer.children[1].style.display = "none";
     document.querySelector(".bg-color-palette").style.display = "flex";
 
     foregroundColorInputContainer.children[0].innerText =
       "Select A Foreground Color";
+
+    // same as above but for foreground
     foregroundColorInputContainer.children[1].style.display = "none";
     document.querySelector(".fg-color-palette").style.display = "flex";
   }
@@ -61,7 +66,10 @@ addEventListener("change", (event) => {
   if (event.target.id === "input-bg-color") {
     currBackgroundColor = event.target.value;
   }
-  if (event.target.id === "input-fg-color") {
+  if (
+    event.target.id === "input-fg-color" &&
+    CSS.supports("color", event.target.value)
+  ) {
     currForegroundColor = event.target.value;
   }
 });
