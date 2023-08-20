@@ -1,0 +1,43 @@
+body {
+    background-color: azure;
+}
+
+.nav-container {
+    padding-left: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: lightcoral;
+}
+
+.dropdown-container{
+    float: right;
+    position: relative;
+    bottom: 70px;
+    width: 110px;
+}
+
+.dropdown-container > button {
+    width: 100px;
+    height: 30px;
+    background-color: skyblue;
+    text-transform: uppercase;
+
+}
+
+.dropdown-options{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid black;
+    padding-bottom: 5px;
+    width: 100px;
+    background-color: lightskyblue;
+}
+
+.dropdown-options > button{
+    margin-top: 5px;
+    width: 65px;
+    text-align: center;
+    background-color: aquamarine;
+    font-weight: bold;
+}
