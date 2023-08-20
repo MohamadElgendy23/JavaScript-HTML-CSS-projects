@@ -26,7 +26,6 @@ ____________________________________________
 > Color Switcher
 
   > Description: App where users can change the color of the background to any color of their choosing. The 3 options given to the user are:
-
       1) Normal: User enters a color by their name (orange, blue, etc) and the background color gets changed to that
       2) Hex: User enters a color by their hex code and the background color gets chaged to that
       3) Selector: User selects a color instead of entering it. This is done by a color palette
