@@ -51,7 +51,25 @@ body {
     cursor: pointer;
 }
 
-.decide-color-container {
+.bg-color-container {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    left: 40.5%;
+    top: 15%;
+    gap: 10px;
+    font-size: xx-large;
+}
+
+.bg-color-container > input {
+    width: 275px;
+    font-size: medium;
+    background-color: bisque;
+}
+
+.fg-color-container {
     position: absolute;
     display: flex;
     align-items: center;
@@ -59,9 +77,17 @@ body {
     flex-direction: column;
     left: 50%;
     top: 50%;
+    transform: translate(-50%, -50%);
     gap: 10px;
     font-size:xx-large;
     background-color: aqua;
-    height: 400px;
-    width: 800px;
+    border: 1px solid black;
+    height: 500px;
+    width: 900px;
+}
+
+.fg-color-container > input {
+    width: 275px;
+    font-size: medium;
+    background-color: bisque;
 }
