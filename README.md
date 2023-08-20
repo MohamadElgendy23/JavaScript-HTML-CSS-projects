@@ -18,8 +18,16 @@ Projects:
   > UPDATE 5: After some good amount of time, I finished. View has a method called compute(input) that takes in input (user input) and calls all 3 created classes (PostfixCalculator, Lexer, Parser) in order to output the final result. As mentioned before, organized on an MVC architecture and the code is all documented clearly.
 
 ____________________________________________
->Tic Tac Toe 2 Player Game:
+> Tic Tac Toe 2 Player Game:
 
   > Description: Multiplayer 3x3 TTT game. Computer player has randomized selections based on a random generated seed (index 0-8 => 9 squares). Time limit of each play = 5 seconds.
+
+____________________________________________
+> Color Switcher
+
+  > Description: App where users can change the color of the background to any color of their choosing. The 3 options given to the user are: 
+        1) Normal: User enters a color by their name (orange, blue, etc) and the background color gets changed to that
+        2) Hex: User enters a color by their hex code and the background color gets chaged to that
+        3) Palette: User selects a color instead of entering it. This is done by a color palette
 
 
