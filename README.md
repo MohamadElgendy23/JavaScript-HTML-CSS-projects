@@ -2,7 +2,7 @@
 
 This repository contains fully unique personal projects for learning and improving skills in JavaScript, HTML and CSS. Feel free to download and run these projects! :)
 
-NOTE: To download and run, simply clone the repo and then select the project you want to run. Should be able to run on any browser, but I recommend using Chrome for better experience. 
+NOTE: To download and run, simply clone the repo and then select the project you want to run. Should be able to run on any browser, but I recommend using Chrome for a better experience. 
 
 Projects:
 1) Advanced Postfix Calculator:
