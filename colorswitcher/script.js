@@ -28,6 +28,7 @@ dropDownOptions.addEventListener("click", (event) => {
   // "Name" option
   if (event.target.innerText === "Name" && currOption !== "Name") {
     currOption = "Name";
+
     backgroundColorInputContainer.children[0].innerText =
       "What Background Color? (Name)";
     foregroundColorInputContainer.children[0].innerText =
@@ -36,6 +37,7 @@ dropDownOptions.addEventListener("click", (event) => {
   // "Hex" option
   if (event.target.innerText === "Hex" && currOption !== "Hex") {
     currOption = "Hex";
+
     backgroundColorInputContainer.children[0].innerText =
       "What Background Color? (Hex)";
     foregroundColorInputContainer.children[0].innerText =
@@ -64,13 +66,22 @@ dropDownOptions.addEventListener("click", (event) => {
 // get the colors the user inputted
 addEventListener("change", (event) => {
   if (event.target.id === "input-bg-color") {
-    currBackgroundColor = event.target.value;
+    if (CSS.supports("color", event.target.value)) {
+      currBackgroundColor = event.target.value;
+    } else {
+      alert(
+        "Invalid Background Color! Enter Valid Background Color Or Switch To Hex Option"
+      );
+    }
   }
-  if (
-    event.target.id === "input-fg-color" &&
-    CSS.supports("color", event.target.value)
-  ) {
-    currForegroundColor = event.target.value;
+  if (event.target.id === "input-fg-color") {
+    if (CSS.supports("color", event.target.value)) {
+      currForegroundColor = event.target.value;
+    } else {
+      alert(
+        "Invalid Foreground Color! Enter Valid Foreground Color Or Switch To Hex Option"
+      );
+    }
   }
 });
 
