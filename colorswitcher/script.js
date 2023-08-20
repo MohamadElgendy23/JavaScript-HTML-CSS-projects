@@ -79,6 +79,7 @@ addEventListener("click", (event) => {
   }
 });
 
+// change background color based on palette selection
 addEventListener("change", (event) => {
   if (event.target.id === "bg-palette") {
     document.body.style.backgroundColor = event.target.value;
