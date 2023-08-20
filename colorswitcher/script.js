@@ -46,8 +46,17 @@ dropDownOptions.addEventListener("click", (event) => {
     currOption = "Palette";
     backgroundColorInputContainer.children[0].innerText =
       "Select A Background Color";
+    document.querySelector(".bg-color-palette").style.display = "flex";
+    backgroundColorInputContainer.children[1].innerHTML = "";
+    backgroundColorInputContainer.children[1] =
+      document.querySelector(".bg-color-palette").innerHTML;
+
     foregroundColorInputContainer.children[0].innerText =
       "Select A Foreground Color";
+    document.querySelector(".fg-color-palette").style.display = "flex";
+    foregroundColorInputContainer.children[1].innerHTML = "";
+    foregroundColorInputContainer.children[1] =
+      document.querySelector(".fg-color-palette").innerHTML;
   }
 });
 
@@ -67,5 +76,11 @@ addEventListener("click", (event) => {
   } else {
     document.querySelector(".fg-color-container").style.backgroundColor =
       currForegroundColor;
+  }
+});
+
+addEventListener("change", (event) => {
+  if (event.target.id === "bg-palette") {
+    document.body.style.backgroundColor = event.target.value;
   }
 });

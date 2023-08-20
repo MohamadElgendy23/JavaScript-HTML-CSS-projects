@@ -106,3 +106,25 @@ body {
     background-color: lightsalmon;
 }
 
+.bg-color-palette {
+    display: none;
+    gap: 10px;
+    font-size: 80%;
+}
+
+.bg-color-palette > input {
+    margin-top: 4px;
+    width: 120px;
+}
+
+.fg-color-palette {
+    display: none;
+    gap: 10px;
+    font-size: 80%;
+}
+
+.fg-color-palette > input {
+    margin-top: 4px;
+    width: 120px;
+}
+
