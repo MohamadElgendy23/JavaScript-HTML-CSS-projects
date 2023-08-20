@@ -23,7 +23,7 @@ ____________________________________________
   > Description: Multiplayer 3x3 TTT game. Computer player has randomized selections based on a random generated seed (index 0-8 => 9 squares). Time limit of each play = 5 seconds.
 
 ____________________________________________
-> Color Switcher
+> Color Switcher:
 
   > Description: App where users can change the color of the background and the foreground to any color of their choosing (this app is like a DIY app). The 3 options given to the user are: 
         1) Normal: User enters a color by its name (orange, blue, etc) and the colors get changed to that 
