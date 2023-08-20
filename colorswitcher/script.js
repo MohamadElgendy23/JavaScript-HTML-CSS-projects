@@ -12,9 +12,9 @@ const foregroundColorInputContainer = document.querySelector(
 
 // make the dropdown options "toggle" when user clicks the button
 dropDownButton.addEventListener("click", () => {
-  dropDownOptions.style.display === "none"
-    ? (dropDownOptions.style.display = "flex")
-    : (dropDownOptions.style.display = "none");
+  dropDownOptions.style.display === "flex"
+    ? (dropDownOptions.style.display = "none")
+    : (dropDownOptions.style.display = "flex");
 });
 
 // when user clicks one of the options, change the html appropriately
