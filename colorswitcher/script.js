@@ -67,6 +67,5 @@ addEventListener("click", (event) => {
   } else {
     document.querySelector(".fg-color-container").style.backgroundColor =
       currForegroundColor;
-    console.log(currForegroundColor);
   }
 });
