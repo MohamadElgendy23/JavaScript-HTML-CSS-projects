@@ -13,7 +13,7 @@ body {
     float: right;
     position: relative;
     bottom: 70px;
-    width: 110px;
+    width: 120px;
 }
 
 .dropdown-container > button {
@@ -21,23 +21,47 @@ body {
     height: 30px;
     background-color: skyblue;
     text-transform: uppercase;
+}
 
+.dropdown-container > button:hover {
+    cursor: pointer;
 }
 
 .dropdown-options{
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     border: 1px solid black;
-    padding-bottom: 5px;
+    padding-bottom: 10px;
     width: 100px;
+    height: 100px;
     background-color: lightskyblue;
 }
 
 .dropdown-options > button{
-    margin-top: 5px;
-    width: 65px;
+    margin-top: 9px;
+    width: 70px;
     text-align: center;
     background-color: aquamarine;
     font-weight: bold;
+}
+
+.dropdown-options > button:hover{
+    cursor: pointer;
+}
+
+.decide-color-container {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    left: 50%;
+    top: 50%;
+    gap: 10px;
+    font-size:xx-large;
+    background-color: aqua;
+    height: 400px;
+    width: 800px;
 }
