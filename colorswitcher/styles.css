@@ -57,8 +57,9 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    left: 40%;
+    left: 40.1%;
     top: 15%;
+    transform: translate(-10%, -30%);
     gap: 10px;
     font-size: xx-large;
 }
