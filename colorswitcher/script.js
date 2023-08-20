@@ -46,17 +46,13 @@ dropDownOptions.addEventListener("click", (event) => {
     currOption = "Palette";
     backgroundColorInputContainer.children[0].innerText =
       "Select A Background Color";
+    backgroundColorInputContainer.children[1].style.display = "none";
     document.querySelector(".bg-color-palette").style.display = "flex";
-    backgroundColorInputContainer.children[1].innerHTML = "";
-    backgroundColorInputContainer.children[1] =
-      document.querySelector(".bg-color-palette").innerHTML;
 
     foregroundColorInputContainer.children[0].innerText =
       "Select A Foreground Color";
+    foregroundColorInputContainer.children[1].style.display = "none";
     document.querySelector(".fg-color-palette").style.display = "flex";
-    foregroundColorInputContainer.children[1].innerHTML = "";
-    foregroundColorInputContainer.children[1] =
-      document.querySelector(".fg-color-palette").innerHTML;
   }
 });
 
@@ -64,7 +60,8 @@ dropDownOptions.addEventListener("click", (event) => {
 addEventListener("change", (event) => {
   if (event.target.id === "input-bg-color") {
     currBackgroundColor = event.target.value;
-  } else {
+  }
+  if (event.target.id === "input-fg-color") {
     currForegroundColor = event.target.value;
   }
 });
@@ -73,15 +70,20 @@ addEventListener("change", (event) => {
 addEventListener("click", (event) => {
   if (event.target.id === "submit-bg-color") {
     document.body.style.backgroundColor = currBackgroundColor;
-  } else {
+  }
+  if (event.target.id === "submit-fg-color") {
     document.querySelector(".fg-color-container").style.backgroundColor =
       currForegroundColor;
   }
 });
 
-// change background color based on palette selection
+// change colors based on palette selection
 addEventListener("change", (event) => {
   if (event.target.id === "bg-palette") {
     document.body.style.backgroundColor = event.target.value;
+  }
+  if (event.target.id === "fg-palette") {
+    document.querySelector(".fg-color-container").style.backgroundColor =
+      event.target.value;
   }
 });
