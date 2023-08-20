@@ -12,6 +12,10 @@ const foregroundColorInputContainer = document.querySelector(
 // current option mode (Name is default)
 let currOption = "Name";
 
+// the colors the user inputted (represents both "Name" and "Hex")
+let currBackgroundColor = "";
+let currForegroundColor = "";
+
 // make the dropdown options "toggle" when user clicks the button
 dropDownButton.addEventListener("click", () => {
   dropDownOptions.style.display === "flex"
@@ -47,4 +51,22 @@ dropDownOptions.addEventListener("click", (event) => {
   }
 });
 
-// 
+// get the colors the user inputted
+addEventListener("change", (event) => {
+  if (event.target.id === "input-bg-color") {
+    currBackgroundColor = event.target.value;
+  } else {
+    currForegroundColor = event.target.value;
+  }
+});
+
+// when user clicks the "Make Choice" button which triggers the color changes
+addEventListener("click", (event) => {
+  if (event.target.id === "submit-bg-color") {
+    document.body.style.backgroundColor = currBackgroundColor;
+  } else {
+    document.querySelector(".fg-color-container").style.backgroundColor =
+      currForegroundColor;
+    console.log(currForegroundColor);
+  }
+});
