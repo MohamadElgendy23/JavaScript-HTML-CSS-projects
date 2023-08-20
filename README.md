@@ -29,5 +29,5 @@ ____________________________________________
         1) Name: User enters a color by its name (orange, blue, etc) and the colors get changed to that 
         2) Hex: User enters a color by its hex code and the colors get chaged to that
         3) Palette: User selects a color instead of entering it. This is done by a color palette
-
+    > All my JavaScript code is commented nicely based on what does what so it is easy to follow along.
 
