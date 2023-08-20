@@ -1,6 +1,6 @@
 # JavaScript, HTML, and CSS projects
 
-This repository contains fully unique personal projects for learning and improving skills in JavaScript, HTML and CSS. Feel free to download and run these projects! :)
+This repository contains fully unique personal projects that are all documented well for learning and improving skills in JavaScript, HTML, and CSS. Feel free to download and run these projects! :)
 
 NOTE: To download and run, simply clone the repo and then select the project you want to run. Should be able to run on any browser, but I recommend using Chrome for a better experience. 
 
@@ -23,6 +23,6 @@ ________________________________________________________________________________
 2) Color Switcher (DIY Design App):
 
   > Description: App where users can change the color of the background and the foreground to any color of their choosing (this app is like a DIY app). The 3 options given to the user are: 
-        1) Name: User enters a color by its name (orange, blue, etc) and the colors get changed to that 
-        2) Hex: User enters a color by its hex code and the colors get chaged to that
-        3) Palette: User selects a color instead of entering it. This is done by the magic of a color palette
+        1) Name: User enters a color by its name (orange, blue, etc) and the colors get changed to that. 
+        2) Hex: User enters a color by its hex code and the colors get chaged to that.
+        3) Palette: User selects a color instead of entering it. This is done by the magic of a color palette.
