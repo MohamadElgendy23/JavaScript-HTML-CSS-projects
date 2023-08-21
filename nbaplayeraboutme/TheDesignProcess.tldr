@@ -66,9 +66,9 @@
     {
       "id": "pointer:pointer",
       "typeName": "pointer",
-      "x": -736.8443356073159,
-      "y": -268.62244577372275,
-      "lastActivityTimestamp": 1692586393530,
+      "x": -435.5600954341205,
+      "y": 446.758696982331,
+      "lastActivityTimestamp": 1692650471734,
       "meta": {}
     },
     {
@@ -79,9 +79,9 @@
       "typeName": "page"
     },
     {
-      "x": 1179.6073787062123,
-      "y": 265.12902905069916,
-      "z": 0.29167176778876325,
+      "x": 1040.2490388843253,
+      "y": 204.27076827339545,
+      "z": 0.5469302189700688,
       "meta": {},
       "id": "camera:page:noq0HKpHw7vHWO5npD9r2",
       "typeName": "camera"
@@ -119,8 +119,8 @@
       "screenBounds": {
         "x": 0,
         "y": 0,
-        "w": 920,
-        "h": 410.83331298828125
+        "w": 765.8333129882812,
+        "h": 630
       },
       "zoomBrush": null,
       "isGridMode": false,
@@ -3826,7 +3826,7 @@
         "color": "black",
         "size": "m",
         "w": 410.8482536484482,
-        "text": "1) Lebron James\n2) Kobe Bryant\n3) Damian Lillard\n4) Kyrie Irving\n5) Luka Donkic\n6) Donovan Mitchell",
+        "text": "1) Lebron James\n2) Kobe Bryant\n3) Damian Lillard",
         "font": "draw",
         "align": "middle",
         "autoSize": false,

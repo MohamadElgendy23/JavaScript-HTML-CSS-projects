@@ -1,6 +1,5 @@
 body{
-    background-color: beige;
-    margin-left: 20px;
+    background-color: lightgrey;
 }
 
 .nav-container{
@@ -11,6 +10,7 @@ body{
     border-radius: 15px;
     background-color: lightgreen;
     height: 105px;
+    width: 100%;
 }
 
 .nba-icon{
@@ -19,13 +19,16 @@ body{
     width: 50px;
 }
 
-.nav-container h1{
+.nav-container > a{
     position: absolute;
-    padding-left: 90px;
+    padding-left: 80px;
+    text-decoration: none;
+    color: black;
+    font-style: italic;
 }
 
-.nav-container p{
-    margin-right: 110px;
+.nav-container > p{
+    margin-right: 130px;
     font-size: larger;
     text-decoration: underline;
 }
@@ -42,6 +45,17 @@ body{
     transform: translate(-50%, -50%);
 }
 
+#outer-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(60, 58, 60);
+    position: relative;
+    width: 650px;
+    height: 450px;
+}
+
 .select-player-container {
     display: flex;
     flex-direction: column;
@@ -49,22 +63,34 @@ body{
     align-items: center;
     border: 1px solid black;
     font-size: xx-large;
-    height: 550px;
-    width: 350px;
+    height: 350px;
+    width: 450px;
     gap: 20px;
     background-color: rgb(55, 54, 54);
     color: rgb(201, 196, 196);
     font-style: oblique;
+    z-index: 100;
+    position: absolute;
 }
 
 #select-player{
-    width: 200px;
+    width: 240px;
+    height: 40px;
     text-align: center;
-    background-color: lightsteelblue;
+    font-size: large;
+    background-color: rgb(221, 241, 231);
     border-color: lightslategray;
     border: 1.5px solid black;
 }
 
 #select-player > option{
     text-align: center;
+}
+
+#select-button{
+    margin-top: 10px;
+    width: 200px;
+    height: 30px;
+    background-color: lightsteelblue;
+    font-size: large;
 }
