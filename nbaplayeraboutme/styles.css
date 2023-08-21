@@ -8,8 +8,24 @@ body{
     align-items: center;
     justify-content: space-between;
     border: 1px solid black;
+    border-radius: 15px;
+    background-color: lightgreen;
+    height: 105px;
+}
+
+.nba-icon{
+    padding-left: 10px;
+    height: 90px;
+    width: 50px;
+}
+
+.nav-container h1{
+    position: absolute;
+    padding-left: 90px;
 }
 
 .nav-container p{
     margin-right: 100px;
+    font-size: larger;
+    text-decoration: underline;
 }
