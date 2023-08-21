@@ -26,3 +26,8 @@ ________________________________________________________________________________
         1) Name: User enters a color by its name (orange, blue, etc) and the colors get changed to that. 
         2) Hex: User enters a color by its hex code and the colors get chaged to that.
         3) Palette: User selects a color instead of entering it. This is done by the magic of a color palette.
+
+________________________________________________________________________________________________________________
+3) NBA Player About Me
+
+  > Description: App where users can select an NBA player they want to know more about (NBA player selection limited due to too many players in the NBA). The app will display an about me section,       how years in the NBA, the teams played in, how many championships, etc. It will also contain the image of the NBA player. All of this will be displayed in a visually appealing manner.  
