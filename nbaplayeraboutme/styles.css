@@ -61,8 +61,8 @@ body{
     width: 200px;
     text-align: center;
     background-color: lightsteelblue;
-    border-color: white;
-    border: 1px solid black;
+    border-color: lightslategray;
+    border: 1.5px solid black;
 }
 
 #select-player > option{
