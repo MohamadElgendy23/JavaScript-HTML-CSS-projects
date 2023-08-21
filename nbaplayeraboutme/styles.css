@@ -29,3 +29,8 @@ body{
     font-size: larger;
     text-decoration: underline;
 }
+
+.name-container{
+    display: flex;
+    align-items: center;
+}
