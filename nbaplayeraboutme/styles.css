@@ -23,14 +23,15 @@ body{
     position: absolute;
     padding-left: 80px;
     text-decoration: none;
-    color: black;
+    color: purple;
     font-style: italic;
 }
 
 .nav-container > p{
-    margin-right: 130px;
+    margin-right: 90px;
     font-size: larger;
-    text-decoration: underline;
+    font-weight: bolder;
+    max-width: 250px;
 }
 
 .name-container{
