@@ -66,9 +66,9 @@
     {
       "id": "pointer:pointer",
       "typeName": "pointer",
-      "x": 640.0511104901634,
-      "y": 476.19470612658176,
-      "lastActivityTimestamp": 1692668702351,
+      "x": -82.99638977851373,
+      "y": 3.114984912683269,
+      "lastActivityTimestamp": 1692671522113,
       "meta": {}
     },
     {
@@ -79,9 +79,9 @@
       "typeName": "page"
     },
     {
-      "x": 622.8323822556979,
-      "y": 183.5791712015296,
-      "z": 0.6046894651299991,
+      "x": 1084.1644536003953,
+      "y": 257.3196026255721,
+      "z": 0.5631803651910076,
       "meta": {},
       "id": "camera:page:noq0HKpHw7vHWO5npD9r2",
       "typeName": "camera"
@@ -3308,8 +3308,8 @@
       "typeName": "shape"
     },
     {
-      "x": 704.3053660161459,
-      "y": 343.2079194402365,
+      "x": 715.773553875714,
+      "y": 343.07142824136747,
       "rotation": 0,
       "isLocked": false,
       "opacity": 1,
@@ -3343,8 +3343,8 @@
       "typeName": "shape"
     },
     {
-      "x": 806.7259824675425,
-      "y": 183.3696444895764,
+      "x": 816.4560461307528,
+      "y": 187.2238490990896,
       "rotation": 0,
       "isLocked": false,
       "opacity": 1,
@@ -3493,8 +3493,8 @@
       "typeName": "shape"
     },
     {
-      "x": -856.8838026554931,
-      "y": 58.80867109295983,
+      "x": -873.5352116208087,
+      "y": 56.193290658481175,
       "rotation": 0,
       "isLocked": false,
       "opacity": 1,
@@ -3844,7 +3844,6 @@
       "isLocked": false,
       "opacity": 1,
       "meta": {},
-      "id": "shape:vNgt5pT-C6-wNE-Mcw9mQ",
       "type": "text",
       "props": {
         "color": "black",
@@ -3858,6 +3857,7 @@
       },
       "parentId": "page:noq0HKpHw7vHWO5npD9r2",
       "index": "aL",
+      "id": "shape:vNgt5pT-C6-wNE-Mcw9mQ",
       "typeName": "shape"
     },
     {
@@ -3867,7 +3867,6 @@
       "isLocked": false,
       "opacity": 1,
       "meta": {},
-      "id": "shape:zR2xI80fvMM9GY0f-zSIW",
       "type": "arrow",
       "parentId": "page:noq0HKpHw7vHWO5npD9r2",
       "index": "aM",
@@ -3893,6 +3892,7 @@
         "text": "",
         "font": "draw"
       },
+      "id": "shape:zR2xI80fvMM9GY0f-zSIW",
       "typeName": "shape"
     },
     {
@@ -3902,7 +3902,6 @@
       "isLocked": false,
       "opacity": 1,
       "meta": {},
-      "id": "shape:9jVZvmm24j_Coq2vJCp1e",
       "type": "text",
       "props": {
         "color": "black",
@@ -3916,6 +3915,7 @@
       },
       "parentId": "page:noq0HKpHw7vHWO5npD9r2",
       "index": "aN",
+      "id": "shape:9jVZvmm24j_Coq2vJCp1e",
       "typeName": "shape"
     }
   ]

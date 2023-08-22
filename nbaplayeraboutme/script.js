@@ -70,4 +70,8 @@ const replaceOnSubmit = () => {
 // construct the about me container which displays the player info and image
 const constructAboutMeContainer = () => {
   const aboutMeContainer = document.createElement("div");
+  aboutMeContainer.className = "about-me-container";
+
+  const buttonsArticle = document.createElement("article");
+  buttonsArticle.className = "buttons-article";
 };

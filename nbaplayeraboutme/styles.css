@@ -1,5 +1,5 @@
 body{
-    background-color: rgb(97, 95, 95);
+    background-color: rgb(159, 151, 151);
 }
 
 .nav-container{
@@ -7,7 +7,7 @@ body{
     align-items: center;
     justify-content: space-between;
     border-radius: 15px;
-    background-color: rgb(106, 105, 105);
+    background-color: rgb(81, 75, 75);
     height: 105px;
     width: 100%;
 }
