@@ -105,13 +105,13 @@ body{
 }
 
 .header-container-larger-fonts h2{
-    font-weight: bolder;
+    font-weight: bold;
     font-size: 50px;
 }
 
 .header-container-larger-fonts p{
     position: relative;
-    font-size: large;
-    bottom: 35px;
+    font-size: larger;
+    bottom: 40px;
     color: black;
 }
