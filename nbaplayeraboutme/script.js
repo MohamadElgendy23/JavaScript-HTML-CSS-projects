@@ -64,14 +64,29 @@ selectButton.addEventListener("click", () => {
 // helper function for replacing the html on "submit"; when user selects a player
 const replaceOnSubmit = () => {
   bodyContainer.innerHTML = "";
-  bodyContainer.innerHTML = constructAboutMeContainer();
+  constructAboutMeContainer();
 };
 
 // construct the about me container which displays the player info and image
 const constructAboutMeContainer = () => {
+  const aboutHeader = document.createElement("div");
+  aboutHeader.className = "about-header-big-font";
+  aboutHeader.textContent = "About";
+  bodyContainer.appendChild(aboutHeader);
+
   const aboutMeContainer = document.createElement("div");
   aboutMeContainer.className = "about-me-container";
 
   const buttonsArticle = document.createElement("article");
   buttonsArticle.className = "buttons-article";
+
+  const whoAmIButton = document.createElement("button");
+  const careerTimeLine = document.createElement("button");
+  whoAmIButton.innerText = "About Me";
+  careerTimeLine.innerText = "Career Timeline";
+  buttonsArticle.appendChild(whoAmIButton);
+  buttonsArticle.appendChild(careerTimeLine);
+
+  aboutMeContainer.appendChild(buttonsArticle);
+  bodyContainer.appendChild(aboutMeContainer);
 };

@@ -66,9 +66,9 @@
     {
       "id": "pointer:pointer",
       "typeName": "pointer",
-      "x": -82.99638977851373,
-      "y": 3.114984912683269,
-      "lastActivityTimestamp": 1692671522113,
+      "x": 753.2318086430337,
+      "y": 192.8445242994304,
+      "lastActivityTimestamp": 1692680719203,
       "meta": {}
     },
     {
@@ -79,9 +79,9 @@
       "typeName": "page"
     },
     {
-      "x": 1084.1644536003953,
-      "y": 257.3196026255721,
-      "z": 0.5631803651910076,
+      "x": 270.27568447695216,
+      "y": -39.96659479619587,
+      "z": 0.648835993327419,
       "meta": {},
       "id": "camera:page:noq0HKpHw7vHWO5npD9r2",
       "typeName": "camera"
@@ -119,8 +119,8 @@
       "screenBounds": {
         "x": 0,
         "y": 0,
-        "w": 1275,
-        "h": 630
+        "w": 920,
+        "h": 337.5
       },
       "zoomBrush": null,
       "isGridMode": false,
@@ -3366,8 +3366,8 @@
       "typeName": "shape"
     },
     {
-      "x": 356.83608371822174,
-      "y": 127.6102244404556,
+      "x": 415.3199094046057,
+      "y": 122.51401752217086,
       "rotation": 0,
       "isLocked": false,
       "opacity": 1,
@@ -3389,31 +3389,8 @@
       "typeName": "shape"
     },
     {
-      "x": 572.0634386492947,
-      "y": 126.13183979570437,
-      "rotation": 0,
-      "isLocked": false,
-      "opacity": 1,
-      "meta": {},
-      "type": "text",
-      "props": {
-        "color": "black",
-        "size": "m",
-        "w": 142.65268103741641,
-        "text": "Years Experience",
-        "font": "draw",
-        "align": "middle",
-        "autoSize": false,
-        "scale": 1
-      },
-      "parentId": "page:noq0HKpHw7vHWO5npD9r2",
-      "index": "aE",
-      "id": "shape:jkiX400AkNE43AiI8X7aU",
-      "typeName": "shape"
-    },
-    {
-      "x": 427.8258768190309,
-      "y": 129.54708301736295,
+      "x": 525.5965529859594,
+      "y": 119.92432569070047,
       "rotation": 0,
       "isLocked": false,
       "opacity": 1,
@@ -3423,7 +3400,7 @@
         "color": "black",
         "size": "m",
         "w": 168.7477044020427,
-        "text": "Career Overview",
+        "text": "Career Timeline",
         "font": "draw",
         "align": "middle",
         "autoSize": false,
@@ -3435,8 +3412,8 @@
       "typeName": "shape"
     },
     {
-      "x": 810.8311113267515,
-      "y": 106.93302310716953,
+      "x": 793.6070388963371,
+      "y": 104.96099046718888,
       "rotation": 0,
       "isLocked": false,
       "opacity": 1,
@@ -3470,8 +3447,8 @@
       "typeName": "shape"
     },
     {
-      "x": 799.4884729820495,
-      "y": 89.01768920999322,
+      "x": 788.8116759091114,
+      "y": 88.0277749183843,
       "rotation": 0,
       "isLocked": false,
       "opacity": 1,
