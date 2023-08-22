@@ -66,9 +66,9 @@
     {
       "id": "pointer:pointer",
       "typeName": "pointer",
-      "x": 792.6063317662906,
-      "y": 417.9423114574812,
-      "lastActivityTimestamp": 1692659178111,
+      "x": 640.0511104901634,
+      "y": 476.19470612658176,
+      "lastActivityTimestamp": 1692668702351,
       "meta": {}
     },
     {
@@ -3835,6 +3835,87 @@
       "parentId": "page:noq0HKpHw7vHWO5npD9r2",
       "index": "aK",
       "id": "shape:-56kvXMdIpavWnpB0gRk0",
+      "typeName": "shape"
+    },
+    {
+      "x": 455.2474273170046,
+      "y": 271.23751327120203,
+      "rotation": 0,
+      "isLocked": false,
+      "opacity": 1,
+      "meta": {},
+      "id": "shape:vNgt5pT-C6-wNE-Mcw9mQ",
+      "type": "text",
+      "props": {
+        "color": "black",
+        "size": "m",
+        "w": 171.6680468192917,
+        "text": "Learn More!",
+        "font": "draw",
+        "align": "middle",
+        "autoSize": false,
+        "scale": 1
+      },
+      "parentId": "page:noq0HKpHw7vHWO5npD9r2",
+      "index": "aL",
+      "typeName": "shape"
+    },
+    {
+      "x": 585.0771289393961,
+      "y": 400.7320052271531,
+      "rotation": 0,
+      "isLocked": false,
+      "opacity": 1,
+      "meta": {},
+      "id": "shape:zR2xI80fvMM9GY0f-zSIW",
+      "type": "arrow",
+      "parentId": "page:noq0HKpHw7vHWO5npD9r2",
+      "index": "aM",
+      "props": {
+        "dash": "draw",
+        "size": "m",
+        "fill": "none",
+        "color": "black",
+        "labelColor": "black",
+        "bend": 0,
+        "start": {
+          "type": "point",
+          "x": 0,
+          "y": 0
+        },
+        "end": {
+          "type": "point",
+          "x": -39.0341108719756,
+          "y": -96.54638964852143
+        },
+        "arrowheadStart": "none",
+        "arrowheadEnd": "arrow",
+        "text": "",
+        "font": "draw"
+      },
+      "typeName": "shape"
+    },
+    {
+      "x": 496.0304625763374,
+      "y": 411.18336015094235,
+      "rotation": 0,
+      "isLocked": false,
+      "opacity": 1,
+      "meta": {},
+      "id": "shape:9jVZvmm24j_Coq2vJCp1e",
+      "type": "text",
+      "props": {
+        "color": "black",
+        "size": "m",
+        "w": 208.59416864109198,
+        "text": "\"Submit\" button",
+        "font": "draw",
+        "align": "middle",
+        "autoSize": false,
+        "scale": 1
+      },
+      "parentId": "page:noq0HKpHw7vHWO5npD9r2",
+      "index": "aN",
       "typeName": "shape"
     }
   ]

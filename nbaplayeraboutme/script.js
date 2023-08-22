@@ -42,15 +42,32 @@ const playersArr = [
 
 const displayPlayerName = document.getElementById("player-name");
 
-// instead of getting children elements one by one, just use this container to get them for simplicity
+const bodyContainer = document.querySelector(".body-container");
+
+// instead of getting children elements one by one, just use this container to get them as needed for simplicity
 const selectPlayerContainer = document.querySelector(
   ".select-player-container"
 );
 
+// the "submit" button
 const selectButton = document.getElementById("select-button");
 
 // once button clicked, gets the player selected and displays player info appropriately
 selectButton.addEventListener("click", () => {
-  displayPlayerName.children[0].textContent +=
-    selectPlayerContainer.children[1].value;
+  const selectedPlayerName = selectPlayerContainer.children[1].value;
+  displayPlayerName.children[0].textContent += selectedPlayerName;
+
+  // replace
+  replaceOnSubmit();
 });
+
+// helper function for replacing the html on "submit"; when user selects a player
+const replaceOnSubmit = () => {
+  bodyContainer.innerHTML = "";
+  bodyContainer.innerHTML = constructAboutMeContainer();
+};
+
+// construct the about me container which displays the player info and image
+const constructAboutMeContainer = () => {
+  const aboutMeContainer = document.createElement("div");
+};
