@@ -55,38 +55,15 @@ const selectButton = document.getElementById("select-button");
 // once button clicked, gets the player selected and displays player info appropriately
 selectButton.addEventListener("click", () => {
   const selectedPlayerName = selectPlayerContainer.children[1].value;
-  displayPlayerName.children[0].textContent += selectedPlayerName;
+  displayPlayerName.children[0].textContent += selectedPlayerName; // get the span element contained in the p tag and append selected player name to it
 
   // replace
   replaceOnSubmit();
 });
 
-// helper function for replacing the html on "submit"; when user selects a player
+// helper function for replacing the original body html on "submit"; when user successfully selects a player
 const replaceOnSubmit = () => {
-  bodyContainer.innerHTML = "";
-  constructAboutMeContainer();
-};
-
-// construct the about me container which displays the player info and image
-const constructAboutMeContainer = () => {
-  const aboutHeader = document.createElement("div");
-  aboutHeader.className = "about-header-big-font";
-  aboutHeader.textContent = "About";
-  bodyContainer.appendChild(aboutHeader);
-
-  const aboutMeContainer = document.createElement("div");
-  aboutMeContainer.className = "about-me-container";
-
-  const buttonsArticle = document.createElement("article");
-  buttonsArticle.className = "buttons-article";
-
-  const whoAmIButton = document.createElement("button");
-  const careerTimeLine = document.createElement("button");
-  whoAmIButton.innerText = "About Me";
-  careerTimeLine.innerText = "Career Timeline";
-  buttonsArticle.appendChild(whoAmIButton);
-  buttonsArticle.appendChild(careerTimeLine);
-
-  aboutMeContainer.appendChild(buttonsArticle);
-  bodyContainer.appendChild(aboutMeContainer);
+  document.querySelector(".outer-section").style.display = "none";
+  document.querySelector(".about-me-section").style.display = "flex";
+  
 };

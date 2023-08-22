@@ -44,7 +44,7 @@ body{
     transform: translate(-50%, -50%);
 }
 
-.outer-container{
+.outer-section{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -96,19 +96,22 @@ body{
     font-size: large;
 }
 
-.about-header-big-font{
+.header-container-larger-fonts{
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding-bottom: 550px;
+}
+
+.header-container-larger-fonts h2{
     font-weight: bolder;
-    padding-bottom: 500px;
     font-size: 50px;
 }
 
-.about-me-container{
-   
-
-}
-
-.buttons-article{
+.header-container-larger-fonts p{
+    position: relative;
+    font-size: large;
+    bottom: 35px;
+    color: black;
 }
