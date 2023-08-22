@@ -66,9 +66,9 @@
     {
       "id": "pointer:pointer",
       "typeName": "pointer",
-      "x": 593.199160572714,
-      "y": 557.5691831545568,
-      "lastActivityTimestamp": 1692656899748,
+      "x": 792.6063317662906,
+      "y": 417.9423114574812,
+      "lastActivityTimestamp": 1692659178111,
       "meta": {}
     },
     {
@@ -79,9 +79,9 @@
       "typeName": "page"
     },
     {
-      "x": 466.35572366056624,
-      "y": 162.29292985107566,
-      "z": 0.46532166604178504,
+      "x": 622.8323822556979,
+      "y": 183.5791712015296,
+      "z": 0.6046894651299991,
       "meta": {},
       "id": "camera:page:noq0HKpHw7vHWO5npD9r2",
       "typeName": "camera"
@@ -2860,8 +2860,8 @@
       "typeName": "shape"
     },
     {
-      "x": 491.6391371724439,
-      "y": 47.79142710512227,
+      "x": 452.54042702720056,
+      "y": 66.09189654002421,
       "rotation": 0,
       "isLocked": false,
       "opacity": 1,
@@ -2870,7 +2870,7 @@
       "props": {
         "color": "black",
         "size": "m",
-        "w": 180.1136745702409,
+        "w": 213.95923233861504,
         "text": "Name of Player",
         "font": "draw",
         "align": "middle",
@@ -2883,8 +2883,8 @@
       "typeName": "shape"
     },
     {
-      "x": 122.81503782547583,
-      "y": 168.72650184074982,
+      "x": 102.99249848238713,
+      "y": 165.80716983905685,
       "rotation": 0,
       "isLocked": false,
       "opacity": 1,
@@ -3366,8 +3366,8 @@
       "typeName": "shape"
     },
     {
-      "x": 367.42107838858374,
-      "y": 127.40855358422314,
+      "x": 356.83608371822174,
+      "y": 127.6102244404556,
       "rotation": 0,
       "isLocked": false,
       "opacity": 1,
@@ -3389,8 +3389,8 @@
       "typeName": "shape"
     },
     {
-      "x": 447.83469589193726,
-      "y": 131.69262598767494,
+      "x": 572.0634386492947,
+      "y": 126.13183979570437,
       "rotation": 0,
       "isLocked": false,
       "opacity": 1,
@@ -3412,8 +3412,8 @@
       "typeName": "shape"
     },
     {
-      "x": 566.9672608738598,
-      "y": 130.82072329847156,
+      "x": 427.8258768190309,
+      "y": 129.54708301736295,
       "rotation": 0,
       "isLocked": false,
       "opacity": 1,
@@ -3826,7 +3826,7 @@
         "color": "black",
         "size": "m",
         "w": 410.8482536484482,
-        "text": "1) Lebron James\n2) Kobe Bryant\n3) Damian Lillard",
+        "text": "1) Lebron James\n2) Stephen Curry\n3) Damian Lillard",
         "font": "draw",
         "align": "middle",
         "autoSize": false,
