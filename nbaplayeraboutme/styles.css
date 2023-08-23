@@ -1,5 +1,5 @@
 body{
-    background-color: rgb(201, 154, 137);
+    background-color: rgb(46, 40, 38);
 }
 
 .nav-container{
@@ -121,13 +121,14 @@ body{
 .header-container-larger-fonts h2{
     font-weight: bold;
     font-size: 50px;
+    color: rgb(201, 196, 196);
 }
 
 .header-container-larger-fonts p{
     position: relative;
     font-size: larger;
     bottom: 45px;
-    color: black;
+    color: rgb(201, 196, 196);
 }
 
 .player-image{
