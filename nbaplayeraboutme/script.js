@@ -13,7 +13,7 @@ const playersArr = [
   // Stephen Curry
   {
     image:
-      "https://blacksportsonline.com/wp-content/uploads/2023/08/Kobe-Bryant-angry.jpg",
+      "https://wallpapers.com/images/hd/steph-curry-3840-x-2400-picture-epdmvndsfmsshxyz.jpg",
     whoami:
       "I am Stephen Curry, the 3 point master who before shooting a 3, better pray the ball is flat. I currently play for the Golden State Warriors and enjoy holding training camps to help inspire the future generation.",
     careertimeline:
@@ -75,6 +75,12 @@ const replaceOnSubmit = (index) => {
   document.querySelector(".about-me-section").style.display = "flex";
 
   document.getElementById("player-image").src = playersArr[index].image;
+
+  // default content
+  document.querySelector(".content-container").children[0].textContent =
+    "Who Am I?";
+  document.querySelector(".content-container").children[1].textContent =
+    playersArr[index].whoami;
 };
 
 const handleClick = (index, event) => {
@@ -82,14 +88,36 @@ const handleClick = (index, event) => {
     event.target.innerText;
 
   if (event.target.id === "who-am-i-btn") {
+    document.getElementById("nba-link").style.display === "flex"
+      ? (document.getElementById("nba-link").style.display = "none")
+      : null;
+    aboutMeButtons.children[0].style.backgroundColor = "rgb(229, 235, 229)";
+
+    // reset other buttons to original color (previously selected case)
+    aboutMeButtons.children[1].style.backgroundColor = "rgb(193, 193, 193)";
+    aboutMeButtons.children[2].style.backgroundColor = "rgb(193, 193, 193)";
+
     document.querySelector(".content-container").children[1].textContent =
       playersArr[index].whoami;
   } else if (event.target.id === "career-timeline-btn") {
+    document.getElementById("nba-link").style.display === "flex"
+      ? (document.getElementById("nba-link").style.display = "none")
+      : null;
+    aboutMeButtons.children[1].style.backgroundColor = "rgb(229, 235, 229)";
+
+    aboutMeButtons.children[0].style.backgroundColor = "rgb(193, 193, 193)";
+    aboutMeButtons.children[2].style.backgroundColor = "rgb(193, 193, 193)";
+
     document.querySelector(".content-container").children[1].textContent =
       playersArr[index].careertimeline;
   } else {
-    document.querySelector(
-      ".content-container"
-    ).children[1].innerHTML = `Want to learn more or explore other players? <br /> Here's the link to the official NBA website: <a href="https://www.nba.com/players"></a>`;
+    aboutMeButtons.children[2].style.backgroundColor = "rgb(229, 235, 229)";
+
+    aboutMeButtons.children[0].style.backgroundColor = "rgb(193, 193, 193)";
+    aboutMeButtons.children[1].style.backgroundColor = "rgb(193, 193, 193)";
+
+    document.getElementById("nba-link").style.display = "flex";
+    document.querySelector(".content-container").children[1].innerText =
+      "Want to learn more or explore other players? Here's the link to the official NBA website players section: ";
   }
 };

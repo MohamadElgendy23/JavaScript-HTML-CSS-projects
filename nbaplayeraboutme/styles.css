@@ -175,3 +175,12 @@ body{
     bottom: 20px;
     width: 500px;
 }
+
+#nba-link{
+    text-decoration: none;
+    color: blue;
+    position: relative;
+    bottom: 57px;
+    left: 275px;
+    
+}
