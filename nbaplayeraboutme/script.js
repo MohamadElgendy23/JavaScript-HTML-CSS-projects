@@ -83,6 +83,7 @@ const replaceOnSubmit = (index) => {
     playersArr[index].whoami;
 };
 
+// callback function to handle when user clicks one of the buttons in the about me container
 const handleClick = (index, event) => {
   document.querySelector(".content-container").children[0].textContent =
     event.target.innerText;
@@ -105,6 +106,7 @@ const handleClick = (index, event) => {
       : null;
     aboutMeButtons.children[1].style.backgroundColor = "rgb(229, 235, 229)";
 
+    // reset other buttons to original color (previously selected case)
     aboutMeButtons.children[0].style.backgroundColor = "rgb(193, 193, 193)";
     aboutMeButtons.children[2].style.backgroundColor = "rgb(193, 193, 193)";
 
@@ -113,6 +115,7 @@ const handleClick = (index, event) => {
   } else {
     aboutMeButtons.children[2].style.backgroundColor = "rgb(229, 235, 229)";
 
+    // reset other buttons to original color (previously selected case)
     aboutMeButtons.children[0].style.backgroundColor = "rgb(193, 193, 193)";
     aboutMeButtons.children[1].style.backgroundColor = "rgb(193, 193, 193)";
 
