@@ -1,4 +1,4 @@
-// the 3 players array. contains the info and image to be displayed on selection.
+// the 3 players array. contains the info and image to be displayed on selection. utilized for easy access.
 const playersArr = [
   // Lebron James
   {
@@ -52,24 +52,44 @@ const selectPlayerContainer = document.querySelector(
 // the "submit" button
 const selectButton = document.getElementById("select-button");
 
-// the buttons for the about me container
-const whoAmIButton = document.getElementById("who-am-i-btn");
-const careerTimeLineButton = document.getElementById("career-timeline-btn");
-const learnMoreButton = document.getElementById("learn-more-btn");
+// the about me buttons
+const aboutMeButtons = document.querySelector(".buttons-container");
 
 // once button clicked, gets the player selected and displays player info appropriately
 selectButton.addEventListener("click", () => {
   const selectedPlayerName = selectPlayerContainer.children[1].value;
   displayPlayerName.children[0].textContent += selectedPlayerName; // get the span element contained in the p tag and append selected player name to it
 
-  // replace
-  replaceOnSubmit();
+  // replace (use map to index strategy for players array)
+  if (selectedPlayerName === "Lebron James") {
+    replaceOnSubmit(0);
+  } else if (selectedPlayerName === "Stephen Curry") {
+    replaceOnSubmit(1);
+  } else {
+    replaceOnSubmit(2);
+  }
 });
 
 // helper function for replacing the original body html on "submit"; when user successfully selects a player
-const replaceOnSubmit = () => {
+const replaceOnSubmit = (index) => {
   document.querySelector(".outer-section").style.display = "none";
   document.querySelector(".about-me-section").style.display = "flex";
 
-  
+  document.getElementById("player-image").src = playersArr[index][0];
+
+  aboutMeButtons.addEventListener("click", handleClick(index));
+};
+
+const handleClick = (index, event) => {
+  document.querySelector(".content-container").children[0].textContent =
+    event.target.innerText;
+
+  if (event.target.id === "who-am-i-btn") {
+    document.querySelector(".content-container").children[1].textContent =
+      playersArr[index][1];
+  } else if (event.target.id === "career-timeline-btn") {
+    document.querySelector(".content-container").children[1].textContent =
+      playersArr[index][2];
+  } else {
+  }
 };
