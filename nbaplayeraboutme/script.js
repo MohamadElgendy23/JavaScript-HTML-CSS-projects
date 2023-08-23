@@ -118,6 +118,6 @@ const handleClick = (index, event) => {
 
     document.getElementById("nba-link").style.display = "flex";
     document.querySelector(".content-container").children[1].innerText =
-      "Want to learn more or explore other players? Here's the link to the official NBA website players section: ";
+      "Want to learn more? Here's the link to the official NBA website players section where you can navigate to this player or other players in the NBA: ";
   }
 };
