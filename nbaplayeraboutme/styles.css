@@ -7,26 +7,29 @@ body{
     align-items: center;
     justify-content: space-between;
     border-radius: 15px;
-    background-color: rgb(81, 75, 75);
-    height: 105px;
-    width: 100%;
+    background-color: rgb(101, 92, 92);
+    height: 110px;
+    width: 102%;
+    position: relative;
+    bottom: 12px;
+    right: 14px;
 }
 
 .nba-icon{
-    padding-left: 10px;
+    padding-left: 16px;
     height: 90px;
     width: 50px;
 }
 
 .nav-container > a{
     position: absolute;
-    padding-left: 80px;
+    padding-left: 87px;
     text-decoration: none;
     color: rgb(34, 33, 34);
 }
 
 .nav-container > p{
-    margin-right: 60px;
+    margin-right: 85px;
     font-size: larger;
     font-weight: bolder;
     max-width: 250px;
@@ -96,12 +99,19 @@ body{
     font-size: large;
 }
 
+.about-me-section{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .header-container-larger-fonts{
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding-bottom: 550px;
+    bottom: 250px;
 }
 
 .header-container-larger-fonts h2{
@@ -114,4 +124,17 @@ body{
     font-size: larger;
     bottom: 40px;
     color: black;
+}
+
+.player-image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    bottom: 20px;
+}
+
+.buttons-container{
+    
 }

@@ -66,9 +66,9 @@
     {
       "id": "pointer:pointer",
       "typeName": "pointer",
-      "x": 753.2318086430337,
-      "y": 192.8445242994304,
-      "lastActivityTimestamp": 1692680719203,
+      "x": 797.4130767320032,
+      "y": 158.28184281912837,
+      "lastActivityTimestamp": 1692754264632,
       "meta": {}
     },
     {
@@ -79,9 +79,9 @@
       "typeName": "page"
     },
     {
-      "x": 270.27568447695216,
-      "y": -39.96659479619587,
-      "z": 0.648835993327419,
+      "x": 1101.5663535590618,
+      "y": 259.166514054521,
+      "z": 0.5613268385712872,
       "meta": {},
       "id": "camera:page:noq0HKpHw7vHWO5npD9r2",
       "typeName": "camera"
@@ -119,8 +119,8 @@
       "screenBounds": {
         "x": 0,
         "y": 0,
-        "w": 920,
-        "h": 337.5
+        "w": 1275,
+        "h": 630
       },
       "zoomBrush": null,
       "isGridMode": false,
@@ -3366,8 +3366,8 @@
       "typeName": "shape"
     },
     {
-      "x": 415.3199094046057,
-      "y": 122.51401752217086,
+      "x": 383.1490806315902,
+      "y": 121.98964914925503,
       "rotation": 0,
       "isLocked": false,
       "opacity": 1,
@@ -3389,8 +3389,8 @@
       "typeName": "shape"
     },
     {
-      "x": 525.5965529859594,
-      "y": 119.92432569070047,
+      "x": 456.9581736930869,
+      "y": 124.82954852762589,
       "rotation": 0,
       "isLocked": false,
       "opacity": 1,
@@ -3893,6 +3893,29 @@
       "parentId": "page:noq0HKpHw7vHWO5npD9r2",
       "index": "aN",
       "id": "shape:9jVZvmm24j_Coq2vJCp1e",
+      "typeName": "shape"
+    },
+    {
+      "x": 574.8207737565929,
+      "y": 121.50026931099137,
+      "rotation": 0,
+      "isLocked": false,
+      "opacity": 1,
+      "meta": {},
+      "id": "shape:bt5jmEfRuhVliLz2YX1ty",
+      "type": "text",
+      "props": {
+        "color": "black",
+        "size": "m",
+        "w": 123.47196879984448,
+        "text": "Learn More",
+        "font": "draw",
+        "align": "middle",
+        "autoSize": false,
+        "scale": 1
+      },
+      "parentId": "page:noq0HKpHw7vHWO5npD9r2",
+      "index": "aO",
       "typeName": "shape"
     }
   ]

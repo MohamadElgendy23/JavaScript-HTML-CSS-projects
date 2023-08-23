@@ -52,6 +52,11 @@ const selectPlayerContainer = document.querySelector(
 // the "submit" button
 const selectButton = document.getElementById("select-button");
 
+// the buttons for the about me container
+const whoAmIButton = document.getElementById("who-am-i-btn");
+const careerTimeLineButton = document.getElementById("career-timeline-btn");
+const learnMoreButton = document.getElementById("learn-more-btn");
+
 // once button clicked, gets the player selected and displays player info appropriately
 selectButton.addEventListener("click", () => {
   const selectedPlayerName = selectPlayerContainer.children[1].value;
@@ -65,5 +70,6 @@ selectButton.addEventListener("click", () => {
 const replaceOnSubmit = () => {
   document.querySelector(".outer-section").style.display = "none";
   document.querySelector(".about-me-section").style.display = "flex";
+
   
 };
