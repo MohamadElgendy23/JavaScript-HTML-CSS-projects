@@ -111,7 +111,7 @@ body{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    bottom: 150px;
+    bottom: 35px;
 }
 
 .header-container-larger-fonts h2{
@@ -133,6 +133,11 @@ body{
     flex-direction: column;
     position: relative;
     bottom: 20px;
+}
+
+.player-image > img {
+    width: 450px;
+    height: 300px;
 }
 
 .buttons-container{
@@ -160,7 +165,7 @@ body{
     display: flex;
     flex-direction: column;
     background-color: rgb(229, 235, 229);
-    height: 275px;
+    height: 250px;
     padding-left: 21px;
 }
 
@@ -168,4 +173,5 @@ body{
     font-size: large;
     position: relative;
     bottom: 20px;
+    width: 500px;
 }

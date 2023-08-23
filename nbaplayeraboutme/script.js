@@ -3,14 +3,11 @@ const playersArr = [
   // Lebron James
   {
     image:
-      "https://nbc-2.com/wp-content/uploads/2020/07/hypat…1a8d275bcb-h_27f46f360593d4f3b292f98dc5e1db17.jpg",
+      "https://img.theepochtimes.com/assets/uploads/2019/10/21/Lebron-James-1200x800.jpg",
     whoami:
       "I am Lebron James, an NBA champion who currently plays for the Los Angeles Lakers. I am also referred to as King James or the GOAT since I am arguably the best basketball player in the world.",
-    careertimeline: [
-      "Named Ohio's Mr. Basketball three times while leading his highschool",
-      "Earned three Ohio State championships in college and then attended the NBA draft at only 18 years old",
-      "After playing for multiple years and dominating the competition, now perceived as the best NBA player in history",
-    ],
+    careertimeline:
+      "1) Named Ohio's Mr. Basketball three times while leading his highschool, 2) Earned three Ohio State championships in college, 3) Attended the NBA draft at only 18 years old, and playing for multiple years and dominating the competition, now perceived as the best NBA player in history",
   },
 
   // Stephen Curry
@@ -19,11 +16,8 @@ const playersArr = [
       "https://blacksportsonline.com/wp-content/uploads/2023/08/Kobe-Bryant-angry.jpg",
     whoami:
       "I am Stephen Curry, the 3 point master who before shooting a 3, better pray the ball is flat. I currently play for the Golden State Warriors and enjoy holding training camps to help inspire the future generation.",
-    careertimeline: [
-      "Led all first-year players in the country as a college freshman",
-      "Led 10th-seeded Davidson on an improbable run to the Elite Eight as a sophomore",
-      "Entered the 2009 NBA draft and got selected by the Warriors. After that it was history",
-    ],
+    careertimeline:
+      "1) Led all first-year players in the country as a college freshman, 2) Led 10th-seeded Davidson on an improbable run to the Elite Eight as a sophomore, 3) Entered the 2009 NBA draft and got selected by the Warriors. After that it was history",
   },
 
   // Damian Lillard
@@ -32,11 +26,7 @@ const playersArr = [
       "https://nypost.com/wp-content/uploads/sites/2/2020/07/Damian-Lillard.jpg?quality=90&strip=all",
     whoami:
       "I am Damian Lillard, aka Dame D.O.L.L.A. I play for the Portland Trailblazers where I stay loyal to my team despite losses and doubts by the fans.",
-    careertimeline: [
-      "As a freshman at Weber State, averaged 11.5 points per game and was named the Big Sky Conference Freshman of the Year",
-      "Led the Wildcats to the conference championship sophomore year",
-      "As a top guard in the country, entered the NBA draft in 2012 and dominated the comp as a Trailblazer",
-    ],
+    careertimeline: `1) As a freshman at Weber State, averaged 11.5 points per game and was named the Big Sky Conference Freshman of the Year, 2) Led the Wildcats to the conference championship sophomore year, 3) As a top guard in the country, entered the NBA draft in 2012 and dominated the comp as a Trailblazer`,
   },
 ];
 
@@ -63,9 +53,18 @@ selectButton.addEventListener("click", () => {
   // replace (use map to index strategy for players array)
   if (selectedPlayerName === "Lebron James") {
     replaceOnSubmit(0);
+    aboutMeButtons.addEventListener("click", (e) => {
+      handleClick(0, e);
+    });
   } else if (selectedPlayerName === "Stephen Curry") {
     replaceOnSubmit(1);
+    aboutMeButtons.addEventListener("click", (e) => {
+      handleClick(1, e);
+    });
   } else {
+    aboutMeButtons.addEventListener("click", (e) => {
+      handleClick(2, e);
+    });
     replaceOnSubmit(2);
   }
 });
@@ -75,9 +74,7 @@ const replaceOnSubmit = (index) => {
   document.querySelector(".outer-section").style.display = "none";
   document.querySelector(".about-me-section").style.display = "flex";
 
-  document.getElementById("player-image").src = playersArr[index][0];
-
-  aboutMeButtons.addEventListener("click", handleClick(index));
+  document.getElementById("player-image").src = playersArr[index].image;
 };
 
 const handleClick = (index, event) => {
@@ -86,10 +83,13 @@ const handleClick = (index, event) => {
 
   if (event.target.id === "who-am-i-btn") {
     document.querySelector(".content-container").children[1].textContent =
-      playersArr[index][1];
+      playersArr[index].whoami;
   } else if (event.target.id === "career-timeline-btn") {
     document.querySelector(".content-container").children[1].textContent =
-      playersArr[index][2];
+      playersArr[index].careertimeline;
   } else {
+    document.querySelector(
+      ".content-container"
+    ).children[1].innerHTML = `Want to learn more or explore other players? <br /> Here's the link to the official NBA website: <a href="https://www.nba.com/players"></a>`;
   }
 };
