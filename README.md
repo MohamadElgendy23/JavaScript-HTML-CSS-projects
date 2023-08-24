@@ -28,6 +28,6 @@ ________________________________________________________________________________
         3) Palette: User selects a color instead of entering it. This is done by the magic of a color palette.
 
 ________________________________________________________________________________________________________________
-3) NBA Player About Me:
+3) NBA Superstar About Me:
 
   > Description: This App is for users who are fans of the NBA, including myself :). Users can select an NBA superstar from the dropdown list (containing 3 NBA superstars). The app will display a "who am i?" section, a "brief career timeline" section, and a "learn more" section (where users can browse through the actual NBA website). It will also contain the image of the NBA player. All of this will be displayed in a professional and visually appealing manner.  
