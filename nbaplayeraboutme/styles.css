@@ -1,5 +1,5 @@
 body{
-    background-color: rgb(46, 40, 38);
+    background-color: rgb(80, 80, 80);
 }
 
 .nav-container{
@@ -30,10 +30,10 @@ body{
 }
 
 .nav-container > p{
-    margin-right: 85px;
+    margin-right: 120px;
     font-size: larger;
     font-weight: bolder;
-    max-width: 250px;
+    max-width: 280px;
     color: rgb(201, 196, 196);
 }
 
@@ -96,7 +96,6 @@ body{
 }
 
 #select-button{
-    margin-top: 10px;
     width: 200px;
     height: 30px;
     background-color: lightsteelblue;
