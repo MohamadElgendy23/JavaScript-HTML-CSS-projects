@@ -160,14 +160,11 @@ body{
    background-color: rgb(183, 175, 175);
    font-size: medium;
    font-family: serif;
+   cursor: pointer;
 }
 
 #who-am-i-btn{
     background-color: rgb(229, 235, 229);
-}
-
-.buttons-container> button:hover{
-    background-color: rgb(209, 228, 228);
 }
 
 .content-container{
