@@ -1,0 +1,2 @@
+// useful variables
+const wake
